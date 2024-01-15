@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "lm:item/signs/stop/stop_sign"
+    "layer0": "lm:item/signs/stop/iron_stop_sign"
   }
 }
