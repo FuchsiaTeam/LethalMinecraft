@@ -1,5 +1,6 @@
 package json.jayson.ResolutionControl;
 
+import json.jayson.LMConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gl.Framebuffer;
 import net.minecraft.client.gl.WindowFramebuffer;
@@ -129,7 +130,7 @@ public class ResolutionHandler {
     }
 
     public double getCurrentScaleFactor() {
-        return shouldScale ? 0.25d : 1;
+        return shouldScale ? LMConfig.SCALE_FACTOR : 1;
     }
 
     public ScalingAlgorithm getUpscaleAlgorithm() {

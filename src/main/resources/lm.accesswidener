@@ -14,3 +14,4 @@ accessible field net/minecraft/client/render/WorldRenderer cloudsFramebuffer Lne
 
 accessible field net/minecraft/client/util/Window framebufferWidth I
 accessible field net/minecraft/client/util/Window framebufferHeight I
+mutable field net/minecraft/entity/player/PlayerInventory MAIN_SIZE I
