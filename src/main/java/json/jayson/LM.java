@@ -5,6 +5,9 @@ import json.jayson.init.LMItems;
 import json.jayson.init.LMTabs;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
+import net.minecraft.entity.player.PlayerInventory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,5 +20,6 @@ public class LM implements ModInitializer {
 		new ResolutionHandler();
 		LMTabs.register();
 		LMItems.register();
+		PlayerInventory.MAIN_SIZE = 0;
 	}
 }

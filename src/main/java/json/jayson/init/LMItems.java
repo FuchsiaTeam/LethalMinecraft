@@ -2,6 +2,7 @@ package json.jayson.init;
 
 import json.jayson.LM;
 import json.jayson.LMUtil;
+import json.jayson.common.item.FlashLightItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -13,7 +14,11 @@ import net.minecraft.util.Identifier;
 
 public class LMItems {
 
-    public static final Item STOP_SIGN = registerItem("stop_sign", new Item(new FabricItemSettings()));
+
+	//Tools
+	
+	//Tech
+    public static final Item IRON_STOP_SIGN = registerItem("iron_stop_sign", new Item(new FabricItemSettings()));
     public static final Item DEFAULT_FLASHLIGHT = registerItem("flashlight", new Item(new FabricItemSettings()));
 
     private static void addToLMTab(FabricItemGroupEntries entries) {

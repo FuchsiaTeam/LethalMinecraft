@@ -11,8 +11,8 @@ import net.minecraft.text.Text;
 public class LMTabs {
 
     public static final ItemGroup LM_GROUP = Registry.register(Registries.ITEM_GROUP, LMUtil.createLocation("lethalminecraft"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.lm")).icon(() -> new ItemStack(LMItems.STOP_SIGN)).entries((displayContext, entries) -> {
-                entries.add(LMItems.STOP_SIGN);
+            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.lm")).icon(() -> new ItemStack(LMItems.IRON_STOP_SIGN)).entries((displayContext, entries) -> {
+                entries.add(LMItems.IRON_STOP_SIGN);
                 entries.add(LMItems.DEFAULT_FLASHLIGHT);
             }).build());
 
