@@ -14,8 +14,12 @@ import net.minecraft.util.Identifier;
 
 public class LMItems {
 
-    public static final Item STOP_SIGN = registerItem("stop_sign", new Item(new FabricItemSettings()));
-    public static final Item DEFAULT_FLASHLIGHT = registerItem("flashlight", new FlashLightItem(new FabricItemSettings()));
+
+	//Tools
+	
+	//Tech
+    public static final Item IRON_STOP_SIGN = registerItem("iron_stop_sign", new Item(new FabricItemSettings()));
+    public static final Item DEFAULT_FLASHLIGHT = registerItem("flashlight", new Item(new FabricItemSettings()));
 
     private static void addToLMTab(FabricItemGroupEntries entries) {
     }
