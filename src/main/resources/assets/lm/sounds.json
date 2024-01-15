@@ -1,0 +1,9 @@
+{
+    "item_shovel_hit": {
+      "subtitle": "sounds.lm.item.shovel.hit",
+      "sounds": [
+        "lm:item.shovel.hit"
+      ]
+    }
+
+}
