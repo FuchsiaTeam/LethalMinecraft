@@ -19,7 +19,7 @@ public class LMItems {
 	
 	//Tech
     public static final Item IRON_STOP_SIGN = registerItem("iron_stop_sign", new Item(new FabricItemSettings()));
-    public static final Item DEFAULT_FLASHLIGHT = registerItem("flashlight", new Item(new FabricItemSettings()));
+    public static final Item DEFAULT_FLASHLIGHT = registerItem("lime_flashlight", new Item(new FabricItemSettings()));
 
     private static void addToLMTab(FabricItemGroupEntries entries) {
     }
