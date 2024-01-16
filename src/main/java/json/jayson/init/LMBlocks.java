@@ -8,7 +8,7 @@ import net.minecraft.registry.Registry;
 
 public class LMBlocks {
 
-    public static final ScrapLootBlock SCRAP_LOOT = Registry.register(Registries.BLOCK, LMUtil.createLocation("scrap_loot"), new ScrapLootBlock(FabricBlockSettings.create()));
+    public static final ScrapLootBlock SCRAP_LOOT = Registry.register(Registries.BLOCK, LMUtil.createLocation("scrap_loot"), new ScrapLootBlock(FabricBlockSettings.create().nonOpaque()));
 
 
     public static void register() {}
