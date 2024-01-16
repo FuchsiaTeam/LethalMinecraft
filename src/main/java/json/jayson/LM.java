@@ -1,6 +1,7 @@
 package json.jayson;
 
 import json.jayson.ResolutionControl.ResolutionHandler;
+import json.jayson.common.entity.coil_head.CoilHeadEntity;
 import json.jayson.common.item.IAmScrapLoot;
 import json.jayson.event.custom.PlayerDropItemCallback;
 import json.jayson.event.listener.PlayerDropItemEventListener;
@@ -11,6 +12,7 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -37,5 +39,8 @@ public class LM implements ModInitializer {
 
 		/* EVENTS */
 		PlayerDropItemEventListener.register();
+
+		/* ENTITY ATTRIBUTES */
+		FabricDefaultAttributeRegistry.register(LMEntities.COIL_HEAD, CoilHeadEntity.attributes());
 	}
 }

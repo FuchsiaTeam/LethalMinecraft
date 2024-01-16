@@ -17,8 +17,8 @@ public class LMItems {
 
 
 	//Tools
-    public static final Item IRON_STOP_SIGN = registerItem("iron_stop_sign", new DefaultScrapItem(new FabricItemSettings(), 5, 50));
-    public static final Item GOLDEN_STOP_SIGN = registerItem("golden_yield_sign", new DefaultScrapItem(new FabricItemSettings(), 5, 50));
+    public static final Item IRON_STOP_SIGN = registerItem("iron_stop_sign", new DefaultScrapItem(new FabricItemSettings(), 5, 50, 2.0f));
+    public static final Item GOLDEN_STOP_SIGN = registerItem("golden_yield_sign", new DefaultScrapItem(new FabricItemSettings(), 5, 50, 3.0f));
 	
 	//Tech
     public static final Item DEFAULT_FLASHLIGHT = registerItem("lime_flashlight", new FlashLightItem(new FabricItemSettings()));
