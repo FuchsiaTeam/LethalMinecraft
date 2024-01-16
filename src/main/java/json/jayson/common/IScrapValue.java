@@ -9,6 +9,7 @@ public interface IScrapValue {
         return 0;
     }
     default int getScrapValue(NbtCompound nbt) {
+        if(nbt == null) return getScrapValue();
         return nbt.getInt(LMNBT.SCRAP_VALUE);
     }
 

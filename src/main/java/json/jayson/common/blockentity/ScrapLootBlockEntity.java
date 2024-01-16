@@ -43,7 +43,7 @@ public class ScrapLootBlockEntity extends BlockEntity implements IScrapValue {
         super.writeNbt(nbt);
         nbt.putInt(LMNBT.SCRAP_VALUE, scrapValue);
         if(item != null) {
-            nbt.putString(LMNBT.SCRAP_ITEM, item.toString());
+            nbt.putString(LMNBT.SCRAP_ITEM, Registries.ITEM.getId(item).toString());
         }
     }
 

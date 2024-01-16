@@ -7,5 +7,6 @@ import net.minecraft.entity.player.PlayerEntity;
 public interface IAmScrapLoot {
 
 
-    default void onItemDrop(PlayerEntity player, ItemEntity item) {}
+    /* boolean to continue event */
+    default boolean onItemDrop(PlayerEntity player, ItemEntity item) { return true; }
 }

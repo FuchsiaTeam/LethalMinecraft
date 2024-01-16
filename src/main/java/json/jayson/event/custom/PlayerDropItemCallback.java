@@ -8,6 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 
 public interface PlayerDropItemCallback {
 
+    /* RETURNING NULL WILL CANCEL THE EVENT */
     Event<PlayerDropItemCallback> EVENT = EventFactory.createArrayBacked(PlayerDropItemCallback.class,
             (listeners) -> (player, item) -> {
                 for (PlayerDropItemCallback listener : listeners) {

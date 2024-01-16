@@ -29,6 +29,11 @@ public abstract class PlayerEntityMixin extends LivingEntity{
     //Fabric really needs an event for that, man
     @Inject(at = @At("RETURN"), method = "dropItem(Lnet/minecraft/item/ItemStack;ZZ)Lnet/minecraft/entity/ItemEntity;", cancellable = true)
     private void onItemDrop(CallbackInfoReturnable<ItemEntity> ci) {
-       ci.setReturnValue(PlayerDropItemCallback.EVENT.invoker().drop((PlayerEntity) (Object) this, ci.getReturnValue()));
+        ItemEntity item = PlayerDropItemCallback.EVENT.invoker().drop((PlayerEntity) (Object) this, ci.getReturnValue());
+        if(item == null) {
+            ci.cancel();
+        } else {
+            ci.setReturnValue(item);
+        }
     }
 }
