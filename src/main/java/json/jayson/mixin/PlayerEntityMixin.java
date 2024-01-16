@@ -24,12 +24,13 @@ public abstract class PlayerEntityMixin extends LivingEntity{
         super(entityType, world);
     }
 
-    @Inject(at = @At("RETURN"), method = "dropItem(Lnet/minecraft/item/ItemStack;ZZ)Lnet/minecraft/entity/ItemEntity;")
+    //Fabric really needs an event for that, man
+    @Inject(at = @At("RETURN"), method = "dropItem(Lnet/minecraft/item/ItemStack;ZZ)Lnet/minecraft/entity/ItemEntity;", cancellable = true)
     private void onItemDrop(CallbackInfoReturnable<ItemEntity> ci) {
-        if(ci.getReturnValue().getItem() instanceof IAmScrapLoot) {
+        if(ci.getReturnValue().getStack().getItem() instanceof IAmScrapLoot scrapLoot) {
             ItemStack stack = ci.getReturnValue().getStack();
+            scrapLoot.onItemDrop(this, ci.getReturnValue());
+            ci.setReturnValue(new ItemEntity(getWorld(), getPos().x, getPos().y, getPos().z, new ItemStack(Items.DIAMOND)));
         }
-        LM.LOGGER.debug(getPos().toString() + " : 1");
-        ci.setReturnValue(new ItemEntity(new ItemStack(Items.AIR, getPos().x, getPos().y, getPos().z)));
     }
 }
