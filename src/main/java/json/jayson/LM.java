@@ -20,6 +20,5 @@ public class LM implements ModInitializer {
 		new ResolutionHandler();
 		LMTabs.register();
 		LMItems.register();
-		PlayerInventory.MAIN_SIZE = 0;
 	}
 }
