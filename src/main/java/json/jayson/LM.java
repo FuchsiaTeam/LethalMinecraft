@@ -1,8 +1,7 @@
 package json.jayson;
 
 import json.jayson.ResolutionControl.ResolutionHandler;
-import json.jayson.init.LMItems;
-import json.jayson.init.LMTabs;
+import json.jayson.init.*;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
@@ -20,5 +19,8 @@ public class LM implements ModInitializer {
 		new ResolutionHandler();
 		LMTabs.register();
 		LMItems.register();
+		LMSounds.registerSounds();
+		LMBlocks.register();
+		LMBlockEntities.register();
 	}
 }
