@@ -19,6 +19,7 @@
           "json.jayson.LM"
 		],
 		"client": [
+			"json.jayson.LMClient"
 		],
 		"fabric-datagen": [
 			"json.jayson.LMDataGenerator"
@@ -35,7 +36,8 @@
 		"fabricloader": ">=0.15.3",
 		"minecraft": "~1.20.4",
 		"java": ">=17",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"geckolib": ">=4.4.1"
 	},
 	"suggests": {
 		"another-mod": "*"
