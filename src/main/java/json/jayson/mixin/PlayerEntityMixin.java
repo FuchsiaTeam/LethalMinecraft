@@ -20,8 +20,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity{
 
-    @Shadow public abstract ImmutableList<EntityPose> getPoses();
-
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -33,25 +31,5 @@ public abstract class PlayerEntityMixin extends LivingEntity{
         }
         System.out.println(getPos().toString());
         ci.setReturnValue(new ItemStack(Items.AIR));
-    }
-
-    @Override
-    public Iterable<ItemStack> getArmorItems() {
-        return null;
-    }
-
-    @Override
-    public ItemStack getEquippedStack(EquipmentSlot slot) {
-        return null;
-    }
-
-    @Override
-    public void equipStack(EquipmentSlot slot, ItemStack stack) {
-
-    }
-
-    @Override
-    public Arm getMainArm() {
-        return null;
     }
 }
