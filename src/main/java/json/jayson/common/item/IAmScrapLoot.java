@@ -7,5 +7,5 @@ import net.minecraft.entity.player.PlayerEntity;
 public interface IAmScrapLoot {
 
 
-    default void onItemDrop(LivingEntity player, ItemEntity item) {}
+    default void onItemDrop(PlayerEntity player, ItemEntity item) {}
 }

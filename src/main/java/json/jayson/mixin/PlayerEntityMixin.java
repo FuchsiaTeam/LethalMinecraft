@@ -3,6 +3,7 @@ package json.jayson.mixin;
 import com.google.common.collect.ImmutableList;
 import json.jayson.LM;
 import json.jayson.common.item.IAmScrapLoot;
+import json.jayson.event.custom.PlayerDropItemCallback;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
@@ -28,10 +29,6 @@ public abstract class PlayerEntityMixin extends LivingEntity{
     //Fabric really needs an event for that, man
     @Inject(at = @At("RETURN"), method = "dropItem(Lnet/minecraft/item/ItemStack;ZZ)Lnet/minecraft/entity/ItemEntity;", cancellable = true)
     private void onItemDrop(CallbackInfoReturnable<ItemEntity> ci) {
-        if(ci.getReturnValue().getStack().getItem() instanceof IAmScrapLoot scrapLoot) {
-            ItemStack stack = ci.getReturnValue().getStack();
-            scrapLoot.onItemDrop(this, ci.getReturnValue());
-            ci.setReturnValue(new ItemEntity(getWorld(), getPos().x, getPos().y, getPos().z, new ItemStack(Items.DIAMOND)));
-        }
+       ci.setReturnValue(PlayerDropItemCallback.EVENT.invoker().drop((PlayerEntity) (Object) this, ci.getReturnValue()));
     }
 }
