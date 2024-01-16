@@ -12,6 +12,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
+@Deprecated
 public class ScrapLootBlockEntityRenderer implements BlockEntityRenderer<ScrapLootBlockEntity> {
 
     public ScrapLootBlockEntityRenderer(BlockEntityRendererFactory.Context context) {

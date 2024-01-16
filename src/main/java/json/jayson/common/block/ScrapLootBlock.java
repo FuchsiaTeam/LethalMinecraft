@@ -9,6 +9,9 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
+
+/* We are using ScrapLootEntity instead */
+@Deprecated
 public class ScrapLootBlock extends Block implements BlockEntityProvider {
     public ScrapLootBlock(Settings settings) {
         super(settings);

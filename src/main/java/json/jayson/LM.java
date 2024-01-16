@@ -23,6 +23,7 @@ public class LM implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("lm");
 	public static final String ID = "lm";
 
+
 	@Override
 	public void onInitialize() {
 		/* INITS FOR STATICS */
