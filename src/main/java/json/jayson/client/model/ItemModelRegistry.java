@@ -40,7 +40,6 @@ public class ItemModelRegistry {
         private String path = "";
 
         /* The Mode to override its not at */
-
         private ModelTransformationMode mode = ModelTransformationMode.GUI;
         public ModelData(String variant, String path, ModelTransformationMode mode) {
             this.variant = variant;

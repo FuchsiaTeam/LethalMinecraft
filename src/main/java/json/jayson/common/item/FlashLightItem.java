@@ -24,18 +24,12 @@ public class FlashLightItem extends Item {
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         super.inventoryTick(stack, world, entity, slot, selected);
         if(selected) {
-            for (BlockPos light : LIGHTS) {
-                if(world.getBlockState(light).getBlock().equals(Blocks.LIGHT)) {
-                    world.setBlockState(light, Blocks.AIR.getDefaultState(), 0);
-                }
-            }
             Direction playerDir = entity.getMovementDirection();
             BlockPos playerPos = entity.getBlockPos().up();
             for (int i = 2; i < 10; i = i + 2) {
                 if (world.getBlockState(playerPos.add(playerDir.getVector().multiply(i))).getBlock().equals(Blocks.AIR)) {
                     world.setBlockState(playerPos.add(playerDir.getVector().multiply(i)), Blocks.LIGHT.getDefaultState().with(LightBlock.LEVEL_15, 7), 0);
                     LIGHTS.add(playerPos.add(playerDir.getVector().multiply(i)));
-                    System.out.println(i);
                 }
             }
         } else {
