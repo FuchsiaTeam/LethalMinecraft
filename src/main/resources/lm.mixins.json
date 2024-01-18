@@ -6,6 +6,15 @@
     "PlayerInventoryMixin",
     "PlayerEntityMixin"
   ],
+  "client": [
+    "FramebufferMixin",
+    "GameRendererMixin",
+    "ModelLoaderMixin",
+    "ItemRendererAccessor",
+    "ItemRendererMixin",
+    "WindowMixin",
+    "WorldRendererMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
 	}

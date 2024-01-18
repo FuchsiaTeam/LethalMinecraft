@@ -3,13 +3,6 @@
   "package": "json.jayson.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "FramebufferMixin",
-    "GameRendererMixin",
-    "ModelLoaderMixin",
-    "ItemRendererAccessor",
-    "ItemRendererMixin",
-    "WindowMixin",
-    "WorldRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
