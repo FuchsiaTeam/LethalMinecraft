@@ -1,0 +1,6 @@
+{
+  "parent": "lm:item/3d/axolotl/pink",
+  "textures": {
+    "0": "lm:item/3d/axolotl/blue"
+  }
+}

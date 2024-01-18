@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "block/texture"
+		"0": "lm:item/3d/axolotl/pink"
 	},
 	"elements": [
 		{
@@ -104,6 +104,7 @@
 			}
 		},
 		{
+			"name": "head thing",
 			"from": [3, 6, 8],
 			"to": [13, 11, 8],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
@@ -117,27 +118,6 @@
 			}
 		}
 	],
-	"display": {
-		"thirdperson_righthand": {
-			"translation": [0, 3, 1],
-			"scale": [0.55, 0.55, 0.55]
-		},
-		"thirdperson_lefthand": {
-			"translation": [0, 3, 1],
-			"scale": [0.55, 0.55, 0.55]
-		},
-		"firstperson_righthand": {
-			"rotation": [0, 128, 0],
-			"translation": [0, 4, -0.75]
-		},
-		"ground": {
-			"translation": [0, 2, 0],
-			"scale": [0.5, 0.5, 0.5]
-		},
-		"head": {
-			"translation": [0, 14, 0]
-		}
-	},
 	"groups": [
 		{
 			"name": "all",
