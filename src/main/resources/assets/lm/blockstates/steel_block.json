@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "lm:block/building/steel/steel_block"
+    }
+  }
+}

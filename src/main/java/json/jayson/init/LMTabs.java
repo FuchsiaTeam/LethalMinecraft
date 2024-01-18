@@ -23,7 +23,13 @@ public class LMTabs {
             }).build());
 
     public static final ItemGroup LM_BUILDING_GROUP = Registry.register(Registries.ITEM_GROUP, LMUtil.createLocation("lethalminecraftbuilding"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.lm.building")).icon(() -> new ItemStack(LMItems.IRON_STOP_SIGN)).entries((displayContext, entries) -> {
+            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.lm.building")).icon(() -> new ItemStack(LMBlocks.STEEL_PLATE.asItem())).entries((displayContext, entries) -> {
+                entries.add(LMBlocks.STEEL_BLOCK);
+                entries.add(LMBlocks.STEEL_GRATE);
+                entries.add(LMBlocks.STEEL_PLATE);
+                entries.add(LMBlocks.STEEL_PILLAR);
+                entries.add(LMBlocks.STEEL_LIGHT_WALL);
+                entries.add(LMBlocks.REINFORCED_GLASS);
             }).build());
 
 
