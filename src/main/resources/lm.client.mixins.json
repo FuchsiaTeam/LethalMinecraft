@@ -5,6 +5,7 @@
   "mixins": [
     "FramebufferMixin",
     "GameRendererMixin",
+    "ModelLoaderMixin",
     "ItemRendererAccessor",
     "ItemRendererMixin",
     "WindowMixin",
