@@ -1,6 +1,9 @@
 package json.jayson.common.entity.coil_head;
 
+import json.jayson.LMUtil;
+import json.jayson.init.LMDimensions;
 import json.jayson.init.LMEntities;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -12,6 +15,8 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
@@ -26,6 +31,14 @@ import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.Collections;
 
 public class CoilHeadEntity extends MobEntity implements GeoEntity {
 
@@ -64,8 +77,19 @@ public class CoilHeadEntity extends MobEntity implements GeoEntity {
     @Override
     public ActionResult interactAt(PlayerEntity player, Vec3d hitPos, Hand hand) {
         springed = !springed;
+        if(!player.getWorld().isClient) {
+            System.out.println("ON SERVER!");
+            boolean worked = false;
+            try {
+                LMUtil.extractMoon(player.getServer(), LMDimensions.MOON_EXPERIMENTATION_WORLD, "/data/lm/moons/test/");
+                worked = true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return ActionResult.CONSUME;
     }
+
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
