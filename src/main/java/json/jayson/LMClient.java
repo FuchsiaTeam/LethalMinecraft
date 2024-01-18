@@ -22,7 +22,16 @@ public class LMClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(LMBlockEntities.SCRAP_LOOT, ScrapLootBlockEntityRenderer::new);
 
         EntityRendererRegistry.register(LMEntities.COIL_HEAD, CoilHeadRenderer::new);
+        registerModels();
+    }
 
-        ITEM_MODELS.addModel(LMItems.GOLDEN_STOP_SIGN);
+
+    public void registerModels() {
+        ITEM_MODELS.addModel(LMItems.GOLDEN_YIELD_SIGN);
+        ITEM_MODELS.addModel(LMItems.AXOLOTL_PLUSHIE, "3d/axolotl/pink");
+        ITEM_MODELS.addModel(LMItems.WHITE_AXOLOTL_PLUSHIE, "3d/axolotl/white");
+        ITEM_MODELS.addModel(LMItems.YELLOW_AXOLOTL_PLUSHIE, "3d/axolotl/yellow");
+        ITEM_MODELS.addModel(LMItems.BROWN_AXOLOTL_PLUSHIE, "3d/axolotl/brown");
+        ITEM_MODELS.addModel(LMItems.BLUE_AXOLOTL_PLUSHIE, "3d/axolotl/blue");
     }
 }

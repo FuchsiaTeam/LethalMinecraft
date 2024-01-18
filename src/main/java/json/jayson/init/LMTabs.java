@@ -14,7 +14,12 @@ public class LMTabs {
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.lm")).icon(() -> new ItemStack(LMItems.IRON_STOP_SIGN)).entries((displayContext, entries) -> {
                 entries.add(LMItems.IRON_STOP_SIGN);
                 entries.add(LMItems.DEFAULT_FLASHLIGHT);
-                entries.add(LMItems.GOLDEN_STOP_SIGN);
+                entries.add(LMItems.GOLDEN_YIELD_SIGN);
+                entries.add(LMItems.AXOLOTL_PLUSHIE);
+                entries.add(LMItems.WHITE_AXOLOTL_PLUSHIE);
+                entries.add(LMItems.BLUE_AXOLOTL_PLUSHIE);
+                entries.add(LMItems.BROWN_AXOLOTL_PLUSHIE);
+                entries.add(LMItems.YELLOW_AXOLOTL_PLUSHIE);
             }).build());
 
     public static void register() {
