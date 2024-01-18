@@ -3,13 +3,16 @@
   "package": "json.jayson.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "GameRendererMixin",
-    "WindowMixin",
     "FramebufferMixin",
-    "WorldRendererMixin",
-    "ItemRendererMixin"
+    "GameRendererMixin",
+    "ItemRendererAccessor",
+    "ItemRendererMixin",
+    "WindowMixin",
+    "WorldRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "client": [
+  ]
 }
