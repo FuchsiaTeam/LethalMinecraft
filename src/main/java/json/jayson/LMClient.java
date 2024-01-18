@@ -1,5 +1,6 @@
 package json.jayson;
 
+import json.jayson.ResolutionControl.ResolutionHandler;
 import json.jayson.client.model.ItemModelRegistry;
 import json.jayson.client.render.blockentity.ScrapLootBlockEntityRenderer;
 import json.jayson.client.render.entity.CoilHeadRenderer;
@@ -16,6 +17,7 @@ import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 public class LMClient implements ClientModInitializer {
 
     public static ItemModelRegistry ITEM_MODELS = new ItemModelRegistry();
+    public static ResolutionHandler RESOLUTION_HANDLER = new ResolutionHandler();
 
     @Override
     public void onInitializeClient() {

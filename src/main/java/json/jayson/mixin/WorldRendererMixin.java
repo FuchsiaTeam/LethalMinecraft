@@ -1,5 +1,6 @@
 package json.jayson.mixin;
 
+import json.jayson.LMClient;
 import json.jayson.ResolutionControl.ResolutionHandler;
 import net.minecraft.client.gl.Framebuffer;
 import net.minecraft.client.render.WorldRenderer;
@@ -21,12 +22,12 @@ public class WorldRendererMixin {
 
     @Inject(at = @At("RETURN"), method = "loadEntityOutlinePostProcessor")
     private void onLoadEntityOutlineShader(CallbackInfo ci) {
-        ResolutionHandler.getInstance().resizeMinecraftFramebuffers();
+        LMClient.RESOLUTION_HANDLER.resizeMinecraftFramebuffers();
     }
 
     @Inject(at = @At("RETURN"), method = "onResized")
     private void onOnResized(CallbackInfo ci) {
         if (entityOutlinesFramebuffer == null) return;
-        ResolutionHandler.getInstance().resizeMinecraftFramebuffers();
+        LMClient.RESOLUTION_HANDLER.resizeMinecraftFramebuffers();
     }
 }

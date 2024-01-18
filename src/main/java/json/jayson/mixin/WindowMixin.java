@@ -1,5 +1,6 @@
 package json.jayson.mixin;
 
+import json.jayson.LMClient;
 import json.jayson.ResolutionControl.ResolutionHandler;
 import net.minecraft.client.util.Window;
 import net.minecraft.util.math.MathHelper;
@@ -28,23 +29,23 @@ public abstract class WindowMixin {
 	}
 
 	private int scale(int value) {
-		double scaleFactor = ResolutionHandler.getInstance().getCurrentScaleFactor();
+		double scaleFactor = LMClient.RESOLUTION_HANDLER.getCurrentScaleFactor();
 		return Math.max(MathHelper.ceil((double) value * scaleFactor), 1);
 	}
 
 	@Inject(at = @At("RETURN"), method = "getScaleFactor", cancellable = true)
 	private void getScaleFactor(CallbackInfoReturnable<Double> ci) {
-		ci.setReturnValue(ci.getReturnValueD() * ResolutionHandler.getInstance().getCurrentScaleFactor());
+		ci.setReturnValue(ci.getReturnValueD() * LMClient.RESOLUTION_HANDLER.getCurrentScaleFactor());
 	}
 
 	@Inject(at = @At("RETURN"), method = "onFramebufferSizeChanged")
 	private void onFramebufferSizeChanged(CallbackInfo ci) {
-		ResolutionHandler.getInstance().onResolutionChanged();
+		LMClient.RESOLUTION_HANDLER.onResolutionChanged();
 	}
 
 	@Inject(at = @At("RETURN"), method = "updateFramebufferSize")
 	private void onUpdateFramebufferSize(CallbackInfo ci) {
-		ResolutionHandler.getInstance().onResolutionChanged();
+		LMClient.RESOLUTION_HANDLER.onResolutionChanged();
 	}
 
 }

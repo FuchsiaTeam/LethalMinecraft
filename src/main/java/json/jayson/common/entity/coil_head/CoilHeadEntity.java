@@ -77,16 +77,6 @@ public class CoilHeadEntity extends MobEntity implements GeoEntity {
     @Override
     public ActionResult interactAt(PlayerEntity player, Vec3d hitPos, Hand hand) {
         springed = !springed;
-        if(!player.getWorld().isClient) {
-            System.out.println("ON SERVER!");
-            boolean worked = false;
-            try {
-                LMUtil.extractMoon(player.getServer(), LMDimensions.MOON_EXPERIMENTATION_WORLD, "/data/lm/moons/test/");
-                worked = true;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
         return ActionResult.CONSUME;
     }
 

@@ -1,5 +1,6 @@
 package json.jayson.mixin;
 
+import json.jayson.LMClient;
 import json.jayson.ResolutionControl.ResolutionHandler;
 import net.minecraft.client.render.GameRenderer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,12 +17,12 @@ IF YOU ARE THE AUTHOR(S) OF THIS MOD, PLEASE GIVE US A PM, WE WILL REMOVE IT THE
 public abstract class GameRendererMixin {
     @Inject(at = @At("HEAD"), method = "renderWorld")
     private void onRenderWorldBegin(CallbackInfo callbackInfo) {
-        ResolutionHandler.getInstance().setShouldScale(true);
+        LMClient.RESOLUTION_HANDLER.setShouldScale(true);
     }
 
     @Inject(at = @At("RETURN"), method = "renderWorld")
     private void onRenderWorldEnd(CallbackInfo callbackInfo) {
-        ResolutionHandler.getInstance().setShouldScale(false);
+        LMClient.RESOLUTION_HANDLER.setShouldScale(false);
     }
 
 }

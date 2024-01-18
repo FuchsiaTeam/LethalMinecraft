@@ -1,6 +1,7 @@
 package json.jayson.mixin;
 
 import com.mojang.blaze3d.platform.GlStateManager;
+import json.jayson.LMClient;
 import json.jayson.ResolutionControl.ResolutionHandler;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gl.Framebuffer;
@@ -40,10 +41,10 @@ public abstract class FramebufferMixin {
     private void onSetTexFilter(int target, int pname, int param) {
         if (pname == GL11.GL_TEXTURE_MIN_FILTER) {
             GlStateManager._texParameter(target, pname,
-                    ResolutionHandler.getInstance().getUpscaleAlgorithm().getId(isMipmapped));
+                    LMClient.RESOLUTION_HANDLER.getUpscaleAlgorithm().getId(isMipmapped));
         } else if (pname == GL11.GL_TEXTURE_MAG_FILTER) {
             GlStateManager._texParameter(target, pname,
-                    ResolutionHandler.getInstance().getDownscaleAlgorithm().getId(false));
+                    LMClient.RESOLUTION_HANDLER.getDownscaleAlgorithm().getId(false));
         } else if (pname == GL11.GL_TEXTURE_WRAP_S || pname == GL11.GL_TEXTURE_WRAP_T) {
             GlStateManager._texParameter(target, pname, GL12.GL_CLAMP_TO_EDGE);
         } else {

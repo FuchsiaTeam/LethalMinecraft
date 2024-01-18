@@ -30,7 +30,6 @@ public class LM implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		/* INITS FOR STATICS */
-		new ResolutionHandler();
 		LMTabs.register();
 		LMItems.register();
 		LMSounds.registerSounds();

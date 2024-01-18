@@ -1,6 +1,8 @@
 package json.jayson.ResolutionControl;
 
 import json.jayson.LMConfig;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gl.Framebuffer;
 import net.minecraft.client.gl.WindowFramebuffer;
@@ -16,13 +18,10 @@ CODE USED FROM:
 https://github.com/UltimateBoomer/Resolution-Control/tree/1.20.2?tab=License-2-ov-file
 IF YOU ARE THE AUTHOR(S) OF THIS MOD, PLEASE GIVE US A PM, WE WILL REMOVE IT THEN! :)
  */
+@Environment(EnvType.CLIENT)
 public class ResolutionHandler {
 
-    private static ResolutionHandler INSTANCE;
-
-
     public ResolutionHandler() {
-        INSTANCE = this;
         updateFramebufferSize();
     }
 
@@ -75,11 +74,6 @@ public class ResolutionHandler {
                 );
         }
         client.getProfiler().swap("level");
-    }
-
-    public static ResolutionHandler getInstance() {
-        if(INSTANCE == null) INSTANCE = new ResolutionHandler();
-        return INSTANCE;
     }
 
     public void onResolutionChanged() {
