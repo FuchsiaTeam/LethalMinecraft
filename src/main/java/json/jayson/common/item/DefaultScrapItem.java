@@ -15,7 +15,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class DefaultScrapItem extends Item implements IScrapValue, IAmScrapLoot, IWeight {
+public class DefaultScrapItem extends Item implements IScrapValue, IAmScrapLoot, IWeight, IMultiModelItem {
     int min = 5, max = 100;
     float weight = 1.0f;
     public DefaultScrapItem(Settings settings, int min, int max, float weight) {

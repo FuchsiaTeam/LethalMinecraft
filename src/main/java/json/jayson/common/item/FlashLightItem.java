@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 
-public class FlashLightItem extends Item {
+public class FlashLightItem extends Item implements IMultiModelItem {
     public FlashLightItem(Settings settings) {
         super(settings);
     }
