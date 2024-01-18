@@ -22,6 +22,11 @@ public class LMTabs {
                 entries.add(LMItems.YELLOW_AXOLOTL_PLUSHIE);
             }).build());
 
+    public static final ItemGroup LM_BUILDING_GROUP = Registry.register(Registries.ITEM_GROUP, LMUtil.createLocation("lethalminecraftbuilding"),
+            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.lm.building")).icon(() -> new ItemStack(LMItems.IRON_STOP_SIGN)).entries((displayContext, entries) -> {
+            }).build());
+
+
     public static void register() {
 
     }
