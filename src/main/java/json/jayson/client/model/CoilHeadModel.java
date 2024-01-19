@@ -1,6 +1,6 @@
 package json.jayson.client.model;
 
-import json.jayson.LMUtil;
+import json.jayson.util.LMUtil;
 import json.jayson.common.entity.coil_head.CoilHeadEntity;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib.model.GeoModel;

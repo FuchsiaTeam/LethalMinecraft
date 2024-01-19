@@ -1,7 +1,6 @@
 package json.jayson.init;
 
-import json.jayson.LM;
-import json.jayson.LMUtil;
+import json.jayson.util.LMUtil;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvent;

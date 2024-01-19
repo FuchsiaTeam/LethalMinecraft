@@ -1,13 +1,9 @@
 package json.jayson.common.item;
 
-import json.jayson.LMNBT;
-import json.jayson.LMUtil;
-import json.jayson.common.IScrapValue;
-import json.jayson.common.IWeight;
+import json.jayson.util.LMNBT;
+import json.jayson.util.LMUtil;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;

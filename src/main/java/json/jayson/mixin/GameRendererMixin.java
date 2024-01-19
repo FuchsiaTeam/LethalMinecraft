@@ -1,7 +1,6 @@
 package json.jayson.mixin;
 
-import json.jayson.LMClient;
-import json.jayson.ResolutionControl.ResolutionHandler;
+import json.jayson.client.LMClient;
 import net.minecraft.client.render.GameRenderer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

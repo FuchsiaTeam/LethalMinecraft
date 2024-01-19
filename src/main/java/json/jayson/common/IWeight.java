@@ -1,6 +1,6 @@
 package json.jayson.common;
 
-import json.jayson.LMNBT;
+import json.jayson.util.LMNBT;
 import net.minecraft.nbt.NbtCompound;
 
 public interface IWeight {

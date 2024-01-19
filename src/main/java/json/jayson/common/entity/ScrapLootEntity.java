@@ -1,11 +1,10 @@
 package json.jayson.common.entity;
 
 
-import json.jayson.LMNBT;
+import json.jayson.util.LMNBT;
 import json.jayson.common.IScrapValue;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.entity.MovementType;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NbtCompound;

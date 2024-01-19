@@ -1,6 +1,6 @@
 package json.jayson.ResolutionControl;
 
-import json.jayson.LMConfig;
+import json.jayson.util.LMConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;

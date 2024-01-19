@@ -1,10 +1,9 @@
 package json.jayson.init;
 
-import json.jayson.LMUtil;
+import json.jayson.util.LMUtil;
 import json.jayson.common.item.DefaultScrapItem;
 import json.jayson.common.item.FlashLightItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;

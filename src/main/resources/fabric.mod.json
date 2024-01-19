@@ -19,7 +19,7 @@
           "json.jayson.LM"
 		],
 		"client": [
-			"json.jayson.LMClient"
+          "json.jayson.client.LMClient"
 		],
 		"fabric-datagen": [
 			"json.jayson.LMDataGenerator"

@@ -1,6 +1,6 @@
 package json.jayson.init;
 
-import json.jayson.LMUtil;
+import json.jayson.util.LMUtil;
 import json.jayson.common.blockentity.ScrapLootBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;

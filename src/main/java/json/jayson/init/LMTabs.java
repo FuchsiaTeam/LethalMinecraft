@@ -1,10 +1,7 @@
 package json.jayson.init;
 
-import json.jayson.LMUtil;
-import json.jayson.common.item.DefaultScrapItem;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;

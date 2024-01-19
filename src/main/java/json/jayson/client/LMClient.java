@@ -1,4 +1,4 @@
-package json.jayson;
+package json.jayson.client;
 
 import json.jayson.ResolutionControl.ResolutionHandler;
 import json.jayson.client.model.ItemModelRegistry;

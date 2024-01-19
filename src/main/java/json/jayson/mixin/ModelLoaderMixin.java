@@ -1,7 +1,6 @@
 package json.jayson.mixin;
 
-import json.jayson.LM;
-import json.jayson.LMClient;
+import json.jayson.client.LMClient;
 import json.jayson.client.model.ItemModelRegistry;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.render.model.ModelLoader;

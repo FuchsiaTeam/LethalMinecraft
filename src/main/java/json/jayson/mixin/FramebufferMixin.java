@@ -1,8 +1,7 @@
 package json.jayson.mixin;
 
 import com.mojang.blaze3d.platform.GlStateManager;
-import json.jayson.LMClient;
-import json.jayson.ResolutionControl.ResolutionHandler;
+import json.jayson.client.LMClient;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gl.Framebuffer;
 import net.minecraft.util.math.MathHelper;

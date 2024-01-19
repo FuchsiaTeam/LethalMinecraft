@@ -1,5 +1,6 @@
-package json.jayson;
+package json.jayson.util;
 
+import json.jayson.LM;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.MinecraftServer;
@@ -14,11 +15,6 @@ import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.Collections;
 import java.util.Random;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
-import java.util.jar.JarInputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
 public class LMUtil {
 

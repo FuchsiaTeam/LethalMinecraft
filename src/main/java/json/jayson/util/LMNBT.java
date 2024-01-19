@@ -1,4 +1,4 @@
-package json.jayson;
+package json.jayson.util;
 
 public class LMNBT {
 

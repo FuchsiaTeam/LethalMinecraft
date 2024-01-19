@@ -1,6 +1,6 @@
 package json.jayson.mixin;
 
-import json.jayson.LMClient;
+import json.jayson.client.LMClient;
 import json.jayson.client.model.ItemModelRegistry;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.BakedModel;

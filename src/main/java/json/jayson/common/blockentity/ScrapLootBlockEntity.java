@@ -1,22 +1,21 @@
 package json.jayson.common.blockentity;
 
-import json.jayson.LMNBT;
+import json.jayson.util.LMNBT;
 import json.jayson.common.IScrapValue;
 import json.jayson.init.LMBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
+@Deprecated
 public class ScrapLootBlockEntity extends BlockEntity implements IScrapValue {
 
     private int scrapValue;

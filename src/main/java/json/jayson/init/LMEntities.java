@@ -1,6 +1,6 @@
 package json.jayson.init;
 
-import json.jayson.LMUtil;
+import json.jayson.util.LMUtil;
 import json.jayson.common.entity.ScrapLootEntity;
 import json.jayson.common.entity.coil_head.CoilHeadEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -8,11 +8,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
-import software.bernie.geckolib.GeckoLib;
 
 public class LMEntities {
 
