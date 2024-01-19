@@ -43,7 +43,7 @@ public class LMClient implements ClientModInitializer {
         ITEM_MODELS.addModel(LMItems.YELLOW_AXOLOTL_PLUSHIE, "3d/axolotl/yellow");
         ITEM_MODELS.addModel(LMItems.BROWN_AXOLOTL_PLUSHIE, "3d/axolotl/brown");
         ITEM_MODELS.addModel(LMItems.BLUE_AXOLOTL_PLUSHIE, "3d/axolotl/blue");
-        ITEM_MODELS.addModel(LMItems.BLUE_AXOLOTL_PLUSHIE, "3d/flashlight/default/lime");
+        ITEM_MODELS.addModel(LMItems.DEFAULT_FLASHLIGHT, "3d/flashlight/default/lime");
 
     }
 }
