@@ -1,7 +1,10 @@
 package json.jayson.init;
 
 import json.jayson.LMUtil;
+import json.jayson.common.item.DefaultScrapItem;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -20,6 +23,16 @@ public class LMTabs {
                 entries.add(LMItems.BLUE_AXOLOTL_PLUSHIE);
                 entries.add(LMItems.BROWN_AXOLOTL_PLUSHIE);
                 entries.add(LMItems.YELLOW_AXOLOTL_PLUSHIE);
+                entries.add(LMItems.AIR_HORN);
+                entries.add(LMItems.LOUD_HORN);
+                entries.add(LMItems.PLASTIC_COD);
+                entries.add(LMItems.PLASTIC_SALMON);
+                entries.add(LMItems.PLASTIC_TROPICAL);
+                entries.add(LMItems.PLASTIC_PUFFER_FISH);
+                entries.add(LMItems.COCA_COLA);
+                entries.add(LMItems.COCA_COLA_CAN);
+                entries.add(LMItems.PEPSI);
+                entries.add(LMItems.PEPSI_CAN);
             }).build());
 
     public static final ItemGroup LM_BUILDING_GROUP = Registry.register(Registries.ITEM_GROUP, LMUtil.createLocation("lethalminecraftbuilding"),

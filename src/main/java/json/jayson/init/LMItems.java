@@ -26,6 +26,21 @@ public class LMItems {
     public static final Item YELLOW_AXOLOTL_PLUSHIE = registerItem("yellow_axolotl_plushie", new DefaultScrapItem(new FabricItemSettings()));
     public static final Item BROWN_AXOLOTL_PLUSHIE = registerItem("brown_axolotl_plushie", new DefaultScrapItem(new FabricItemSettings()));
 
+    public static final Item AIR_HORN = registerItem("air_horn", new DefaultScrapItem(new FabricItemSettings()));
+    public static final Item LOUD_HORN = registerItem("loud_horn", new DefaultScrapItem(new FabricItemSettings()));
+
+    public static final Item PLASTIC_COD = registerItem("plastic_cod", new DefaultScrapItem(new FabricItemSettings()));
+    public static final Item PLASTIC_SALMON = registerItem("plastic_salmon", new DefaultScrapItem(new FabricItemSettings()));
+    public static final Item PLASTIC_TROPICAL = registerItem("plastic_tropical", new DefaultScrapItem(new FabricItemSettings()));
+    public static final Item PLASTIC_PUFFER_FISH = registerItem("plastic_puffer_fish", new DefaultScrapItem(new FabricItemSettings()));
+
+
+    public static final Item COCA_COLA = registerItem("coca_cola", new DefaultScrapItem(new FabricItemSettings()));
+    public static final Item COCA_COLA_CAN = registerItem("coca_cola_can", new DefaultScrapItem(new FabricItemSettings()));
+    public static final Item PEPSI = registerItem("pepsi", new DefaultScrapItem(new FabricItemSettings()));
+    public static final Item PEPSI_CAN = registerItem("pepsi_can", new DefaultScrapItem(new FabricItemSettings()));
+
+
     private static void addToLMTab(FabricItemGroupEntries entries) {
     }
 
