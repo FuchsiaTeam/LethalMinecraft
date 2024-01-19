@@ -3,6 +3,7 @@ package json.jayson.common.item;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.LightBlock;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -24,12 +25,13 @@ public class FlashLightItem extends Item {
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         super.inventoryTick(stack, world, entity, slot, selected);
         if(selected) {
-            Direction playerDir = entity.getMovementDirection();
-            BlockPos playerPos = entity.getBlockPos().up();
+            Vec3d rotVec = entity.getRotationVector();
             for (int i = 2; i < 10; i = i + 2) {
-                if (world.getBlockState(playerPos.add(playerDir.getVector().multiply(i))).getBlock().equals(Blocks.AIR)) {
-                    world.setBlockState(playerPos.add(playerDir.getVector().multiply(i)), Blocks.LIGHT.getDefaultState().with(LightBlock.LEVEL_15, 7), 0);
-                    LIGHTS.add(playerPos.add(playerDir.getVector().multiply(i)));
+                Vec3d lightPos3d = entity.getPos().add(0, 1, 0).add(rotVec.multiply(i));
+                BlockPos lightPos = new BlockPos((int) lightPos3d.x, (int) lightPos3d.y, (int) lightPos3d.z);
+                if (world.getBlockState(lightPos).getBlock().equals(Blocks.AIR)) {
+                    world.setBlockState(lightPos, Blocks.LIGHT.getDefaultState().with(LightBlock.LEVEL_15, 7), 0);
+                    LIGHTS.add(lightPos);
                 }
             }
         } else {
