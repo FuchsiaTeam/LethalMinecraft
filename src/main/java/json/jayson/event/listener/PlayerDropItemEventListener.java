@@ -2,9 +2,11 @@ package json.jayson.event.listener;
 
 import json.jayson.common.IScrapValue;
 import json.jayson.common.blockentity.ScrapLootBlockEntity;
+import json.jayson.common.entity.ScrapLootEntity;
 import json.jayson.common.item.IAmScrapLoot;
 import json.jayson.event.custom.PlayerDropItemCallback;
 import json.jayson.init.LMBlocks;
+import json.jayson.init.LMEntities;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ItemEntity;
@@ -21,7 +23,7 @@ public class PlayerDropItemEventListener {
                 if (item.getStack().getItem() instanceof IAmScrapLoot scrapLoot) {
                     ItemStack stack = item.getStack();
                     if (scrapLoot.onItemDrop(player, item)) {
-                        for (int i = 0; i < 3; i++) {
+                        /*for (int i = 0; i < 3; i++) {
                             for (int j = 0; j < 3; j++) {
                                 BlockPos pos = player.getBlockPos().add(i, 0, j);
                                 if (player.getWorld().getBlockState(pos).getBlock().equals(Blocks.AIR)) {
@@ -35,8 +37,12 @@ public class PlayerDropItemEventListener {
                                     return new ItemEntity(player.getWorld(), player.getPos().x, player.getPos().y, player.getPos().z, new ItemStack(Items.AIR));
                                 }
                             }
-                        }
-                        return null;
+                        }*/
+                        ScrapLootEntity lootEntity = new ScrapLootEntity(LMEntities.SCRAP_LOOT, player.getWorld());
+                        lootEntity.setPosition(player.getPos());
+                        lootEntity.setItem(stack.getItem());
+                        player.getWorld().spawnEntity(lootEntity);
+                        return new ItemEntity(player.getWorld(), player.getPos().x, player.getPos().y, player.getPos().z, new ItemStack(Items.AIR));
                     }
                 }
             }

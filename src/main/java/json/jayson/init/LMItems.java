@@ -40,15 +40,9 @@ public class LMItems {
     public static final Item PEPSI = registerItem("pepsi", new DefaultScrapItem(new FabricItemSettings()));
     public static final Item PEPSI_CAN = registerItem("pepsi_can", new DefaultScrapItem(new FabricItemSettings()));
 
-
-    private static void addToLMTab(FabricItemGroupEntries entries) {
-    }
-
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, LMUtil.createLocation(name), item);
     }
 
-    public static void register() {
-        //ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(LMItems::addToLMTab);
-    }
+    public static void register() {}
 }

@@ -4,6 +4,7 @@ import json.jayson.ResolutionControl.ResolutionHandler;
 import json.jayson.client.model.ItemModelRegistry;
 import json.jayson.client.render.blockentity.ScrapLootBlockEntityRenderer;
 import json.jayson.client.render.entity.CoilHeadRenderer;
+import json.jayson.client.render.entity.ScrapLootRenderer;
 import json.jayson.init.LMBlockEntities;
 import json.jayson.init.LMBlocks;
 import json.jayson.init.LMEntities;
@@ -27,6 +28,7 @@ public class LMClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(LMBlockEntities.SCRAP_LOOT, ScrapLootBlockEntityRenderer::new);
 
         EntityRendererRegistry.register(LMEntities.COIL_HEAD, CoilHeadRenderer::new);
+        EntityRendererRegistry.register(LMEntities.SCRAP_LOOT, ScrapLootRenderer::new);
         registerModels();
         setBlockRenderMaps();
     }
@@ -44,6 +46,5 @@ public class LMClient implements ClientModInitializer {
         ITEM_MODELS.addModel(LMItems.BROWN_AXOLOTL_PLUSHIE, "3d/axolotl/brown");
         ITEM_MODELS.addModel(LMItems.BLUE_AXOLOTL_PLUSHIE, "3d/axolotl/blue");
         ITEM_MODELS.addModel(LMItems.DEFAULT_FLASHLIGHT, "3d/flashlight/default/lime");
-
     }
 }

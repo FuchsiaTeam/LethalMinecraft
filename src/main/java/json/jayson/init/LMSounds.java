@@ -18,9 +18,6 @@ public class LMSounds {
 		
 	}
 	
-	public static void registerSounds()
-	{
-		
-	}
+	public static void register() {}
 
 }

@@ -1,6 +1,12 @@
 {
-  "item.lm.stop_sign": "Iron Stop Sign",
+  "item.lm.iron_stop_sign": "Iron Stop Sign",
   "itemgroup.lm": "Lethal Minecraft",
   "itemgroup.lm.building": "Lethal Minecraft Building Blocks",
-  "item.lm.flashlight": "Flashlight"
+  "item.lm.lime_flashlight": "Lime Flashlight",
+
+  "item.lm.axolotl_plushie": "Axolotl Plushie",
+  "item.lm.white_axolotl_plushie": "Axolotl Plushie",
+  "item.lm.blue_axolotl_plushie": "Axolotl Plushie",
+  "item.lm.brown_axolotl_plushie": "Axolotl Plushie",
+  "item.lm.yellow_axolotl_plushie": "Axolotl Plushie"
 }

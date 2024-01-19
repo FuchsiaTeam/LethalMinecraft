@@ -32,7 +32,7 @@ public class LM implements ModInitializer {
 		/* INITS FOR STATICS */
 		LMTabs.register();
 		LMItems.register();
-		LMSounds.registerSounds();
+		LMSounds.register();
 		LMBlocks.register();
 		LMBlockEntities.register();
 
