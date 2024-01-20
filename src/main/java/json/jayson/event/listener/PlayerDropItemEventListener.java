@@ -25,24 +25,8 @@ public class PlayerDropItemEventListener {
                 if (item.getStack().getItem() instanceof IAmScrapLoot scrapLoot) {
                     ItemStack stack = item.getStack();
                     if (scrapLoot.onItemDrop(player, item)) {
-                        /*for (int i = 0; i < 3; i++) {
-                            for (int j = 0; j < 3; j++) {
-                                BlockPos pos = player.getBlockPos().add(i, 0, j);
-                                if (player.getWorld().getBlockState(pos).getBlock().equals(Blocks.AIR)) {
-                                    player.getWorld().setBlockState(pos, LMBlocks.SCRAP_LOOT.getDefaultState());
-                                    BlockEntity blockEntity = player.getWorld().getBlockEntity(pos);
-                                    if (blockEntity instanceof ScrapLootBlockEntity scrapLootBlockEntity) {
-                                        scrapLootBlockEntity.setScrapValue(((IScrapValue) stack.getItem()).getScrapValue(stack.getNbt()));
-                                        scrapLootBlockEntity.setItem(stack.getItem());
-                                        scrapLootBlockEntity.markDirty();
-                                    }
-                                    return new ItemEntity(player.getWorld(), player.getPos().x, player.getPos().y, player.getPos().z, new ItemStack(Items.AIR));
-                                }
-                            }
-                        }*/
                         ScrapLootEntity lootEntity = new ScrapLootEntity(LMEntities.SCRAP_LOOT, player.getWorld());
-                        Vec3d pos = player.getPos();
-                        pos.add(LMUtil.RANDOM.nextDouble() * 2, 0, LMUtil.RANDOM.nextDouble() * 2);
+                        Vec3d pos = player.getPos().add(LMUtil.RANDOM.nextDouble() * 1.2, 0, LMUtil.RANDOM.nextDouble() * 1.2);
                         lootEntity.setPosition(pos);
                         lootEntity.setItem(stack);
                         lootEntity.setScrapValue(scrapLoot.getScrapValue(stack.getNbt()));
