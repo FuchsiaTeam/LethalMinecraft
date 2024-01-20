@@ -9,6 +9,8 @@ import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.RotationAxis;
+import org.joml.Quaternionf;
 
 public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
     public ScrapLootRenderer(EntityRendererFactory.Context ctx) {
@@ -21,6 +23,7 @@ public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
         if(entity.hasItem()) {
             matrices.push();
             matrices.translate(0, -0.4, 0);
+            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(yaw));
             MinecraftClient.getInstance().getItemRenderer().renderItem(new ItemStack(entity.getItem().getItem()), ModelTransformationMode.HEAD, light, 15, matrices, vertexConsumers, entity.getWorld(), 0);
             matrices.pop();
         }

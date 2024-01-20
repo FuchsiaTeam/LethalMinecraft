@@ -14,9 +14,9 @@ public class PickupScrapOverlay implements HudRenderCallback {
         if(SHOW) {
             MinecraftClient client = MinecraftClient.getInstance();
             if (client != null) {
-                String text = "Press E to pickup " + SCRAP;
-                int x = client.getWindow().getScaledWidth() / 2 - client.textRenderer.getWidth(text);
-                int y = client.getWindow().getScaledHeight() / 2;
+                String text = "Grab: " + SCRAP + " [F]";
+                int x = (client.getWindow().getScaledWidth() / 2) - (client.textRenderer.getWidth(text) / 2);
+                int y = client.getWindow().getScaledHeight() / 2 + 10;
                 drawContext.drawText(client.textRenderer, text, x, y, 0xFFFFFFFF, true);
             }
         }

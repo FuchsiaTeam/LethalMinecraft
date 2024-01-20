@@ -42,10 +42,11 @@ public class PlayerDropItemEventListener {
                         }*/
                         ScrapLootEntity lootEntity = new ScrapLootEntity(LMEntities.SCRAP_LOOT, player.getWorld());
                         Vec3d pos = player.getPos();
-                        pos.add(LMUtil.RANDOM.nextDouble(), 0, LMUtil.RANDOM.nextDouble());
+                        pos.add(LMUtil.RANDOM.nextDouble() * 2, 0, LMUtil.RANDOM.nextDouble() * 2);
                         lootEntity.setPosition(pos);
                         lootEntity.setItem(stack);
                         lootEntity.setScrapValue(scrapLoot.getScrapValue(stack.getNbt()));
+                        lootEntity.setYaw(LMUtil.RANDOM.nextFloat() * 360);
                         player.getWorld().spawnEntity(lootEntity);
                         return new ItemEntity(player.getWorld(), player.getPos().x, player.getPos().y, player.getPos().z, new ItemStack(Items.AIR));
                     }
