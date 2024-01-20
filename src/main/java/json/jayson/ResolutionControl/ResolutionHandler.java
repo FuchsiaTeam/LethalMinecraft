@@ -108,7 +108,6 @@ public class ResolutionHandler {
         } else {
             minecraftFramebuffers = new HashSet<>();
         }
-
         minecraftFramebuffers.add(client.worldRenderer.getEntityOutlinesFramebuffer());
         minecraftFramebuffers.add(client.worldRenderer.getTranslucentFramebuffer());
         minecraftFramebuffers.add(client.worldRenderer.getEntityFramebuffer());
@@ -131,38 +130,8 @@ public class ResolutionHandler {
         return upscaleAlgorithm;
     }
 
-    public void setUpscaleAlgorithm(ScalingAlgorithm algorithm) {
-        upscaleAlgorithm = algorithm;
-        onResolutionChanged();
-    }
-
-    public void nextUpscaleAlgorithm() {
-        ScalingAlgorithm currentAlgorithm = getUpscaleAlgorithm();
-        if (currentAlgorithm.equals(ScalingAlgorithm.NEAREST)) {
-            setUpscaleAlgorithm(ScalingAlgorithm.LINEAR);
-        } else {
-            setUpscaleAlgorithm(ScalingAlgorithm.NEAREST);
-        }
-    }
-
     public ScalingAlgorithm getDownscaleAlgorithm() {
         return downscaleAlgorithm;
     }
-
-    public void setDownscaleAlgorithm(ScalingAlgorithm algorithm) {
-        downscaleAlgorithm = algorithm;
-        onResolutionChanged();
-
-    }
-
-    public void nextDownscaleAlgorithm() {
-        ScalingAlgorithm currentAlgorithm = getDownscaleAlgorithm();
-        if (currentAlgorithm.equals(ScalingAlgorithm.NEAREST)) {
-            setDownscaleAlgorithm(ScalingAlgorithm.LINEAR);
-        } else {
-            setDownscaleAlgorithm(ScalingAlgorithm.NEAREST);
-        }
-    }
-
 
 }
