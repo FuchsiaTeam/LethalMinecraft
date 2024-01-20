@@ -34,6 +34,11 @@ public class CoilHeadEntity extends MobEntity implements GeoEntity {
 
     private boolean springed = false;
 
+    @Override
+    public boolean cannotDespawn() {
+        return true;
+    }
+
     public CoilHeadEntity(EntityType<? extends MobEntity> entityType, World world) {
         super(entityType, world);
     }

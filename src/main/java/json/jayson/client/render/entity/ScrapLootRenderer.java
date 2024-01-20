@@ -20,7 +20,8 @@ public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
         super.render(entity, yaw, tickDelta, matrices, vertexConsumers, light);
         if(entity.hasItem()) {
             matrices.push();
-            MinecraftClient.getInstance().getItemRenderer().renderItem(new ItemStack(entity.getItem()), ModelTransformationMode.HEAD, light, 15, matrices, vertexConsumers, entity.getWorld(), 0);
+            matrices.translate(0, -0.4, 0);
+            MinecraftClient.getInstance().getItemRenderer().renderItem(new ItemStack(entity.getItem().getItem()), ModelTransformationMode.HEAD, light, 15, matrices, vertexConsumers, entity.getWorld(), 0);
             matrices.pop();
         }
     }

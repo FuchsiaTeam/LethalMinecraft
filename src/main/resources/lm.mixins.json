@@ -3,15 +3,17 @@
   "package": "json.jayson.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "PlayerInventoryMixin",
-    "PlayerEntityMixin"
+    "PlayerEntityMixin",
+    "PlayerInventoryMixin"
   ],
   "client": [
+    "ClientPlayerEntityMixin",
     "FramebufferMixin",
     "GameRendererMixin",
-    "ModelLoaderMixin",
     "ItemRendererAccessor",
     "ItemRendererMixin",
+    "ModelLoaderMixin",
+    "MouseMixin",
     "WindowMixin",
     "WorldRendererMixin"
   ],

@@ -1,6 +1,7 @@
 package json.jayson.client;
 
 import json.jayson.ResolutionControl.ResolutionHandler;
+import json.jayson.client.hud.PickupScrapOverlay;
 import json.jayson.client.model.ItemModelRegistry;
 import json.jayson.client.render.blockentity.ScrapLootBlockEntityRenderer;
 import json.jayson.client.render.entity.CoilHeadRenderer;
@@ -14,6 +15,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 
@@ -31,6 +33,9 @@ public class LMClient implements ClientModInitializer {
         EntityRendererRegistry.register(LMEntities.SCRAP_LOOT, ScrapLootRenderer::new);
         registerModels();
         setBlockRenderMaps();
+
+        /* EVENTS */
+        HudRenderCallback.EVENT.register(new PickupScrapOverlay());
     }
 
     public void setBlockRenderMaps() {
