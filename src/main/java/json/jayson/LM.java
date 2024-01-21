@@ -6,6 +6,7 @@ import json.jayson.common.item.IAmScrapLoot;
 import json.jayson.event.custom.PlayerDropItemCallback;
 import json.jayson.event.listener.PlayerDropItemEventListener;
 import json.jayson.init.*;
+import json.jayson.util.LMUtil;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
@@ -42,6 +43,5 @@ public class LM implements ModInitializer {
 
 		/* ENTITY ATTRIBUTES */
 		FabricDefaultAttributeRegistry.register(LMEntities.COIL_HEAD, CoilHeadEntity.attributes());
-
 	}
 }

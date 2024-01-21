@@ -1,6 +1,8 @@
 package json.jayson.util;
 
 import json.jayson.LM;
+import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.MinecraftServer;
@@ -8,6 +10,7 @@ import net.minecraft.server.integrated.IntegratedServer;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.WorldSavePath;
 import net.minecraft.world.World;
+import org.apache.commons.io.FileUtils;
 
 import java.io.*;
 import java.net.*;
@@ -15,6 +18,7 @@ import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.Collections;
 import java.util.Random;
+import java.util.stream.Stream;
 
 public class LMUtil {
 
@@ -48,36 +52,19 @@ public class LMUtil {
         return MinecraftClient.getInstance().runDirectory + "/saves/" + getCurrentSaveName(server) + "/";
     }
 
-    public static void extractMoon(MinecraftServer server, RegistryKey<World> dim, String dataPath) throws URISyntaxException, IOException {
-        URI resource = LMUtil.class.getClass().getResource("").toURI();
-        FileSystem fileSystem = FileSystems.newFileSystem(
-                resource,
-                Collections.<String, String>emptyMap()
-        );
-
-
-        final Path jarPath = fileSystem.getPath(dataPath);
-        final Path target = new File(getCurrentSaveFull(server) + "dimensions/"+ dim.getValue().getNamespace() + "/" + dim.getValue().getPath()).toPath();
-        Path parentDir = target.getParent();
-        if (!Files.exists(parentDir)) Files.createDirectories(parentDir);
-        Files.walkFileTree(jarPath, new SimpleFileVisitor<>() {
-
-            private Path currentTarget;
-
-            @Override
-            public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
-                currentTarget = target.resolve(jarPath.relativize(dir).toString());
-                Files.createDirectories(currentTarget);
-                return FileVisitResult.CONTINUE;
+    public static boolean extractMoon(ModContainer modContainer, MinecraftServer server, RegistryKey<World> dim, String dataPath) {
+        Path moon = modContainer.findPath(dataPath).get();
+        try (Stream<Path> moonPath = Files.list(moon)) {
+            //server.getWorld(dim).close();
+            FileUtils.deleteDirectory(new File(getCurrentSaveFull(server) + "dimensions/"+ dim.getValue().getNamespace() + "/" + dim.getValue().getPath() + "/"));
+            FileUtils.forceMkdir(new File(getCurrentSaveFull(server) + "dimensions/"+ dim.getValue().getNamespace() + "/" + dim.getValue().getPath() + "/region/"));
+            for (Path path : moonPath.toList()) {
+                FileUtils.copyFile(path.toFile(), new File(getCurrentSaveFull(server) + "dimensions/"+ dim.getValue().getNamespace() + "/" + dim.getValue().getPath() + path.toString().substring(path.toString().indexOf("\\region\\"))));
             }
-
-            @Override
-            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                Files.copy(file, target.resolve(jarPath.relativize(file).toString()), StandardCopyOption.REPLACE_EXISTING);
-                return FileVisitResult.CONTINUE;
-            }
-
-        });
+        } catch (IOException e) {
+            LM.LOGGER.warn("Could not extract moon", e);
+        }
+        return true;
     }
 
 }

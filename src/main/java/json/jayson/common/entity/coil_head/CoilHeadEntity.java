@@ -1,5 +1,9 @@
 package json.jayson.common.entity.coil_head;
 
+import json.jayson.LM;
+import json.jayson.init.LMDimensions;
+import json.jayson.util.LMUtil;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -66,6 +70,9 @@ public class CoilHeadEntity extends MobEntity implements GeoEntity {
     @Override
     public ActionResult interactAt(PlayerEntity player, Vec3d hitPos, Hand hand) {
         springed = !springed;
+        if(!player.getWorld().isClient) {
+            System.out.println(LMUtil.extractMoon(FabricLoader.getInstance().getModContainer(LM.ID).get(), player.getServer(), LMDimensions.MOON_EXPERIMENTATION_WORLD, "data/lm/moons/test/region/"));
+        }
         return ActionResult.CONSUME;
     }
 
