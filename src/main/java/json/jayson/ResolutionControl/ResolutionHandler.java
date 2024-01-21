@@ -25,9 +25,6 @@ public class ResolutionHandler {
         updateFramebufferSize();
     }
 
-    public ScalingAlgorithm upscaleAlgorithm = ScalingAlgorithm.NEAREST;
-    public ScalingAlgorithm downscaleAlgorithm = ScalingAlgorithm.LINEAR;
-
     private boolean shouldScale = false;
 
     @Nullable
@@ -125,13 +122,4 @@ public class ResolutionHandler {
     public double getCurrentScaleFactor() {
         return shouldScale ? LMConfig.SCALE_FACTOR : 1;
     }
-
-    public ScalingAlgorithm getUpscaleAlgorithm() {
-        return upscaleAlgorithm;
-    }
-
-    public ScalingAlgorithm getDownscaleAlgorithm() {
-        return downscaleAlgorithm;
-    }
-
 }

@@ -40,10 +40,10 @@ public abstract class FramebufferMixin {
     private void onSetTexFilter(int target, int pname, int param) {
         if (pname == GL11.GL_TEXTURE_MIN_FILTER) {
             GlStateManager._texParameter(target, pname,
-                    LMClient.RESOLUTION_HANDLER.getUpscaleAlgorithm().getId(isMipmapped));
+                    GL11.GL_NEAREST);
         } else if (pname == GL11.GL_TEXTURE_MAG_FILTER) {
             GlStateManager._texParameter(target, pname,
-                    LMClient.RESOLUTION_HANDLER.getDownscaleAlgorithm().getId(false));
+                    GL11.GL_NEAREST_MIPMAP_NEAREST);
         } else if (pname == GL11.GL_TEXTURE_WRAP_S || pname == GL11.GL_TEXTURE_WRAP_T) {
             GlStateManager._texParameter(target, pname, GL12.GL_CLAMP_TO_EDGE);
         } else {
