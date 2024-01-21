@@ -21,8 +21,6 @@ import java.nio.IntBuffer;
 
 @Mixin(Framebuffer.class)
 public abstract class FramebufferMixin {
-    @Unique
-    private boolean isMipmapped;
     @Unique private float scaleMultiplier;
 
     @Shadow
@@ -31,7 +29,6 @@ public abstract class FramebufferMixin {
     @Inject(method = "initFbo", at = @At("HEAD"))
     private void onInitFbo(int width, int height, boolean getError, CallbackInfo ci) {
         scaleMultiplier = (float) width / MinecraftClient.getInstance().getWindow().getWidth();
-        isMipmapped = false;
     }
 
 
@@ -55,24 +52,7 @@ public abstract class FramebufferMixin {
             target = "Lcom/mojang/blaze3d/platform/GlStateManager;_texImage2D(IIIIIIIILjava/nio/IntBuffer;)V"))
     private void onTexImage(int target, int level, int internalFormat, int width, int height, int border, int format,
                             int type, IntBuffer pixels) {
-        if (isMipmapped) {
-            int mipmapLevel = MathHelper.ceil(Math.log(scaleMultiplier) / Math.log(2));
-            for (int i = 0; i < mipmapLevel; i++) {
-                GlStateManager._texImage2D(target, i, internalFormat,
-                        width << i, height << i,
-                        border, format, type, pixels);
-            }
-        } else {
             GlStateManager._texImage2D(target, 0, internalFormat, width, height, border, format, type, pixels);
-        }
-
     }
 
-    @Inject(method = "drawInternal", at = @At("HEAD"))
-    private void onDraw(int width, int height, boolean bl, CallbackInfo ci) {
-        if (isMipmapped) {
-            GlStateManager._bindTexture(this.getColorAttachment());
-            GL45.glGenerateMipmap(GL11.GL_TEXTURE_2D);
-        }
-    }
 }
