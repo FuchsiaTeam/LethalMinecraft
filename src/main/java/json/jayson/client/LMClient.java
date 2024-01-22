@@ -6,6 +6,7 @@ import json.jayson.client.model.ItemModelRegistry;
 import json.jayson.client.render.blockentity.ScrapLootBlockEntityRenderer;
 import json.jayson.client.render.entity.CoilHeadRenderer;
 import json.jayson.client.render.entity.ScrapLootRenderer;
+import json.jayson.event.listener.ClientPlayerMovementListener;
 import json.jayson.init.LMBlockEntities;
 import json.jayson.init.LMBlocks;
 import json.jayson.init.LMEntities;
@@ -36,6 +37,7 @@ public class LMClient implements ClientModInitializer {
 
         /* EVENTS */
         HudRenderCallback.EVENT.register(new PickupScrapOverlay());
+        ClientPlayerMovementListener.register();
     }
 
     public void setBlockRenderMaps() {

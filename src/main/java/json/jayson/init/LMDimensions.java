@@ -9,8 +9,16 @@ import net.minecraft.world.dimension.DimensionType;
 
 public class LMDimensions {
 
+    /* MOONS */
     public static final RegistryKey<DimensionOptions> MOON_EXPERIMENTATION_OPTIONS = RegistryKey.of(RegistryKeys.DIMENSION, LMUtil.createLocation("experimentation"));
     public static final RegistryKey<World> MOON_EXPERIMENTATION_WORLD = RegistryKey.of(RegistryKeys.WORLD, LMUtil.createLocation("experimentation"));
     public static final RegistryKey<DimensionType> MOON_EXPERIMENTATION_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE, LMUtil.createLocation("experimentation_type"));
+
+
+
+    /* HERE SPAWNS THE STRUCTURES */
+    public static final RegistryKey<DimensionOptions> LOOT_DUNGEON_OPTIONS = RegistryKey.of(RegistryKeys.DIMENSION, LMUtil.createLocation("loot_dungeon"));
+    public static final RegistryKey<World> LOOT_DUNGEON = RegistryKey.of(RegistryKeys.WORLD, LMUtil.createLocation("loot_dungeon"));
+    public static final RegistryKey<DimensionType> LOOT_DUNGEON_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE, LMUtil.createLocation("loot_dungeon"));
 
 }
