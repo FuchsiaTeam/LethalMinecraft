@@ -4,6 +4,7 @@ import json.jayson.LM;
 import json.jayson.init.LMDimensions;
 import json.jayson.util.LMUtil;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -16,6 +17,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
@@ -27,6 +29,8 @@ import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
+
+import java.util.function.Predicate;
 
 public class CoilHeadEntity extends MobEntity implements GeoEntity {
 
@@ -73,6 +77,19 @@ public class CoilHeadEntity extends MobEntity implements GeoEntity {
         return ActionResult.CONSUME;
     }
 
+    @Override
+    public void tick() {
+        super.tick();
+        if(getWorld().getTime() % 20 == 0) {
+            for (PlayerEntity players : getWorld().getEntitiesByClass(PlayerEntity.class, Box.of(getPos(), 15, 2, 15), player -> !player.isCreative())) {
+                if(players.canSee(this)) {
+                    System.out.println("SEEN");
+                } else {
+                    System.out.println("NOT SEEN");
+                }
+            }
+        }
+    }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
