@@ -1,5 +1,6 @@
 package json.jayson.init;
 
+import json.jayson.common.item.ShotgunItem;
 import json.jayson.util.LMUtil;
 import json.jayson.common.item.DefaultScrapItem;
 import json.jayson.common.item.FlashLightItem;
@@ -17,6 +18,9 @@ public class LMItems {
 	
 	//Tech
     public static final Item DEFAULT_FLASHLIGHT = registerItem("lime_flashlight", new FlashLightItem(new FabricItemSettings()));
+
+    public static final Item OAK_SHOTGUN = registerItem("oak_shotgun", new ShotgunItem(new FabricItemSettings()));
+
 
     //Scrap
     public static final Item AXOLOTL_PLUSHIE = registerItem("axolotl_plushie", new DefaultScrapItem(new FabricItemSettings()));
