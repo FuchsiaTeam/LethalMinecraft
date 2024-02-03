@@ -37,6 +37,11 @@ public class LM implements ModInitializer {
 
 
 	public void addItemModels() {
+		/*
+		* FIRST IS ITEM
+		* SECOND IS PATH TO THE 3D MODEL JSONS (assets/lm/models/item/)
+		* THIRD IS PATH TO THE TEXUTRE (assets/lm/textures/item/)
+		* */
 		LMItemModelHandler.add(LMItems.AXOLOTL_PLUSHIE, "3d/axolotl/pink", "axolotl/pink_plushie");
 		LMItemModelHandler.add(LMItems.BLUE_AXOLOTL_PLUSHIE, "3d/axolotl/blue",  "axolotl/blue_plushie");
 		LMItemModelHandler.add(LMItems.BROWN_AXOLOTL_PLUSHIE, "3d/axolotl/brown",  "axolotl/brown_plushie");
@@ -47,7 +52,5 @@ public class LM implements ModInitializer {
 
 		LMItemModelHandler.add(LMItems.IRON_STOP_SIGN, "3d/axolotl/pink", "signs/stop/iron_stop_sign");
 		LMItemModelHandler.add(LMItems.GOLDEN_YIELD_SIGN, "signs/yield/golden_yield_sign");
-
-
 	}
 }
