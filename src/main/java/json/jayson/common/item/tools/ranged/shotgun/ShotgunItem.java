@@ -1,6 +1,6 @@
-package json.jayson.common.item;
+package json.jayson.common.item.tools.ranged.shotgun;
 
-import json.jayson.client.render.geo.ShotgunRenderer;
+import json.jayson.client.render.item.ShotgunRenderer;
 import net.minecraft.client.render.item.BuiltinModelItemRenderer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -17,7 +17,6 @@ import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
-import software.bernie.geckolib.util.RenderUtils;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -26,20 +25,23 @@ public class ShotgunItem extends Item implements GeoItem {
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
+
     public ShotgunItem(Settings settings) {
         super(settings);
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
     private PlayState predicate(AnimationState animationState) {
-        animationState.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
+        //animationState.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.PLAY_ONCE));
+        animationState.getController().triggerableAnim("shoot", RawAnimation.begin().then("shoot", Animation.LoopType.PLAY_ONCE));
         return PlayState.CONTINUE;
     }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if(world instanceof ServerWorld serverWorld) {
-            triggerAnim(user, GeoItem.getOrAssignId(user.getActiveItem(), serverWorld), "shoot", "shoot");
+            System.out.println("SHOOT?");
+            triggerAnim(user, GeoItem.getOrAssignId(user.getActiveItem(), serverWorld), "controller", "shoot");
         }
         return super.use(world, user, hand);
     }
@@ -55,7 +57,6 @@ public class ShotgunItem extends Item implements GeoItem {
         });
     }
 
-
     @Override
     public Supplier<Object> getRenderProvider() {
         return renderProvider;
@@ -64,8 +65,6 @@ public class ShotgunItem extends Item implements GeoItem {
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<GeoAnimatable>(this,"controller", 0, this::predicate));
-        controllers.add(new AnimationController<>(this, "shoot", 0, state -> PlayState.CONTINUE)
-                .triggerableAnim("shoot", RawAnimation.begin().thenPlay("shoot")));
     }
 
     @Override

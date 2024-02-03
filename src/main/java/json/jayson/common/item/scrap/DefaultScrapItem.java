@@ -1,5 +1,6 @@
-package json.jayson.common.item;
+package json.jayson.common.item.scrap;
 
+import json.jayson.common.item.IAmScrapLoot;
 import json.jayson.util.LMNBT;
 import json.jayson.util.LMUtil;
 import net.minecraft.client.item.TooltipContext;

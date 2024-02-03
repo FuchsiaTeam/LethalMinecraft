@@ -1,7 +1,7 @@
-package json.jayson.client.render.geo;
+package json.jayson.client.render.item;
 
 import json.jayson.client.model.geo.ShotgunModel;
-import json.jayson.common.item.ShotgunItem;
+import json.jayson.common.item.tools.ranged.shotgun.ShotgunItem;
 import software.bernie.geckolib.renderer.GeoItemRenderer;
 
 public class ShotgunRenderer extends GeoItemRenderer<ShotgunItem> {
