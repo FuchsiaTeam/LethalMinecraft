@@ -2,6 +2,7 @@ package json.jayson.common.init;
 
 import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -41,6 +42,14 @@ public class LMTabs {
                 entries.add(LMBlocks.STEEL_PILLAR);
                 entries.add(LMBlocks.STEEL_LIGHT_WALL);
                 entries.add(LMBlocks.REINFORCED_GLASS);
+            }).build());
+
+    public static final ItemGroup LM_DEV = Registry.register(Registries.ITEM_GROUP, LMUtil.createLocation("lethalminecraftdev"),
+            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.lm.dev")).icon(() -> new ItemStack(LMBlocks.STEEL_PLATE.asItem())).entries((displayContext, entries) -> {
+                entries.add(LMBlocks.LOOT_POSITION);
+                entries.add(Blocks.STRUCTURE_BLOCK);
+                entries.add(Blocks.STRUCTURE_VOID);
+                entries.add(Blocks.COMMAND_BLOCK);
             }).build());
 
 

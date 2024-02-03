@@ -54,7 +54,7 @@ public class LM implements ModInitializer {
 		LMItemModelHandler.add(LMItems.YELLOW_AXOLOTL_PLUSHIE, "3d/axolotl/yellow", "axolotl/yellow_plushie");
 
 		LMItemModelHandler.add(LMItems.DEFAULT_FLASHLIGHT, "3d/flashlight/default/lime", "flashlights/default/lime_flashlight");
-		LMItemModelHandler.add(LMItems.IRON_STOP_SIGN, "3d/axolotl/pink", "signs/stop/iron_stop_sign");
+		LMItemModelHandler.add(LMItems.IRON_STOP_SIGN, "signs/stop/iron_stop_sign");
 		LMItemModelHandler.add(LMItems.GOLDEN_YIELD_SIGN, "signs/yield/golden_yield_sign");
 	}
 }
