@@ -15,7 +15,7 @@ public class LMEntities {
 
     public static final EntityType<CoilHeadEntity> COIL_HEAD = registerEntity("coil_head", SpawnGroup.MONSTER, CoilHeadEntity::new, 1, 2);
 
-    public static final EntityType<ScrapLootEntity> SCRAP_LOOT = registerEntity("scrap_loot", SpawnGroup.MISC, ScrapLootEntity::new, 1, 0.5f);
+    public static final EntityType<ScrapLootEntity> SCRAP_LOOT = registerEntity("scrap_loot", SpawnGroup.MISC, ScrapLootEntity::new, 0.5f, 0.5f);
 
     public static <T extends Entity> EntityType<T> registerEntity(String name, SpawnGroup spawnGroup, EntityType.EntityFactory<T> entity,
                                                                   float width, float height) {
