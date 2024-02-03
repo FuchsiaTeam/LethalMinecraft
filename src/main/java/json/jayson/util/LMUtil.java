@@ -42,6 +42,10 @@ public class LMUtil {
             return new Identifier(LM.ID, "textures/" + name);
         }
 
+        public static Identifier network(String name) {
+            return new Identifier(LM.ID, "network/" + name);
+        }
+
         /* Includes textures/ path */
         public static Identifier itemTextureFull(String name) {
             return new Identifier(LM.ID, "textures/item/" + name);

@@ -1,5 +1,6 @@
 package json.jayson.common.objects.item.tools;
 
+import json.jayson.common.objects.item.IAmScrapLoot;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.LightBlock;
 import net.minecraft.entity.Entity;
@@ -11,10 +12,10 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 
-public class FlashLightItem extends Item {
+public class FlashLightItem extends Item implements IAmScrapLoot {
     int lightValue;
     public FlashLightItem(Settings settings) {
-        super(settings);
+        super(settings.maxCount(1));
         lightValue = 7;
     }
 
@@ -58,5 +59,10 @@ public class FlashLightItem extends Item {
                 LIGHTS.clear();
             }
         }
+    }
+
+    @Override
+    public float getWeight() {
+        return 5;
     }
 }

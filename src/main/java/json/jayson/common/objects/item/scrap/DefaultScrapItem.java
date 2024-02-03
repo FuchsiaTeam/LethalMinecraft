@@ -18,7 +18,7 @@ public class DefaultScrapItem extends Item implements IAmScrapLoot {
     int min = 5, max = 100;
     float weight = 1.0f;
     public DefaultScrapItem(Settings settings, int min, int max, float weight) {
-        super(settings);
+        super(settings.maxCount(1));
         this.min = min;
         this.max = max;
         this.weight = weight;

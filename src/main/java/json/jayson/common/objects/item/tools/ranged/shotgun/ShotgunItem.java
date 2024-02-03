@@ -1,6 +1,7 @@
 package json.jayson.common.objects.item.tools.ranged.shotgun;
 
 import json.jayson.client.render.item.ShotgunRenderer;
+import json.jayson.common.objects.item.IAmScrapLoot;
 import net.minecraft.client.render.item.BuiltinModelItemRenderer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -21,7 +22,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class ShotgunItem extends Item implements GeoItem {
+public class ShotgunItem extends Item implements GeoItem, IAmScrapLoot {
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
@@ -70,5 +71,10 @@ public class ShotgunItem extends Item implements GeoItem {
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
+    }
+
+    @Override
+    public float getWeight() {
+        return 5;
     }
 }

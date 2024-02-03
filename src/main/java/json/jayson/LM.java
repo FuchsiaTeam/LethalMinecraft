@@ -1,9 +1,11 @@
 package json.jayson;
 
+import json.jayson.client.LMClient;
 import json.jayson.client.model.LMItemModelHandler;
 import json.jayson.common.objects.entity.coil_head.CoilHeadEntity;
 import json.jayson.common.objects.event.listener.PlayerDropItemEventListener;
 import json.jayson.common.init.*;
+import json.jayson.network.LMNetwork;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import org.slf4j.Logger;
@@ -33,6 +35,9 @@ public class LM implements ModInitializer {
 
 		/* MODELS */
 		addItemModels();
+
+		/* NETWORK */
+		LMNetwork.registerC2S();
 	}
 
 
@@ -49,7 +54,6 @@ public class LM implements ModInitializer {
 		LMItemModelHandler.add(LMItems.YELLOW_AXOLOTL_PLUSHIE, "3d/axolotl/yellow", "axolotl/yellow_plushie");
 
 		LMItemModelHandler.add(LMItems.DEFAULT_FLASHLIGHT, "3d/flashlight/default/lime", "flashlights/default/lime_flashlight");
-
 		LMItemModelHandler.add(LMItems.IRON_STOP_SIGN, "3d/axolotl/pink", "signs/stop/iron_stop_sign");
 		LMItemModelHandler.add(LMItems.GOLDEN_YIELD_SIGN, "signs/yield/golden_yield_sign");
 	}

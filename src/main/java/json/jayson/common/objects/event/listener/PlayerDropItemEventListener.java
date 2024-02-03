@@ -8,6 +8,7 @@ import json.jayson.util.LMUtil;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 
 public class PlayerDropItemEventListener {
@@ -19,7 +20,9 @@ public class PlayerDropItemEventListener {
                     ItemStack stack = item.getStack();
                     if (scrapLoot.onItemDrop(player, item)) {
                         ScrapLootEntity lootEntity = new ScrapLootEntity(LMEntities.SCRAP_LOOT, player.getWorld());
-                        Vec3d pos = player.getPos().add(LMUtil.RANDOM.nextDouble() * 1.2, 0, LMUtil.RANDOM.nextDouble() * 1.2);
+                        double multiplier = 0.1d + player.getWorld().getEntitiesByClass(ScrapLootEntity.class, Box.from(player.getPos()), scrapLootEntity -> true).size() / 10.0d;
+                        multiplier = Math.min(multiplier, 3);
+                        Vec3d pos = player.getPos().add(LMUtil.RANDOM.nextInt(2) == 0 ? LMUtil.RANDOM.nextDouble() * multiplier : -LMUtil.RANDOM.nextDouble() * multiplier, 0.5, LMUtil.RANDOM.nextInt(2) == 0 ? LMUtil.RANDOM.nextDouble() * multiplier : -LMUtil.RANDOM.nextDouble() * multiplier);
                         lootEntity.setPosition(pos);
                         lootEntity.setItem(stack);
                         lootEntity.setScrapValue(scrapLoot.getScrapValue(stack.getNbt()));

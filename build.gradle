@@ -21,6 +21,11 @@ repositories {
         url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
     }
 
+    maven {
+        name = 'ModMenu'
+        url 'https://maven.terraformersmc.com/releases/'
+    }
+
     exclusiveContent {
         forRepository {
             maven {
@@ -39,6 +44,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
+    modApi "com.terraformersmc:modmenu:9.0.0"
     modImplementation "software.bernie.geckolib:geckolib-fabric-1.20.4:${geckolib_version}"
     //modImplementation "curse.maven:geckolib-388172:5021700"
 

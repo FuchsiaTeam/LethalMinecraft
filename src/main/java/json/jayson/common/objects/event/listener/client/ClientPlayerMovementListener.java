@@ -1,4 +1,4 @@
-package json.jayson.common.objects.event.listener;
+package json.jayson.common.objects.event.listener.client;
 
 import json.jayson.client.hud.PickupScrapOverlay;
 import json.jayson.common.objects.entity.ScrapLootEntity;
