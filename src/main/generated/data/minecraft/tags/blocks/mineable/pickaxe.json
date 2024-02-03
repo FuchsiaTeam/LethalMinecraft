@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "lm:steel_block",
+    "lm:reinforced_glass",
+    "lm:steel_grate",
+    "lm:steel_pillar",
+    "lm:steel_light_wall",
+    "lm:steel_plate"
+  ]
+}

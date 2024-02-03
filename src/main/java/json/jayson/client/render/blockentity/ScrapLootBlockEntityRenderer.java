@@ -1,6 +1,6 @@
 package json.jayson.client.render.blockentity;
 
-import json.jayson.common.blockentity.ScrapLootBlockEntity;
+import json.jayson.common.objects.blockentity.ScrapLootBlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;

@@ -1,0 +1,7 @@
+// 1.20.4	2024-02-03T13:59:45.256682443	LethalMinecraft/Block Loot Tables
+80fefa937c390b23491036ad72a909b7f7aac92d data/lm/loot_tables/blocks/steel_block.json
+3d52ffd680c7f97ede3e9d0634f625b0d9f3f38c data/lm/loot_tables/blocks/steel_pillar.json
+d5a4ab4096e0ab5d0bc2939143c79cfda523905c data/lm/loot_tables/blocks/steel_light_wall.json
+ab6e68d5d906638b3c902c6360e70b6c0d4355e6 data/lm/loot_tables/blocks/steel_grate.json
+f81662581d4a951958fc9296eedfd080fbde5b24 data/lm/loot_tables/blocks/reinforced_glass.json
+592978e119c16781f2d98dec048429ebcf698af1 data/lm/loot_tables/blocks/steel_plate.json

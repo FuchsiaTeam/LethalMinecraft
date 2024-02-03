@@ -11,6 +11,10 @@ loom {
     accessWidenerPath = file("src/main/resources/lm.accesswidener")
 }
 
+fabricApi {
+    configureDataGeneration()
+}
+
 repositories {
     maven {
         name = 'GeckoLib'

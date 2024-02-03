@@ -2,10 +2,10 @@
 	"schemaVersion": 1,
 	"id": "lm",
 	"version": "${version}",
-	"name": "LethalCompanyFabric",
+	"name": "LethalMinecraft",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
-		"Me!"
+		"Jayson.json, Kiseki, Derpy_7, AmythicalMyra"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
@@ -22,7 +22,7 @@
           "json.jayson.client.LMClient"
 		],
 		"fabric-datagen": [
-			"json.jayson.LMDataGenerator"
+			"json.jayson.datagen.LMDataGenerator"
 		]
 	},
 	"mixins": [

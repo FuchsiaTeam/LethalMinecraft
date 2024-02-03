@@ -1,8 +1,9 @@
 package json.jayson;
 
-import json.jayson.common.entity.coil_head.CoilHeadEntity;
-import json.jayson.event.listener.PlayerDropItemEventListener;
-import json.jayson.init.*;
+import json.jayson.client.model.LMItemModelHandler;
+import json.jayson.common.objects.entity.coil_head.CoilHeadEntity;
+import json.jayson.common.objects.event.listener.PlayerDropItemEventListener;
+import json.jayson.common.init.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import org.slf4j.Logger;
@@ -15,6 +16,7 @@ public class LM implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+
 		/* INITS FOR STATICS */
 		LMTabs.register();
 		LMItems.register();
@@ -28,5 +30,24 @@ public class LM implements ModInitializer {
 
 		/* ENTITY ATTRIBUTES */
 		FabricDefaultAttributeRegistry.register(LMEntities.COIL_HEAD, CoilHeadEntity.attributes());
+
+		/* MODELS */
+		addItemModels();
+	}
+
+
+	public void addItemModels() {
+		LMItemModelHandler.add(LMItems.AXOLOTL_PLUSHIE, "3d/axolotl/pink", "axolotl/pink_plushie");
+		LMItemModelHandler.add(LMItems.BLUE_AXOLOTL_PLUSHIE, "3d/axolotl/blue",  "axolotl/blue_plushie");
+		LMItemModelHandler.add(LMItems.BROWN_AXOLOTL_PLUSHIE, "3d/axolotl/brown",  "axolotl/brown_plushie");
+		LMItemModelHandler.add(LMItems.WHITE_AXOLOTL_PLUSHIE, "3d/axolotl/white", "axolotl/white_plushie");
+		LMItemModelHandler.add(LMItems.YELLOW_AXOLOTL_PLUSHIE, "3d/axolotl/yellow", "axolotl/yellow_plushie");
+
+		LMItemModelHandler.add(LMItems.DEFAULT_FLASHLIGHT, "3d/flashlight/default/lime", "flashlights/default/lime_flashlight");
+
+		LMItemModelHandler.add(LMItems.IRON_STOP_SIGN, "3d/axolotl/pink", "signs/stop/iron_stop_sign");
+		LMItemModelHandler.add(LMItems.GOLDEN_YIELD_SIGN, "signs/yield/golden_yield_sign");
+
+
 	}
 }

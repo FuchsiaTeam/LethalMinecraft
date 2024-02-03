@@ -28,43 +28,52 @@ public class LMUtil {
         return new Identifier(LM.ID, name);
     }
 
-    public static String getCurrentSaveName() {
-       return getCurrentSaveName(MinecraftClient.getInstance().getServer());
+    public static Identifier createFabricLocation(String name) {
+        return new Identifier("fabric", name);
     }
 
-    public static String getCurrentSaveFull() {
-        return getCurrentSaveFull(MinecraftClient.getInstance().getServer());
+    public static Identifier createMinecraftLocation(String name) {
+        return new Identifier(name);
     }
 
-    public static String getCurrentSaveName(IntegratedServer server) {
-        return server.getSavePath(WorldSavePath.ROOT).getParent().getFileName().toString();
-    }
 
-    public static String getCurrentSaveFull(IntegratedServer server) {
-        return MinecraftClient.getInstance().runDirectory + "/saves/" + getCurrentSaveName(server) + "/";
-    }
-
-    public static String getCurrentSaveName(MinecraftServer server) {
-        return server.getSavePath(WorldSavePath.ROOT).getParent().getFileName().toString();
-    }
-
-    public static String getCurrentSaveFull(MinecraftServer server) {
-        return MinecraftClient.getInstance().runDirectory + "/saves/" + getCurrentSaveName(server) + "/";
-    }
-
-    public static boolean extractMoon(ModContainer modContainer, MinecraftServer server, RegistryKey<World> dim, String dataPath) {
-        Path moon = modContainer.findPath(dataPath).get();
-        try (Stream<Path> moonPath = Files.list(moon)) {
-            //server.getWorld(dim).close();
-            FileUtils.deleteDirectory(new File(getCurrentSaveFull(server) + "dimensions/"+ dim.getValue().getNamespace() + "/" + dim.getValue().getPath() + "/"));
-            FileUtils.forceMkdir(new File(getCurrentSaveFull(server) + "dimensions/"+ dim.getValue().getNamespace() + "/" + dim.getValue().getPath() + "/region/"));
-            for (Path path : moonPath.toList()) {
-                FileUtils.copyFile(path.toFile(), new File(getCurrentSaveFull(server) + "dimensions/"+ dim.getValue().getNamespace() + "/" + dim.getValue().getPath() + path.toString().substring(path.toString().indexOf("\\region\\"))));
-            }
-        } catch (IOException e) {
-            LM.LOGGER.warn("Could not extract moon", e);
+    public static class LMIdentifier {
+        public static Identifier texture(String name) {
+            return new Identifier(LM.ID, "textures/" + name);
         }
-        return true;
+
+        /* Includes textures/ path */
+        public static Identifier itemTextureFull(String name) {
+            return new Identifier(LM.ID, "textures/item/" + name);
+        }
+
+        public static Identifier itemTexture(String name) {
+            return new Identifier(LM.ID, "item/" + name);
+        }
+
+        public static Identifier model(String name) {
+            return new Identifier(LM.ID, "models/" + name);
+        }
+
+        public static Identifier model3DItem(String name) {
+            return new Identifier(LM.ID, "models/item/3d/" + name);
+        }
+
+        public static Identifier blockstate(String name) {
+            return new Identifier(LM.ID, "blockstates/" + name);
+        }
+
+        public static Identifier animation(String name) {
+            return new Identifier(LM.ID, "animations/" + name);
+        }
+
+        public static Identifier geo(String name) {
+            return new Identifier(LM.ID, "geo/" + name);
+        }
+
+        public static Identifier sounds(String name) {
+            return new Identifier(LM.ID, "sounds/" + name);
+        }
     }
 
 }
