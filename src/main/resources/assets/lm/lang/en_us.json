@@ -2,8 +2,9 @@
   "item.lm.iron_stop_sign": "Iron Stop Sign",
   "item.lm.golden_yield_sign": "Golden Yield Sign",
 
-  "item.lm.lime_flashlight": "Lime Flashlight",
+  "item.lm.oak_shotgun": "Oak Shotgun",
 
+  "item.lm.lime_flashlight": "Lime Flashlight",
 
   "item.lm.axolotl_plushie": "Axolotl Plushie",
   "item.lm.white_axolotl_plushie": "Axolotl Plushie",
@@ -11,6 +12,16 @@
   "item.lm.brown_axolotl_plushie": "Axolotl Plushie",
   "item.lm.yellow_axolotl_plushie": "Axolotl Plushie",
 
+  "block.lm.steel_block": "Steel Block",
+  "block.lm.steel_grate": "Steel Grate",
+  "block.lm.steel_plate": "Steel Plate",
+  "block.lm.steel_pillar": "Steel Pillar",
+  "block.lm.steel_light_wall": "Steel Light Wall",
+  "block.lm.reinforced_glass": "Reinforced Glass",
+
+  "block.lm.loot_position": "Loot Position Block",
+
   "itemgroup.lm": "Lethal Minecraft",
-  "itemgroup.lm.building": "Lethal Minecraft Building Blocks"
+  "itemgroup.lm.building": "Lethal Minecraft Building Blocks",
+  "itemgroup.lm.dev": "Dev Items"
 }
