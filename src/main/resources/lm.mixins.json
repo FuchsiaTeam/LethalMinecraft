@@ -14,6 +14,7 @@
     "ItemRendererMixin",
     "ModelLoaderMixin",
     "MouseMixin",
+    "TitlescreenMixin",
     "WindowMixin",
     "WorldRendererMixin"
   ],

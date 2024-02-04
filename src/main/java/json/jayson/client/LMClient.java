@@ -67,6 +67,7 @@ public class LMClient implements ClientModInitializer {
     public void setBlockRenderMaps() {
         BlockRenderLayerMap.INSTANCE.putBlock(LMBlocks.STEEL_GRATE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(LMBlocks.REINFORCED_GLASS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(LMBlocks.LOOT_POSITION, RenderLayer.getCutout());
     }
 
     public void registerModels() {
