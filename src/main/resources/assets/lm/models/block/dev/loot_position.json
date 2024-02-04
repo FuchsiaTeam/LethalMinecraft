@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "lm:block/building/dev/loot_position"
+    "all": "lm:block/dev/loot_position"
   }
 }

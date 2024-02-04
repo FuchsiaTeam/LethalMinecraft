@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "lm:block/building/dev/loot_position"
+      "model": "lm:block/dev/loot_position"
     }
   }
 }
