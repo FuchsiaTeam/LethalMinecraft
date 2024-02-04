@@ -45,7 +45,7 @@ public class LMTabs {
             }).build());
 
     public static final ItemGroup LM_DEV = Registry.register(Registries.ITEM_GROUP, LMUtil.createLocation("lethalminecraftdev"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.lm.dev")).icon(() -> new ItemStack(LMBlocks.STEEL_PLATE.asItem())).entries((displayContext, entries) -> {
+            FabricItemGroup.builder().displayName(Text.translatable("Dev Items")).icon(() -> new ItemStack(LMBlocks.LOOT_POSITION.asItem())).entries((displayContext, entries) -> {
                 entries.add(LMBlocks.LOOT_POSITION);
                 entries.add(Blocks.STRUCTURE_BLOCK);
                 entries.add(Blocks.STRUCTURE_VOID);
