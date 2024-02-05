@@ -1,6 +1,7 @@
 package json.jayson.client;
 
 import json.jayson.ResolutionControl.ResolutionHandler;
+import json.jayson.client.overlay.DefaultOverhaul;
 import json.jayson.client.overlay.PickupScrapOverlay;
 import json.jayson.client.model.ItemModelRegistry;
 import json.jayson.client.model.LMItemModelHandler;
@@ -48,6 +49,7 @@ public class LMClient implements ClientModInitializer {
 
         /* EVENTS */
         HudRenderCallback.EVENT.register(new PickupScrapOverlay());
+        HudRenderCallback.EVENT.register(new DefaultOverhaul());
         ClientPlayerMovementListener.register();
         ClientEndTickListener.register();
 

@@ -32,7 +32,7 @@ public class PickupScrapOverlay implements HudRenderCallback {
                     //LMRenderUtil.setRenderTexture(OVERLAY_TEX);
                     //drawContext.drawTexture(OVERLAY_TEX, 5, 5, 0, 0,128, 16);
                     //drawContext.drawTexture(OVERLAY_TEX, x, y + 15, 32, 0,128, 2);
-                    drawContext.drawTexture(OVERLAY_TEX, x ,y + 15,0, 0,  (int)((float)ClientEndTickListener.pickupCharge / (float)ClientEndTickListener.currentMaxPickupCharge * 128), 8);
+                    drawContext.drawTexture(OVERLAY_TEX, x ,y + 15,0, 0,  (int)((float)ClientEndTickListener.pickupCharge / (float)ClientEndTickListener.currentMaxPickupCharge * client.textRenderer.getWidth(text)), 8);
                     drawContext.drawText(client.textRenderer, (int)((float)ClientEndTickListener.pickupCharge / (float)ClientEndTickListener.currentMaxPickupCharge * 100.0f) + "%", x, y + 16, 0xFFFFFFFF, true);
                 }
             }
