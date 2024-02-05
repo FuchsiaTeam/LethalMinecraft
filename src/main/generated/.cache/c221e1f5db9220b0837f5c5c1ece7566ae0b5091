@@ -1,9 +1,12 @@
-// 1.20.4	2024-02-03T13:59:45.257957586	LethalMinecraft/Model Definitions
-ff314c23a852b45340c353a0c1ff84183bfdf1c9 assets/lm/models/item/white_axolotl_plushie.json
-70e6baf4974eb0061c362a9f3c55a339552ce400 assets/lm/models/item/yellow_axolotl_plushie.json
-b797a4983db5e7873f8cf0de9de782de651e15d3 assets/lm/models/item/brown_axolotl_plushie.json
-3eceebb8b560a8af728e92eec74818eec2669d48 assets/lm/models/item/lime_flashlight.json
-965802338314daf5d62c48ba07dfcac2bfb59575 assets/lm/models/item/iron_stop_sign.json
-899946d1c661b12f7a6776f3b3e92cb73f4aee32 assets/lm/models/item/axolotl_plushie.json
-61e76dee9f01d04e3027b72e55b01a897dc49aa9 assets/lm/models/item/blue_axolotl_plushie.json
-258d13122831696267734b68997a068ad730f8ed assets/lm/models/item/golden_yield_sign.json
+// 1.20.4	2024-02-05T23:17:19.895281	LethalMinecraft/Model Definitions
+258d13122831696267734b68997a068ad730f8ed assets\lm\models\item\golden_yield_sign.json
+4ab7f83a7fb0c747b5d1d757f722ece713582c91 assets\lm\models\item\plastic_salmon.json
+3eceebb8b560a8af728e92eec74818eec2669d48 assets\lm\models\item\lime_flashlight.json
+70e6baf4974eb0061c362a9f3c55a339552ce400 assets\lm\models\item\yellow_axolotl_plushie.json
+899946d1c661b12f7a6776f3b3e92cb73f4aee32 assets\lm\models\item\axolotl_plushie.json
+b797a4983db5e7873f8cf0de9de782de651e15d3 assets\lm\models\item\brown_axolotl_plushie.json
+8d820192922f26dee932dc61af7143999f4a8131 assets\lm\models\item\plastic_cod.json
+965802338314daf5d62c48ba07dfcac2bfb59575 assets\lm\models\item\iron_stop_sign.json
+ff314c23a852b45340c353a0c1ff84183bfdf1c9 assets\lm\models\item\white_axolotl_plushie.json
+61e76dee9f01d04e3027b72e55b01a897dc49aa9 assets\lm\models\item\blue_axolotl_plushie.json
+9a8550a6c3a86ffc4e5256a1661717f0b80f6335 assets\lm\models\item\plastic_tropical.json
