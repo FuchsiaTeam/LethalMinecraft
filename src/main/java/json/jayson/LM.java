@@ -8,17 +8,19 @@ import json.jayson.common.init.*;
 import json.jayson.network.LMNetwork;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.ModContainer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class LM implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("lm");
 	public static final String ID = "lm";
-
+	public static ModContainer CONTAINER;
 
 	@Override
 	public void onInitialize() {
-
+		CONTAINER = FabricLoader.getInstance().getModContainer(LM.ID).get();
 		/* INITS FOR STATICS */
 		LMTabs.register();
 		LMItems.register();

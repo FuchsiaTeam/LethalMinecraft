@@ -1,5 +1,6 @@
 package json.jayson.common.objects.block;
 
+import json.jayson.common.LMData;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
@@ -20,7 +21,7 @@ public class LootSpawnPositionBlock extends Block {
 
     @Override
     public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
-        if(!world.isClient()) {
+        if(!world.isClient() && LMData.GENERATING_LOOT_DUNGEON) {
             System.out.println("ADDED");
         }
     }

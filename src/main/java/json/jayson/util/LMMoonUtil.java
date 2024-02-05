@@ -1,6 +1,7 @@
 package json.jayson.util;
 
 import json.jayson.LM;
+import json.jayson.common.LMData;
 import json.jayson.common.init.LMDimensions;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
@@ -31,7 +32,7 @@ import java.util.stream.Stream;
 public class LMMoonUtil {
 
     public static boolean extractExperimentation(MinecraftServer server) {
-        return extractMoon(FabricLoader.getInstance().getModContainer(LM.ID).get(), server, LMDimensions.MOON_EXPERIMENTATION_WORLD, "data/lm/moons/experimentation/region/");
+        return extractMoon(LM.CONTAINER, server, LMDimensions.MOON_EXPERIMENTATION_WORLD, "data/lm/moons/experimentation/region/");
     }
 
     public static boolean extractMoon(ModContainer modContainer, MinecraftServer server, RegistryKey<World> dim, String dataPath) {
@@ -52,12 +53,14 @@ public class LMMoonUtil {
 
 
     public static void spawnDungeonLootStructure(ServerWorld serverWorld, Structure structure, BlockPos pos) {
+        LMData.GENERATING_LOOT_DUNGEON = true;
         ChunkGenerator chunkGenerator = serverWorld.getChunkManager().getChunkGenerator();
         StructureStart structureStart = structure.createStructureStart(serverWorld.getServer().getRegistryManager(), chunkGenerator, chunkGenerator.getBiomeSource(), serverWorld.getChunkManager().getNoiseConfig(), serverWorld.getStructureTemplateManager(), serverWorld.getSeed(), new ChunkPos(pos), 0, serverWorld, (biome) -> true);
             BlockBox blockBox = structureStart.getBoundingBox();
             ChunkPos chunkPos = new ChunkPos(ChunkSectionPos.getSectionCoord(blockBox.getMinX()), ChunkSectionPos.getSectionCoord(blockBox.getMinZ()));
             ChunkPos chunkPos2 = new ChunkPos(ChunkSectionPos.getSectionCoord(blockBox.getMaxX()), ChunkSectionPos.getSectionCoord(blockBox.getMaxZ()));
             ChunkPos.stream(chunkPos, chunkPos2).forEach((chunkPosx) -> structureStart.place(serverWorld, serverWorld.getStructureAccessor(), chunkGenerator, serverWorld.getRandom(), new BlockBox(chunkPosx.getStartX(), serverWorld.getBottomY(), chunkPosx.getStartZ(), chunkPosx.getEndX(), serverWorld.getTopY(), chunkPosx.getEndZ()), chunkPosx));
+        LMData.GENERATING_LOOT_DUNGEON = false;
     }
 
     public static void spawnDungeonLootStructure(ServerWorld serverWorld) {

@@ -75,7 +75,7 @@ public class LMUtil {
             return new Identifier(LM.ID, "geo/" + name);
         }
 
-        public static Identifier sounds(String name) {
+        public static Identifier sound(String name) {
             return new Identifier(LM.ID, "sounds/" + name);
         }
     }
