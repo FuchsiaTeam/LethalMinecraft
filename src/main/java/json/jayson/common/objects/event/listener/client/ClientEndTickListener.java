@@ -12,7 +12,7 @@ public class ClientEndTickListener {
 
     public static int pickupCharge = 0;
     public static int maxPickupCharge = 13;
-
+    public static int currentMaxPickupCharge = maxPickupCharge;
     public static void register() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if(LMClient.pickUpScrapKeyBind.isPressed()) {
@@ -25,12 +25,13 @@ public class ClientEndTickListener {
                     if (entity instanceof ScrapLootEntity scrapLootEntity) {
                         if (scrapLootEntity.hasItem()) {
                             adjustedMax = scrapLootEntity.getGrabTime();
+                            currentMaxPickupCharge = adjustedMax;
                         }
 
                         if(pickupCharge >= adjustedMax) {
                             LMNetwork.Client.sendPickUpScrapPacket(scrapLootEntity.getUuid());
+                            pickupCharge = 0;
                         }
-                        pickupCharge = 0;
                     }
                 }
             } else {
