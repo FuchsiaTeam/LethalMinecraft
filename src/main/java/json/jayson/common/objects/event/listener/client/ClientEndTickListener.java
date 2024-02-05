@@ -17,18 +17,21 @@ public class ClientEndTickListener {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if(LMClient.pickUpScrapKeyBind.isPressed()) {
                 ++pickupCharge;
-                if(pickupCharge >= maxPickupCharge) {
-                    HitResult hit = client.crosshairTarget;
-                    if (hit.getType() == HitResult.Type.ENTITY) {
-                        EntityHitResult entityHit = (EntityHitResult) hit;
-                        Entity entity = entityHit.getEntity();
-                        if (entity instanceof ScrapLootEntity scrapLootEntity) {
-                            if (scrapLootEntity.hasItem()) {
-                                LMNetwork.Client.sendPickUpScrapPacket(scrapLootEntity.getUuid());
-                            }
+                HitResult hit = client.crosshairTarget;
+                if (hit.getType() == HitResult.Type.ENTITY) {
+                    EntityHitResult entityHit = (EntityHitResult) hit;
+                    Entity entity = entityHit.getEntity();
+                    int adjustedMax = maxPickupCharge;
+                    if (entity instanceof ScrapLootEntity scrapLootEntity) {
+                        if (scrapLootEntity.hasItem()) {
+                            adjustedMax = scrapLootEntity.getGrabTime();
                         }
+
+                        if(pickupCharge >= adjustedMax) {
+                            LMNetwork.Client.sendPickUpScrapPacket(scrapLootEntity.getUuid());
+                        }
+                        pickupCharge = 0;
                     }
-                    pickupCharge = 0;
                 }
             } else {
                 pickupCharge = 0;

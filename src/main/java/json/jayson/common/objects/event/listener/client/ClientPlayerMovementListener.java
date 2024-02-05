@@ -1,6 +1,6 @@
 package json.jayson.common.objects.event.listener.client;
 
-import json.jayson.client.hud.PickupScrapOverlay;
+import json.jayson.client.overlay.PickupScrapOverlay;
 import json.jayson.common.objects.entity.ScrapLootEntity;
 import json.jayson.common.objects.event.custom.ClientPlayerMovementCallback;
 import net.minecraft.client.MinecraftClient;

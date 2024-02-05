@@ -26,6 +26,7 @@ public class PlayerDropItemEventListener {
                         lootEntity.setPosition(pos);
                         lootEntity.setItem(stack);
                         lootEntity.setScrapValue(scrapLoot.getScrapValue(stack.getNbt()));
+                        lootEntity.setGrabTime(scrapLoot.getGrabTime());
                         lootEntity.setYaw(LMUtil.RANDOM.nextFloat() * 360);
                         player.getWorld().spawnEntity(lootEntity);
                         return new ItemEntity(player.getWorld(), player.getPos().x, player.getPos().y, player.getPos().z, new ItemStack(Items.AIR));

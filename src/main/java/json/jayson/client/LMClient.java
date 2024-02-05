@@ -1,13 +1,12 @@
 package json.jayson.client;
 
 import json.jayson.ResolutionControl.ResolutionHandler;
-import json.jayson.client.hud.PickupScrapOverlay;
+import json.jayson.client.overlay.PickupScrapOverlay;
 import json.jayson.client.model.ItemModelRegistry;
 import json.jayson.client.model.LMItemModelHandler;
 import json.jayson.client.render.blockentity.ScrapLootBlockEntityRenderer;
 import json.jayson.client.render.entity.CoilHeadRenderer;
 import json.jayson.client.render.entity.ScrapLootRenderer;
-import json.jayson.common.objects.entity.ScrapLootEntity;
 import json.jayson.common.objects.event.listener.client.ClientEndTickListener;
 import json.jayson.common.objects.event.listener.client.ClientPlayerMovementListener;
 import json.jayson.common.init.LMBlockEntities;
@@ -18,7 +17,6 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
@@ -26,9 +24,6 @@ import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.util.hit.HitResult;
 import org.lwjgl.glfw.GLFW;
 
 @Environment(EnvType.CLIENT)
