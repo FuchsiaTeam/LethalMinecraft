@@ -86,7 +86,7 @@ public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
     float scaleCircles = 0;
     protected void renderScanCircles(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int light, float tickDelta) {
         if(1.01f > scaleCircles) {
-            scaleCircles += tickDelta * 0.65f;
+            scaleCircles += tickDelta * 0.15f;
         }
         matrixStack.push();
         matrixStack.translate(0F, 0.25F, 0f);
