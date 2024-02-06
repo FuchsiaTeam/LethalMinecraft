@@ -41,11 +41,11 @@ public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(yaw));
             MinecraftClient.getInstance().getItemRenderer().renderItem(new ItemStack(entity.getItem().getItem()), ModelTransformationMode.HEAD, light, 15, matrices, vertexConsumers, entity.getWorld(), 0);
             matrices.pop();
-            if(entity.renderText && 75 > entity.renderTextTime) {
+            if(entity.renderText && 120 > entity.renderTextTime) {
                 renderName(entity, matrices, vertexConsumers, light, tickDelta);
                 entity.renderTextTime += tickDelta;
             }
-            if(entity.renderTextTime >= 75 ) {
+            if(entity.renderTextTime >= 120 ) {
                 entity.renderTextTime = 0;
                 entity.renderText = false;
                 scaleCircles = 0;

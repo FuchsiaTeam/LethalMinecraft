@@ -58,7 +58,7 @@ public class ClientEndTickListener {
             if(!canScan) {
                 ++scanTick;
 
-                if(scanTick >= 50) {
+                if(scanTick >= 80) {
                     scanTick = 0;
                     scannedLootValue = 0;
                     canScan = true;
