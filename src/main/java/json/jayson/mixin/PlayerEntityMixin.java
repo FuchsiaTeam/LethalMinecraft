@@ -2,6 +2,7 @@ package json.jayson.mixin;
 
 import json.jayson.common.init.LMDataAttachments;
 import json.jayson.common.objects.event.custom.PlayerDropItemCallback;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
@@ -49,7 +50,8 @@ public abstract class PlayerEntityMixin extends LivingEntity{
             getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.1f);
         }
         if(this.jumping) {
-            modifyAttached(LMDataAttachments.STAMINA, stamina -> stamin - 10);
+            modifyAttached(LMDataAttachments.STAMINA, stamina -> stamin - 3);
+            setJumping(false);
         }
 
         /* FORCE PLAYERS TO HOLD KEY */
@@ -64,8 +66,8 @@ public abstract class PlayerEntityMixin extends LivingEntity{
         } else {
             getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.1f);
         }
-        if(!isSprinting()) {
-            if(new Random().nextInt(3) == 1) {
+        if(!isSprinting() && !jumping) {
+            if(getWorld().getTime() % 4 == 0) {
                 if(stamin < 101) {
                     modifyAttached(LMDataAttachments.STAMINA, stamina -> stamin + 1);
                 }
