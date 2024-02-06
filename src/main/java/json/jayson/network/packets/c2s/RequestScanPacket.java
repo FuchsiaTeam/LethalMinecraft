@@ -23,7 +23,7 @@ public class RequestScanPacket {
         BlockPos pos = buf.readBlockPos();
         int value = 0;
         if(pos != null) {
-            for (ScrapLootEntity scrapLootEntity : player.getWorld().getEntitiesByClass(ScrapLootEntity.class, new Box(pos.toCenterPos().add(-7, 0, -7), new Vec3d(7, 4, 7)), entity -> entity.hasItem())) {
+            for (ScrapLootEntity scrapLootEntity : player.getWorld().getEntitiesByClass(ScrapLootEntity.class, Box.of(pos.toCenterPos(), 15, 2, 15), entity -> entity.hasItem())) {
                 value += scrapLootEntity.getScrapValue();
             }
 
