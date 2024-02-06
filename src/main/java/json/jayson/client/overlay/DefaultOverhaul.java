@@ -1,5 +1,6 @@
 package json.jayson.client.overlay;
 
+import json.jayson.common.init.LMDataAttachments;
 import json.jayson.common.objects.item.IAmScrapLoot;
 import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
@@ -20,7 +21,6 @@ public class DefaultOverhaul implements HudRenderCallback {
     private final Identifier PLAYER_TEX = LMUtil.LMIdentifier.overlay("game_hud/player.png");
     private final Identifier STAMINA_BAR_TEX = LMUtil.LMIdentifier.overlay("game_hud/stamina_bar.png");
 
-    int staminaTemp = 0;
     @Override
     public void onHudRender(DrawContext drawContext, float tickDelta) {
         MinecraftClient client = MinecraftClient.getInstance();
@@ -32,7 +32,7 @@ public class DefaultOverhaul implements HudRenderCallback {
             /* HP; WEIGHT */
             drawHealthPlayer(drawContext, x, y, client);
             /* Now comes the stamina, I suck at this type of stuff so dont wonder lmao ~Jayson */
-            drawStaminaBar(drawContext,x,y);
+            drawStaminaBar(drawContext,x,y, client);
         }
     }
 
@@ -59,13 +59,9 @@ public class DefaultOverhaul implements HudRenderCallback {
     }
 
 
-    public void drawStaminaBar(DrawContext drawContext, int x, int y) {
+    public void drawStaminaBar(DrawContext drawContext, int x, int y, MinecraftClient client) {
         /* THIS IS VERY HACKY AND NEEDS TOTALLY A REWRITE! */
-        --staminaTemp;
-        if(0 >= staminaTemp) {
-            staminaTemp = 100;
-        }
-
+        int staminaTemp = client.player.getAttachedOrElse(LMDataAttachments.STAMINA, 100);
         int staminaPerc = (int)(staminaTemp / 100.0 * 100.0f);
         int staminaU = 0;
         boolean staminaUpper = true;

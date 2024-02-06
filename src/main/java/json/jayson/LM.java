@@ -7,9 +7,11 @@ import json.jayson.common.objects.event.listener.PlayerDropItemEventListener;
 import json.jayson.common.init.*;
 import json.jayson.network.LMNetwork;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
+import net.minecraft.server.MinecraftServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +33,9 @@ public class LM implements ModInitializer {
 
 		/* EVENTS */
 		PlayerDropItemEventListener.register();
-
+		/*ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
+			handler.player.setSprinting(false);
+		});*/
 		/* ENTITY ATTRIBUTES */
 		FabricDefaultAttributeRegistry.register(LMEntities.COIL_HEAD, CoilHeadEntity.attributes());
 
