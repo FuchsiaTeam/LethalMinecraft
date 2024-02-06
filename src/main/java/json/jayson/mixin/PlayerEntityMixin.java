@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
@@ -57,9 +58,12 @@ public abstract class PlayerEntityMixin extends LivingEntity{
     private void tick(CallbackInfo ci) {
         int stamin = this.getAttachedOrElse(LMDataAttachments.STAMINA, 100);
         if(stamin < 1) {
-            EntityAttributeInstance entityAttributeInstance = this.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED);
+            /*EntityAttributeInstance entityAttributeInstance = this.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED);
             LivingEntity e = (LivingEntity) (Object) this;
-            entityAttributeInstance.removeModifier(e.SPRINTING_SPEED_BOOST.getId());
+            entityAttributeInstance.removeModifier(e.SPRINTING_SPEED_BOOST.getId());*/
+            getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.03f);
+        } else {
+            getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.1f);
         }
         if(!isSprinting()) {
             if(new Random().nextInt(3) == 1) {
