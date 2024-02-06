@@ -46,9 +46,7 @@ public abstract class PlayerEntityMixin extends LivingEntity{
             modifyAttached(LMDataAttachments.STAMINA, stamina -> stamin - 1);
         }
         if(stamin < 1) {
-            EntityAttributeInstance entityAttributeInstance = this.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED);
-            LivingEntity e = (LivingEntity) (Object) this;
-            entityAttributeInstance.removeModifier(e.SPRINTING_SPEED_BOOST.getId());
+            getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.1f);
         }
         /* FORCE PLAYERS TO HOLD KEY */
         setSprinting(false);
@@ -58,9 +56,6 @@ public abstract class PlayerEntityMixin extends LivingEntity{
     private void tick(CallbackInfo ci) {
         int stamin = this.getAttachedOrCreate(LMDataAttachments.STAMINA);
         if(stamin < 1) {
-            /*EntityAttributeInstance entityAttributeInstance = this.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED);
-            LivingEntity e = (LivingEntity) (Object) this;
-            entityAttributeInstance.removeModifier(e.SPRINTING_SPEED_BOOST.getId());*/
             getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.03f);
         } else {
             getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.1f);
