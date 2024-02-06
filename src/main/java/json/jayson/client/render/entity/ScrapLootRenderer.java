@@ -29,11 +29,11 @@ public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(yaw));
             MinecraftClient.getInstance().getItemRenderer().renderItem(new ItemStack(entity.getItem().getItem()), ModelTransformationMode.HEAD, light, 15, matrices, vertexConsumers, entity.getWorld(), 0);
             matrices.pop();
-            if(entity.renderText && 1.1 * tickDelta > entity.renderTextTime) {
+            if(entity.renderText && 75 > entity.renderTextTime) {
                 renderName(entity, matrices, vertexConsumers, light);
-                entity.renderTextTime += tickDelta + 0.05f;
+                entity.renderTextTime += tickDelta;
             }
-            if(entity.renderTextTime >= 1 * tickDelta) {
+            if(entity.renderTextTime >= 75 ) {
                 entity.renderTextTime = 0;
                 entity.renderText = false;
             }
@@ -53,7 +53,7 @@ public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
             int j = (int)(g * 255.0F) << 24;
             TextRenderer textRenderer = this.getTextRenderer();
             float h = (float)(-textRenderer.getWidth(entity.getItem().getName()) / 2);
-            textRenderer.draw(entity.getItem().getName(), h, 0, 0xFFFFFFFF, false, matrix4f, vertexConsumers, TextRenderer.TextLayerType.NORMAL, j, light);
+            textRenderer.draw(entity.getItem().getName(), h, 0, 0xFF297D23, false, matrix4f, vertexConsumers, TextRenderer.TextLayerType.NORMAL, j, light);
             matrices.pop();
         }
     }
