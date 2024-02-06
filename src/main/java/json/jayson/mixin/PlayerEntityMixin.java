@@ -48,6 +48,10 @@ public abstract class PlayerEntityMixin extends LivingEntity{
         if(stamin < 1) {
             getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.1f);
         }
+        if(this.jumping) {
+            modifyAttached(LMDataAttachments.STAMINA, stamina -> stamin - 10);
+        }
+
         /* FORCE PLAYERS TO HOLD KEY */
         setSprinting(false);
     }
