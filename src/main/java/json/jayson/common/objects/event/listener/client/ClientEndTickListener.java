@@ -1,10 +1,12 @@
 package json.jayson.common.objects.event.listener.client;
 
 import json.jayson.client.LMClient;
+import json.jayson.common.init.LMSounds;
 import json.jayson.common.objects.entity.ScrapLootEntity;
 import json.jayson.network.LMNetwork;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.entity.Entity;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Box;
@@ -48,6 +50,7 @@ public class ClientEndTickListener {
                 for (ScrapLootEntity scrapLootEntity : client.player.getWorld().getEntitiesByClass(ScrapLootEntity.class, Box.of(client.player.getBlockPos().toCenterPos(), 15, 4, 15), entity -> entity.hasItem())) {
                     scrapLootEntity.renderText = true;
                     scannedLootValue += scrapLootEntity.getScrapValue();
+                    client.player.playSound(LMSounds.SCAN, SoundCategory.MASTER, 15, 1);
                 }
                 //LMNetwork.Client.requestScan(client.player.getBlockPos());
             }

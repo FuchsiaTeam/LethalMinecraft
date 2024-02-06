@@ -14,16 +14,16 @@
     },
 
     "pickup_metal": {
-      "subtitle": "sounds.lm.item.pick_up.metal",
+      "subtitle": "sounds.lm.item.pickup.metal",
       "sounds": [
-        "lm:item.pick_up.metal"
+        "lm:item.pickup.metal"
       ]
     },
 
     "pickup_plastic": {
-      "subtitle": "sounds.lm.item.pick_up.plastic",
+      "subtitle": "sounds.lm.item.pickup.plastic",
       "sounds": [
-        "lm:item.pick_up.plastic"
+        "lm:item.pickup.plastic"
       ]
     }
 

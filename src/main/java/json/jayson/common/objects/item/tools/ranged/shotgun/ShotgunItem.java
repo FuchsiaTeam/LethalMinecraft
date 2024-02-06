@@ -1,12 +1,14 @@
 package json.jayson.common.objects.item.tools.ranged.shotgun;
 
 import json.jayson.client.render.item.ShotgunRenderer;
+import json.jayson.common.init.LMSounds;
 import json.jayson.common.objects.item.IAmScrapLoot;
 import net.minecraft.client.render.item.BuiltinModelItemRenderer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
@@ -76,5 +78,10 @@ public class ShotgunItem extends Item implements GeoItem, IAmScrapLoot {
     @Override
     public float getWeight() {
         return 5;
+    }
+
+    @Override
+    public SoundEvent getPickUpSound() {
+        return LMSounds.PICKUP_METAL;
     }
 }

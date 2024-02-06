@@ -28,5 +28,5 @@
 
   "overlay.lm.total": "Total",
   "overlay.lm.drop_text": "Drop @s  :  [@k]",
-  "overlay.lm.pickup_tex": "Grab: @s [@k]"
+  "overlay.lm.pickup_text": "Grab: @s [@k]"
 }

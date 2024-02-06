@@ -17,7 +17,6 @@ public class LMSounds {
 	private static SoundEvent registerSoundEvent(String name) {
 		Identifier id = LMUtil.createLocation(name);
 		return Registry.register(Registries.SOUND_EVENT,id,SoundEvent.of(id));
-		
 	}
 	
 	public static void register() {}

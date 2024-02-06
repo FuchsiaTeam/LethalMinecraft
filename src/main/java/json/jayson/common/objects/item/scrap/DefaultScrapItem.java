@@ -1,5 +1,6 @@
 package json.jayson.common.objects.item.scrap;
 
+import json.jayson.common.init.LMSounds;
 import json.jayson.common.objects.item.IAmScrapLoot;
 import json.jayson.network.LMNetwork;
 import json.jayson.util.LMNBT;
@@ -11,6 +12,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -22,6 +25,15 @@ import java.util.List;
 public class DefaultScrapItem extends Item implements IAmScrapLoot {
     int min = 5, max = 100;
     float weight = 1.0f;
+    SoundEvent pickUpSound = LMSounds.PICKUP_PLASTIC;
+    public DefaultScrapItem(Settings settings, int min, int max, float weight, SoundEvent pickUpSound) {
+        super(settings.maxCount(1));
+        this.min = min;
+        this.max = max;
+        this.weight = weight;
+        this.pickUpSound = pickUpSound;
+    }
+
     public DefaultScrapItem(Settings settings, int min, int max, float weight) {
         super(settings.maxCount(1));
         this.min = min;
@@ -56,5 +68,10 @@ public class DefaultScrapItem extends Item implements IAmScrapLoot {
         if(stack.hasNbt() && stack.getNbt().contains(LMNBT.SCRAP_VALUE)) {
             tooltip.add(Text.literal(String.valueOf(stack.getNbt().getInt(LMNBT.SCRAP_VALUE))));
         }
+    }
+
+    @Override
+    public SoundEvent getPickUpSound() {
+        return pickUpSound;
     }
 }
