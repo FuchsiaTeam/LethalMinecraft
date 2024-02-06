@@ -23,5 +23,9 @@
 
   "itemgroup.lm": "Lethal Minecraft",
   "itemgroup.lm.building": "Lethal Minecraft Building Blocks",
-  "itemgroup.lm.dev": "Dev Items"
+  "itemgroup.lm.dev": "Dev Items",
+
+
+  "overlay.lm.total": "Total",
+  "overlay.lm.drop_text": "Drop @s  :  [@k]"
 }

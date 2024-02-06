@@ -12,6 +12,7 @@ import net.minecraft.client.gui.screen.option.KeybindsScreen;
 import net.minecraft.client.input.KeyboardInput;
 import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.option.KeyBinding;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class DefaultOverhaul implements HudRenderCallback {
 
     private final Identifier PLAYER_TEX = LMUtil.LMIdentifier.overlay("game_hud/player.png");
     private final Identifier STAMINA_BAR_TEX = LMUtil.LMIdentifier.overlay("game_hud/stamina_bar.png");
+    private final Identifier SCAN_BACKGROUND_TEX = LMUtil.LMIdentifier.overlay("game_hud/full_scan.png");
 
     @Override
     public void onHudRender(DrawContext drawContext, float tickDelta) {
@@ -37,31 +39,37 @@ public class DefaultOverhaul implements HudRenderCallback {
 
 
             /* LOOT */
-            if(ClientEndTickListener.scannedLootValue != 0) {
-                drawContext.drawText(client.textRenderer, String.valueOf(ClientEndTickListener.scannedLootValue), x , y, 0xFFFFFFFF, true);
-            }
+            drawScan(drawContext, x, y, client);
         }
     }
 
+    public void drawScan(DrawContext drawContext, int x, int y, MinecraftClient client) {
+        if(ClientEndTickListener.scannedLootValue != 0) {
+            drawContext.drawText(client.textRenderer, String.valueOf(ClientEndTickListener.scannedLootValue), x * 2 - 50 - (client.textRenderer.getWidth(String.valueOf(ClientEndTickListener.scannedLootValue))) , y + 30, 0xFF5CFF87, true);
+            drawContext.drawText(client.textRenderer, Text.translatable("overlay.lm.total"), x * 2 - 155 + client.textRenderer.getWidth(Text.translatable("overlay.lm.total")) , y + 27, 0xFF5CFF87, true);
+            drawContext.drawTexture(SCAN_BACKGROUND_TEX, x * 2 - 130, y + 25, (int) (64 * 2.5f), (int) (11 * 1.75f), 0, 0, 64, 11,64, 11);
+        }
+    }
 
     public void drawDropText(DrawContext drawContext, int x, int y, MinecraftClient client) {
         if(client.player.getMainHandStack().getItem() instanceof IAmScrapLoot) {
-            String dropText = "Drop " + client.player.getMainHandStack().getName().getString() + "  :  [" + client.options.dropKey.getBoundKeyLocalizedText().getString() + "]";
+            //String dropText = "Drop " + client.player.getMainHandStack().getName().getString() + "  :  [" + client.options.dropKey.getBoundKeyLocalizedText().getString() + "]";
+            String dropText = Text.translatable("overlay.lm.drop_text").getString().replaceAll("@s", client.player.getMainHandStack().getName().getString()).replaceAll("@k", client.options.dropKey.getBoundKeyLocalizedText().getString());
             int dropTextLen = MinecraftClient.getInstance().textRenderer.getWidth(dropText);
             drawContext.drawText(client.textRenderer, dropText, x * 2 - 12 - dropTextLen, y - 100, 0xFFFFFFFF, true);
         }
     }
 
     public void  drawHealthPlayer(DrawContext drawContext, int x, int y, MinecraftClient client) {
-        drawContext.drawTexture(PLAYER_TEX, x - 190, y - 100, 0, 0, 0, 32, 32, 32,32);
+        drawContext.drawTexture(PLAYER_TEX, 45, y - 100, 0, 0, 0, 32, 32, 32,32);
         int healthPerc = (int)(client.player.getHealth() / client.player.getMaxHealth() * 100);
         String health = String.valueOf(healthPerc);
         int healthColor = 0xFF297D23;
         if(healthPerc == 100) {
-            drawContext.drawText(client.textRenderer, health.substring(1), x - 195, y - 78, healthColor, true);
-            drawContext.drawText(client.textRenderer, "1", x - 203, y - 78, healthColor, true);
+            drawContext.drawText(client.textRenderer, health.substring(1), 40, y - 78, healthColor, true);
+            drawContext.drawText(client.textRenderer, "1", 33, y - 78, healthColor, true);
         } else {
-            drawContext.drawText(client.textRenderer, health, x - 210, y - 87, healthColor, true);
+            drawContext.drawText(client.textRenderer, health, 65, y - 87, healthColor, true);
         }
     }
 
@@ -85,9 +93,9 @@ public class DefaultOverhaul implements HudRenderCallback {
             /*staminaTemp = 127;
             int stamina = (int)(staminaTemp / 100.0 * 39.0f);
             int staminaU = 59 - stamina;*/
-        drawContext.drawTexture(STAMINA_BAR_TEX, x - 212, y - 102 + staminaU, 0, staminaU, staminaUpper ? 64 : (int)(staminaTemp / 100.0 * 64.0f) + 4, 64, 64,128);
-        drawContext.drawTexture(STAMINA_BAR_TEX, x - 212, y - 102 + 5, 0, 5, (int)(staminaTemp / 100.0 * 32.0f), 64, 64,128);
-        drawContext.drawText(client.textRenderer, "0  lb", x - 160, y - 60, 0xFFA3691D, true);
+        drawContext.drawTexture(STAMINA_BAR_TEX, 23, y - 102 + staminaU, 0, staminaU, staminaUpper ? 64 : (int)(staminaTemp / 100.0 * 64.0f) + 4, 64, 64,128);
+        drawContext.drawTexture(STAMINA_BAR_TEX, 23, y - 102 + 5, 0, 5, (int)(staminaTemp / 100.0 * 32.0f), 64, 64,128);
+        drawContext.drawText(client.textRenderer, "0  lb", 80, y - 60, 0xFFA3691D, true);
     }
 
 }
