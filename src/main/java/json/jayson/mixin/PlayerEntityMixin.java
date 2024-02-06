@@ -41,7 +41,7 @@ public abstract class PlayerEntityMixin extends LivingEntity{
 
     @Inject(at = @At("RETURN"), method = "tickMovement")
     private void onPlayerTick(CallbackInfo ci) {
-        int stamin = this.getAttachedOrElse(LMDataAttachments.STAMINA, 100);
+        int stamin = this.getAttachedOrCreate(LMDataAttachments.STAMINA);
         if(isSprinting()) {
             modifyAttached(LMDataAttachments.STAMINA, stamina -> stamin - 1);
         }
@@ -56,7 +56,7 @@ public abstract class PlayerEntityMixin extends LivingEntity{
 
     @Inject(at = @At("RETURN"), method = "tick")
     private void tick(CallbackInfo ci) {
-        int stamin = this.getAttachedOrElse(LMDataAttachments.STAMINA, 100);
+        int stamin = this.getAttachedOrCreate(LMDataAttachments.STAMINA);
         if(stamin < 1) {
             /*EntityAttributeInstance entityAttributeInstance = this.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED);
             LivingEntity e = (LivingEntity) (Object) this;

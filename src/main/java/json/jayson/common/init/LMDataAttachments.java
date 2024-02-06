@@ -12,7 +12,13 @@ public class LMDataAttachments {
     public static final AttachmentType<Integer> STAMINA = AttachmentRegistry.<Integer>builder()
             .persistent(Codec.INT)
             .copyOnDeath()
-            .initializer(() -> 0)
+            .initializer(() -> 100)
             .buildAndRegister(LMUtil.LMIdentifier.data("stamina"));
+
+    public static final AttachmentType<Integer> WEIGHT = AttachmentRegistry.<Integer>builder()
+            .persistent(Codec.INT)
+            .copyOnDeath()
+            .initializer(() -> 0)
+            .buildAndRegister(LMUtil.LMIdentifier.data("weight"));
 
 }

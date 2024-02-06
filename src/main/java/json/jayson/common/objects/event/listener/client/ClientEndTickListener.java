@@ -7,12 +7,17 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Vec3d;
 
 public class ClientEndTickListener {
 
     public static int pickupCharge = 0;
     public static int maxPickupCharge = 13;
     public static int currentMaxPickupCharge = maxPickupCharge;
+    public static boolean canScan = true;
+    public static int scannedLootValue = 0;
+    public static int scanTick = 0;
     public static void register() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if(LMClient.pickUpScrapKeyBind.isPressed()) {
@@ -36,6 +41,23 @@ public class ClientEndTickListener {
                 }
             } else {
                 pickupCharge = 0;
+            }
+
+            if(client.options.rightKey.isPressed() && canScan) {
+                canScan = false;
+                for (ScrapLootEntity scrapLootEntity : client.world.getEntitiesByClass(ScrapLootEntity.class, new Box(client.player.getPos(), new Vec3d(15, 0, 15)), entity -> entity.hasItem())) {
+                    scannedLootValue += scrapLootEntity.getScrapValue();
+                }
+            }
+
+            if(scannedLootValue != 0) {
+                ++scanTick;
+
+                if(scanTick >= 50) {
+                    scanTick = 0;
+                    scannedLootValue = 0;
+                    canScan = true;
+                }
             }
         });
     }

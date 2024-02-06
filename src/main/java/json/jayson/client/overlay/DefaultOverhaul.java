@@ -1,6 +1,7 @@
 package json.jayson.client.overlay;
 
 import json.jayson.common.init.LMDataAttachments;
+import json.jayson.common.objects.event.listener.client.ClientEndTickListener;
 import json.jayson.common.objects.item.IAmScrapLoot;
 import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
@@ -33,6 +34,12 @@ public class DefaultOverhaul implements HudRenderCallback {
             drawHealthPlayer(drawContext, x, y, client);
             /* Now comes the stamina, I suck at this type of stuff so dont wonder lmao ~Jayson */
             drawStaminaBar(drawContext,x,y, client);
+
+
+            /* LOOT */
+            if(ClientEndTickListener.scannedLootValue != 0) {
+                drawContext.drawText(client.textRenderer, String.valueOf(ClientEndTickListener.scannedLootValue), x , y, 0xFFFFFFFF, true);
+            }
         }
     }
 
