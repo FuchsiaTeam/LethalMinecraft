@@ -42,19 +42,20 @@ public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
             MinecraftClient.getInstance().getItemRenderer().renderItem(new ItemStack(entity.getItem().getItem()), ModelTransformationMode.HEAD, light, 15, matrices, vertexConsumers, entity.getWorld(), 0);
             matrices.pop();
             if(entity.renderText && 75 > entity.renderTextTime) {
-                renderName(entity, matrices, vertexConsumers, light);
+                renderName(entity, matrices, vertexConsumers, light, tickDelta);
                 entity.renderTextTime += tickDelta;
             }
             if(entity.renderTextTime >= 75 ) {
                 entity.renderTextTime = 0;
                 entity.renderText = false;
+                scaleCircles = 0;
             }
 
         }
         super.render(entity, yaw, tickDelta, matrices, vertexConsumers, light);
     }
 
-    protected void renderName(ScrapLootEntity entity, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
+    protected void renderName(ScrapLootEntity entity, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, float tickdelta) {
         double d = this.dispatcher.getSquaredDistanceToCamera(entity);
         if (!(d > 4096.0)) {
             matrices.push();
@@ -78,16 +79,20 @@ public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
             h = (float)(-textRenderer.getWidth(String.valueOf(entity.getScrapValue())) / 2);
             textRenderer.draw(String.valueOf(entity.getScrapValue()), h, 0, 0xFF297D23, false, m4f, vertexConsumers, TextRenderer.TextLayerType.NORMAL, j, light);
             matrices.pop();
-            renderScanCircles(matrices, vertexConsumers, light);
+            renderScanCircles(matrices, vertexConsumers, light, tickdelta);
         }
     }
 
-    protected void renderScanCircles(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int light) {
+    float scaleCircles = 0;
+    protected void renderScanCircles(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int light, float tickDelta) {
+        if(1.01f > scaleCircles) {
+            scaleCircles += tickDelta * 0.65f;
+        }
         matrixStack.push();
         matrixStack.translate(0F, 0.25F, 0f);
         matrixStack.multiply(this.dispatcher.getRotation());
         matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0F));
-        matrixStack.scale(1F, 1F, 1F);
+        matrixStack.scale(scaleCircles, scaleCircles, scaleCircles);
         VertexConsumer vertexConsumer = vertexConsumerProvider.getBuffer(LAYER);
         MatrixStack.Entry entry = matrixStack.peek();
         Matrix4f matrix4f = entry.getPositionMatrix();

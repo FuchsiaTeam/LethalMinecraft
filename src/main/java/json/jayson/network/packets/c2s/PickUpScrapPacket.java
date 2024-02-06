@@ -26,7 +26,7 @@ public class PickUpScrapPacket {
             if(entity instanceof ScrapLootEntity scrapLootEntity) {
                 IAmScrapLoot scrapLoot = (IAmScrapLoot) scrapLootEntity.getItem().getItem();
                 if(player.getInventory().insertStack(scrapLootEntity.getItem())) {
-                    world.playSound(player, player.getBlockPos(), scrapLoot.getPickUpSound(), SoundCategory.PLAYERS);
+                    world.playSound(player, player.getBlockPos(), scrapLoot.getPickUpSound(), SoundCategory.PLAYERS, 1,1);
                     scrapLootEntity.remove(Entity.RemovalReason.DISCARDED);
                 }
             }
