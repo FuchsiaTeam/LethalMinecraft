@@ -45,8 +45,11 @@ public class ClientEndTickListener {
 
             if(client.mouse.wasRightButtonClicked() && canScan) {
                 canScan = false;
-                System.out.println("SCAN");
-                LMNetwork.Client.requestScan(client.player.getBlockPos());
+                for (ScrapLootEntity scrapLootEntity : client.player.getWorld().getEntitiesByClass(ScrapLootEntity.class, Box.of(client.player.getBlockPos().toCenterPos(), 15, 4, 15), entity -> entity.hasItem())) {
+                    scrapLootEntity.renderText = true;
+                    scannedLootValue += scrapLootEntity.getScrapValue();
+                }
+                //LMNetwork.Client.requestScan(client.player.getBlockPos());
             }
 
             if(!canScan) {

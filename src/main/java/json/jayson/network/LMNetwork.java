@@ -40,6 +40,7 @@ public class LMNetwork {
             ClientPlayNetworking.send(LMNetwork.PICKUP_SCRAP_ID, byteBufs);
         }
 
+        @Deprecated
         public static void requestScan(BlockPos pos) {
             PacketByteBuf byteBufs = PacketByteBufs.create();
             byteBufs.writeBlockPos(pos);
@@ -49,6 +50,7 @@ public class LMNetwork {
     }
 
     public static class Server {
+        @Deprecated
         public static void sendScanLootPacket(ServerPlayerEntity player, int loot) {
             PacketByteBuf byteBufs = PacketByteBufs.create();
             byteBufs.writeInt(loot);

@@ -24,7 +24,8 @@ public class ScrapLootEntity extends Entity implements IScrapValue {
     private static final TrackedData<Integer> SCRAP_VALUE;
     private static final TrackedData<Integer> GRAB_TIME;
     private static final TrackedData<ItemStack> ITEM;
-
+    public boolean renderText = false;
+    public float renderTextTime = 0;
 
     static {
         ITEM = DataTracker.registerData(ScrapLootEntity.class, TrackedDataHandlerRegistry.ITEM_STACK);
