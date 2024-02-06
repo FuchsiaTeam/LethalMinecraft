@@ -8,10 +8,13 @@ import net.minecraft.util.Identifier;
 
 public class LMSounds {
 	
-	 public static final SoundEvent SMACK = registerSoundEvent("item_shovel_hit");
-	
-	private static SoundEvent registerSoundEvent(String name)
-	{
+	public static final SoundEvent SMACK = registerSoundEvent("item_shovel_hit");
+	public static final SoundEvent SCAN = registerSoundEvent("scan");
+	public static final SoundEvent PICKUP_METAL = registerSoundEvent("pickup_metal");
+	public static final SoundEvent PICKUP_PLASTIC = registerSoundEvent("pickup_plastic");
+
+
+	private static SoundEvent registerSoundEvent(String name) {
 		Identifier id = LMUtil.createLocation(name);
 		return Registry.register(Registries.SOUND_EVENT,id,SoundEvent.of(id));
 		

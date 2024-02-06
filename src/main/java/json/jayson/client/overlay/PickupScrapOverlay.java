@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.Drawable;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class PickupScrapOverlay implements HudRenderCallback {
@@ -23,7 +24,7 @@ public class PickupScrapOverlay implements HudRenderCallback {
         MinecraftClient client = MinecraftClient.getInstance();
         if (client != null) {
             if (SHOW) {
-                String text = "Grab: " + SCRAP + " [" + LMClient.pickUpScrapKeyBind.getBoundKeyLocalizedText().getString() + "]";
+                String text = Text.translatable("overlay.lm.pickup_text").getString().replaceAll("@s", SCRAP).replaceAll("@k", LMClient.pickUpScrapKeyBind.getBoundKeyLocalizedText().getString());
                 int x = (client.getWindow().getScaledWidth() / 2) - (client.textRenderer.getWidth(text) / 2);
                 int y = client.getWindow().getScaledHeight() / 2 + 10;
                 drawContext.drawText(client.textRenderer, text, x, y, 0xFFFFFFFF, true);

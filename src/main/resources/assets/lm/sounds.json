@@ -4,6 +4,27 @@
       "sounds": [
         "lm:item.shovel.hit"
       ]
+    },
+
+    "scan": {
+      "subtitle": "sounds.lm.scan",
+      "sounds": [
+        "lm:scan"
+      ]
+    },
+
+    "pickup_metal": {
+      "subtitle": "sounds.lm.item.pick_up.metal",
+      "sounds": [
+        "lm:item.pick_up.metal"
+      ]
+    },
+
+    "pickup_plastic": {
+      "subtitle": "sounds.lm.item.pick_up.plastic",
+      "sounds": [
+        "lm:item.pick_up.plastic"
+      ]
     }
 
 }
