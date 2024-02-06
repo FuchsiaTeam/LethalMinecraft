@@ -69,23 +69,24 @@ public class DefaultOverhaul implements HudRenderCallback {
     public void drawStaminaBar(DrawContext drawContext, int x, int y, MinecraftClient client) {
         /* THIS IS VERY HACKY AND NEEDS TOTALLY A REWRITE! */
         int staminaTemp = client.player.getAttachedOrElse(LMDataAttachments.STAMINA, 100);
+
         int staminaPerc = (int)(staminaTemp / 100.0 * 100.0f);
         int staminaU = 0;
         boolean staminaUpper = true;
 
         if(99>= staminaPerc) {
-            staminaU = 115 - staminaPerc;
+            staminaU = 100 - staminaPerc;
         }
 
-        if(67>= staminaPerc) {
-            staminaU = 25;
+        if(57 >= staminaPerc) {
+            staminaU = 0;
             staminaUpper = false;
         }
             /*staminaTemp = 127;
             int stamina = (int)(staminaTemp / 100.0 * 39.0f);
             int staminaU = 59 - stamina;*/
-        drawContext.drawTexture(STAMINA_BAR_TEX, x - 212, y - 110 + staminaU, 0, staminaU, staminaUpper ? 64 : (int)(staminaTemp / 100.0 * 64.0f), 64, 64,128);
-        drawContext.drawTexture(STAMINA_BAR_TEX, x - 212, y - 110, 0, 0, (int)(staminaTemp / 100.0 * 32.0f), 64, 64,128);
+        drawContext.drawTexture(STAMINA_BAR_TEX, x - 212, y - 102 + staminaU, 0, staminaU, staminaUpper ? 64 : (int)(staminaTemp / 100.0 * 64.0f) + 4, 64, 64,128);
+        drawContext.drawTexture(STAMINA_BAR_TEX, x - 212, y - 102 + 5, 0, 5, (int)(staminaTemp / 100.0 * 32.0f), 64, 64,128);
         drawContext.drawText(client.textRenderer, "0  lb", x - 160, y - 60, 0xFFA3691D, true);
     }
 

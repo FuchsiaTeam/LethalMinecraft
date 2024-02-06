@@ -51,6 +51,10 @@ public class LMUtil {
             return new Identifier(LM.ID, "textures/overlay/" + name);
         }
 
+        public static Identifier entityTexture(String name) {
+            return new Identifier(LM.ID, "textures/entity/" + name);
+        }
+
         public static Identifier network(String name) {
             return new Identifier(LM.ID, "network/" + name);
         }
