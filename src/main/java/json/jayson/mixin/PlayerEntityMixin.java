@@ -5,6 +5,8 @@ import json.jayson.common.objects.event.custom.PlayerDropItemCallback;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttributeInstance;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -12,6 +14,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity{
@@ -35,11 +40,32 @@ public abstract class PlayerEntityMixin extends LivingEntity{
 
     @Inject(at = @At("RETURN"), method = "tickMovement")
     private void onPlayerTick(CallbackInfo ci) {
+        int stamin = this.getAttachedOrElse(LMDataAttachments.STAMINA, 100);
         if(isSprinting()) {
-            int stamin = this.getAttachedOrElse(LMDataAttachments.STAMINA, 100);
             modifyAttached(LMDataAttachments.STAMINA, stamina -> stamin - 1);
+        }
+        if(stamin < 1) {
+            EntityAttributeInstance entityAttributeInstance = this.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED);
+            LivingEntity e = (LivingEntity) (Object) this;
+            entityAttributeInstance.removeModifier(e.SPRINTING_SPEED_BOOST.getId());
         }
         /* FORCE PLAYERS TO HOLD KEY */
         setSprinting(false);
     }
+
+    @Inject(at = @At("RETURN"), method = "tick")
+    private void tick(CallbackInfo ci) {
+        int stamin = this.getAttachedOrElse(LMDataAttachments.STAMINA, 100);
+        if(stamin < 1) {
+            EntityAttributeInstance entityAttributeInstance = this.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED);
+            LivingEntity e = (LivingEntity) (Object) this;
+            entityAttributeInstance.removeModifier(e.SPRINTING_SPEED_BOOST.getId());
+        }
+        if(!isSprinting()) {
+            if(new Random().nextInt(3) == 1) {
+                modifyAttached(LMDataAttachments.STAMINA, stamina -> stamin + 1);
+            }
+        }
+    }
+
 }
