@@ -67,7 +67,9 @@ public abstract class PlayerEntityMixin extends LivingEntity{
         }
         if(!isSprinting()) {
             if(new Random().nextInt(3) == 1) {
-                modifyAttached(LMDataAttachments.STAMINA, stamina -> stamin + 1);
+                if(stamin < 101) {
+                    modifyAttached(LMDataAttachments.STAMINA, stamina -> stamin + 1);
+                }
             }
         }
     }

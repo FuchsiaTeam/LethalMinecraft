@@ -43,14 +43,13 @@ public class ClientEndTickListener {
                 pickupCharge = 0;
             }
 
-            if(client.options.rightKey.isPressed() && canScan) {
+            if(client.mouse.wasRightButtonClicked() && canScan) {
                 canScan = false;
-                for (ScrapLootEntity scrapLootEntity : client.world.getEntitiesByClass(ScrapLootEntity.class, new Box(client.player.getPos(), new Vec3d(15, 0, 15)), entity -> entity.hasItem())) {
-                    scannedLootValue += scrapLootEntity.getScrapValue();
-                }
+                System.out.println("SCAN");
+                LMNetwork.Client.requestScan(client.player.getBlockPos());
             }
 
-            if(scannedLootValue != 0) {
+            if(!canScan) {
                 ++scanTick;
 
                 if(scanTick >= 50) {
