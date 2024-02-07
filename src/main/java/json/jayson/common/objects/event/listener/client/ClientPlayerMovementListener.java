@@ -1,11 +1,15 @@
 package json.jayson.common.objects.event.listener.client;
 
+import json.jayson.client.overlay.BlockOverlay;
 import json.jayson.client.overlay.PickupScrapOverlay;
+import json.jayson.common.objects.block.IBlockOverlay;
 import json.jayson.common.objects.entity.ScrapLootEntity;
 import json.jayson.common.objects.event.custom.ClientPlayerMovementCallback;
+import net.minecraft.block.Block;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.text.Text;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 
@@ -28,6 +32,16 @@ public class ClientPlayerMovementListener {
                 }
             } else {
                 PickupScrapOverlay.SHOW = false;
+            }
+
+            if(hit.getType() == HitResult.Type.BLOCK) {
+                BlockHitResult blockHit = (BlockHitResult) hit;
+                Block block = client.player.getWorld().getBlockState(blockHit.getBlockPos()).getBlock();
+                if(block instanceof IBlockOverlay blockOverlay) {
+                    BlockOverlay.BLOCK = blockOverlay;
+                }
+            } else {
+                BlockOverlay.BLOCK = null;
             }
         }));
     }

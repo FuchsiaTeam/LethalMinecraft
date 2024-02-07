@@ -12,6 +12,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -22,6 +23,10 @@ import java.util.Random;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity{
+
+    @Shadow public abstract boolean isCreative();
+
+    @Shadow public abstract boolean isSpectator();
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
@@ -43,19 +48,21 @@ public abstract class PlayerEntityMixin extends LivingEntity{
     @Inject(at = @At("RETURN"), method = "tickMovement")
     private void onPlayerTick(CallbackInfo ci) {
         int stamin = this.getAttachedOrCreate(LMDataAttachments.STAMINA);
-        if(isSprinting()) {
+        if(isSprinting() && !isCreative() && !isSpectator()) {
             modifyAttached(LMDataAttachments.STAMINA, stamina -> stamin - 1);
         }
         if(stamin < 1) {
             getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.1f);
         }
-        if(this.jumping) {
+        if(this.jumping && !isCreative() && !isSpectator()) {
             modifyAttached(LMDataAttachments.STAMINA, stamina -> stamin - 3);
             setJumping(false);
         }
 
         /* FORCE PLAYERS TO HOLD KEY */
-        setSprinting(false);
+        if(!isCreative() && !isSpectator()) {
+            setSprinting(false);
+        }
     }
 
     @Inject(at = @At("RETURN"), method = "tick")
