@@ -1,0 +1,6 @@
+{
+  "parent": "lm:item/3d/cans/coke",
+  "textures": {
+    "0": "lm:item/3d/cans/pepsi"
+  }
+}

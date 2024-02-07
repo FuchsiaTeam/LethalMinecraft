@@ -60,6 +60,9 @@ public class LM implements ModInitializer {
 		LMItemModelHandler.add(LMItems.PLASTIC_SALMON, "3d/fish/salmon", "fish/plastic_salmon");
 		LMItemModelHandler.add(LMItems.PLASTIC_TROPICAL, "3d/fish/tropical", "fish/plastic_tropical");
 
+		LMItemModelHandler.add(LMItems.COCA_COLA_CAN, "3d/cans/coke", "cans/coca_cola_can");
+		LMItemModelHandler.add(LMItems.PEPSI_CAN, "3d/cans/pepsi", "cans/pepsi_can");
+
 		LMItemModelHandler.add(LMItems.DEFAULT_FLASHLIGHT, "3d/flashlight/default/lime", "flashlights/default/lime_flashlight");
 		LMItemModelHandler.add(LMItems.IRON_STOP_SIGN, "signs/stop/iron_stop_sign");
 		LMItemModelHandler.add(LMItems.GOLDEN_YIELD_SIGN, "signs/yield/golden_yield_sign");
