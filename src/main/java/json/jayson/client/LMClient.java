@@ -70,7 +70,7 @@ public class LMClient implements ClientModInitializer {
     }
 
     public void registerModels() {
-        for (LMItemModelHandler.Data model : LMItemModelHandler.MODELS) {
+        for (LMItemModelHandler.Data model : LMItemModelHandler.getModels()) {
             if(!model.threeD.isEmpty()) {
                 ITEM_MODELS.addModel(model.item, model.threeD);
             }

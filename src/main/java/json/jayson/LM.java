@@ -4,13 +4,24 @@ import json.jayson.client.model.LMItemModelHandler;
 import json.jayson.common.objects.entity.coil_head.CoilHeadEntity;
 import json.jayson.common.objects.event.listener.PlayerDropItemEventListener;
 import json.jayson.common.init.*;
+import json.jayson.data.listener.MoonReloadListener;
 import json.jayson.network.LMNetwork;
+import json.jayson.util.LMUtil;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.SimpleResourceReloadListener;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
+import net.minecraft.resource.ResourceManager;
+import net.minecraft.resource.ResourceType;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.profiler.Profiler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executor;
 
 public class LM implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("lm");
@@ -26,6 +37,9 @@ public class LM implements ModInitializer {
 		LMSounds.register();
 		LMBlocks.register();
 		LMBlockEntities.register();
+
+		/* Data */
+		ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(new MoonReloadListener());
 
 
 		/* EVENTS */
@@ -67,5 +81,6 @@ public class LM implements ModInitializer {
 		LMItemModelHandler.add(LMItems.DEFAULT_FLASHLIGHT, "3d/flashlight/default/lime", "flashlights/default/lime_flashlight");
 		LMItemModelHandler.add(LMItems.IRON_STOP_SIGN, "signs/stop/iron_stop_sign");
 		LMItemModelHandler.add(LMItems.GOLDEN_YIELD_SIGN, "signs/yield/golden_yield_sign");
+
 	}
 }

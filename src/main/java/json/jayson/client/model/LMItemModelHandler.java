@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class LMItemModelHandler {
 
-    public static ArrayList<Data> MODELS = new ArrayList<>();
+    private static ArrayList<Data> MODELS = new ArrayList<>();
 
     /*
     * threeD = the 3D path to the model json
@@ -25,6 +25,23 @@ public class LMItemModelHandler {
         Data data = new Data();
         data.gui = gui;
         data.threeD = "";
+        data.item = item;
+        MODELS.add(data);
+    }
+
+
+    public static ArrayList<Data> getModels() {
+        return MODELS;
+    }
+
+    /*
+    * USED FOR EXTERNAL ADDONS TRYING TO USE THIS SYSTEM
+    * IT DOESNT MAKE A GENERATOR ENTRY
+    * */
+    public static void addExternal(Item item, String threeD) {
+        Data data = new Data();
+        data.gui = "";
+        data.threeD = threeD;
         data.item = item;
         MODELS.add(data);
     }

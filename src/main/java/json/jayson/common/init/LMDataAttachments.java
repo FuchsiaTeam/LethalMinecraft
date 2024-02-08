@@ -2,6 +2,7 @@ package json.jayson.common.init;
 
 import com.mojang.serialization.Codec;
 import json.jayson.LM;
+import json.jayson.util.LMIdentifier;
 import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
@@ -13,12 +14,12 @@ public class LMDataAttachments {
             .persistent(Codec.INT)
             .copyOnDeath()
             .initializer(() -> 100)
-            .buildAndRegister(LMUtil.LMIdentifier.data("stamina"));
+            .buildAndRegister(LMIdentifier.data("stamina"));
 
     public static final AttachmentType<Integer> WEIGHT = AttachmentRegistry.<Integer>builder()
             .persistent(Codec.INT)
             .copyOnDeath()
             .initializer(() -> 0)
-            .buildAndRegister(LMUtil.LMIdentifier.data("weight"));
+            .buildAndRegister(LMIdentifier.data("weight"));
 
 }

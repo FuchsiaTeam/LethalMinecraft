@@ -3,6 +3,7 @@ package json.jayson.datagen.assets;
 import com.google.gson.JsonElement;
 import json.jayson.client.model.LMItemModelHandler;
 import json.jayson.common.init.LMItems;
+import json.jayson.util.LMIdentifier;
 import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -30,7 +31,7 @@ public class LMModelProvider extends FabricModelProvider {
         modelGenerator = itemModelGenerator;
         //addTexturedItem(LMItems.AXOLOTL_PLUSHIE, "axolotl/pink_plushie");
 
-        for (LMItemModelHandler.Data model : LMItemModelHandler.MODELS) {
+        for (LMItemModelHandler.Data model : LMItemModelHandler.getModels()) {
             addTexturedItem(model.item, model.gui);
         }
 
@@ -38,6 +39,6 @@ public class LMModelProvider extends FabricModelProvider {
 
 
     public final void addTexturedItem(Item item, String texture) {
-        Models.GENERATED.upload(ModelIds.getItemModelId(item), TextureMap.layer0(LMUtil.LMIdentifier.itemTexture(texture)), modelGenerator.writer);
+        Models.GENERATED.upload(ModelIds.getItemModelId(item), TextureMap.layer0(LMIdentifier.itemTexture(texture)), modelGenerator.writer);
     }
 }

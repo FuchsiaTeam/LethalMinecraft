@@ -2,6 +2,7 @@ package json.jayson.client.overlay;
 
 import json.jayson.client.LMClient;
 import json.jayson.common.objects.event.listener.client.ClientEndTickListener;
+import json.jayson.util.LMIdentifier;
 import json.jayson.util.LMRenderUtil;
 import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
@@ -16,7 +17,7 @@ public class PickupScrapOverlay implements HudRenderCallback {
     public static boolean SHOW = false;
     public static String SCRAP = "Scrap";
 
-    private final Identifier OVERLAY_TEX = LMUtil.LMIdentifier.overlay("pickup_overlay.png");
+    private final Identifier OVERLAY_TEX = LMIdentifier.overlay("pickup_overlay.png");
 
 
     @Override

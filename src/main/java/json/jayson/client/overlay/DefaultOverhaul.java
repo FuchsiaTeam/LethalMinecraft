@@ -3,6 +3,7 @@ package json.jayson.client.overlay;
 import json.jayson.common.init.LMDataAttachments;
 import json.jayson.common.objects.event.listener.client.ClientEndTickListener;
 import json.jayson.common.objects.item.IAmScrapLoot;
+import json.jayson.util.LMIdentifier;
 import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
@@ -12,10 +13,10 @@ import net.minecraft.util.Identifier;
 
 public class DefaultOverhaul implements HudRenderCallback {
 
-    private final Identifier PLAYER_TEX = LMUtil.LMIdentifier.overlay("game_hud/player.png");
-    private final Identifier STAMINA_BAR_TEX = LMUtil.LMIdentifier.overlay("game_hud/stamina_bar.png");
-    private final Identifier SCAN_BACKGROUND_TEX = LMUtil.LMIdentifier.overlay("game_hud/full_scan.png");
-    private final Identifier TIME_BORDER_TEX = LMUtil.LMIdentifier.overlay("game_hud/time_border.png");
+    private final Identifier PLAYER_TEX = LMIdentifier.overlay("game_hud/player.png");
+    private final Identifier STAMINA_BAR_TEX = LMIdentifier.overlay("game_hud/stamina_bar.png");
+    private final Identifier SCAN_BACKGROUND_TEX = LMIdentifier.overlay("game_hud/full_scan.png");
+    private final Identifier TIME_BORDER_TEX = LMIdentifier.overlay("game_hud/time_border.png");
 
     @Override
     public void onHudRender(DrawContext drawContext, float tickDelta) {

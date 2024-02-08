@@ -3,6 +3,7 @@ package json.jayson.network;
 import json.jayson.network.packets.c2s.PickUpScrapPacket;
 import json.jayson.network.packets.c2s.RequestScanPacket;
 import json.jayson.network.packets.s2c.ScanLootPacket;
+import json.jayson.util.LMIdentifier;
 import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
@@ -18,9 +19,9 @@ import java.util.UUID;
 
 public class LMNetwork {
 
-    public static final Identifier PICKUP_SCRAP_ID = LMUtil.LMIdentifier.network("pickup_scrap");
-    public static final Identifier SCAN_LOOT_ID = LMUtil.LMIdentifier.network("scan_loot");
-    public static final Identifier REQUEST_SCAN_ID = LMUtil.LMIdentifier.network("request_scan");
+    public static final Identifier PICKUP_SCRAP_ID = LMIdentifier.network("pickup_scrap");
+    public static final Identifier SCAN_LOOT_ID = LMIdentifier.network("scan_loot");
+    public static final Identifier REQUEST_SCAN_ID = LMIdentifier.network("request_scan");
 
 
     public static void registerS2C() {

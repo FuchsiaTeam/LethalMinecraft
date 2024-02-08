@@ -1,6 +1,7 @@
 package json.jayson.client.render.entity;
 
 import json.jayson.common.objects.entity.ScrapLootEntity;
+import json.jayson.util.LMIdentifier;
 import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleRenderEvents;
 import net.minecraft.client.MinecraftClient;
@@ -32,7 +33,7 @@ public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
         super(ctx);
     }
 
-    private static final Identifier SCAN_CIRCLE_TEX = LMUtil.LMIdentifier.overlay("scan_circle.png");
+    private static final Identifier SCAN_CIRCLE_TEX = LMIdentifier.overlay("scan_circle.png");
     private static final RenderLayer LAYER;
 
     @Override
