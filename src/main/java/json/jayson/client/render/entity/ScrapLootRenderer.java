@@ -25,6 +25,8 @@ import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 import org.joml.Quaternionf;
 
+import java.util.Random;
+
 public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
     public ScrapLootRenderer(EntityRendererFactory.Context ctx) {
         super(ctx);
@@ -63,29 +65,28 @@ public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
             matrices.multiply(this.dispatcher.getRotation());
             matrices.scale(-0.025F, -0.025F, 0.025F);
             Matrix4f matrix4f = matrices.peek().getPositionMatrix();
-            float g = MinecraftClient.getInstance().options.getTextBackgroundOpacity(0.25F);
-            int j = (int)(g * 255.0F) << 24;
+            int j = 0xCC297D23;
             TextRenderer textRenderer = this.getTextRenderer();
-            float h = (float)(-textRenderer.getWidth(entity.getItem().getName()) / 2);
-            textRenderer.draw(entity.getItem().getName(), h, 0, 0xFF297D23, false, matrix4f, vertexConsumers, TextRenderer.TextLayerType.NORMAL, j, light);
+            float h = 50 + (float)(-textRenderer.getWidth(entity.getItem().getName()) / 2);
+            textRenderer.draw(entity.getItem().getName(), h, 0, 0xFF5CFF87, false, matrix4f, vertexConsumers, TextRenderer.TextLayerType.NORMAL, j, light);
             matrices.pop();
 
 
             matrices.push();
-            matrices.translate(0.0F, 1.3f, 0.0F);
+            matrices.translate(0.0F, 0.74f, 0.0F);
             matrices.multiply(this.dispatcher.getRotation());
             matrices.scale(-0.025F, -0.025F, 0.025F);
             Matrix4f m4f = matrices.peek().getPositionMatrix();
-            h = (float)(-textRenderer.getWidth(String.valueOf(entity.getScrapValue())) / 2);
-            textRenderer.draw(String.valueOf(entity.getScrapValue()), h, 0, 0xFF297D23, false, m4f, vertexConsumers, TextRenderer.TextLayerType.NORMAL, j, light);
+            h = 35 + (float)(-textRenderer.getWidth("Value:  " + entity.getScrapValue()) / 2);
+            textRenderer.draw("Value:  " + entity.getScrapValue(), h, 0, 0xFF5CFF87, false, m4f, vertexConsumers, TextRenderer.TextLayerType.NORMAL, j, light);
             matrices.pop();
-            renderScanCircles(matrices, vertexConsumers, light, tickdelta);
+            renderScanCircles(matrices, entity, vertexConsumers, light, tickdelta);
         }
     }
 
     float scaleCircles = 0;
-    protected void renderScanCircles(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int light, float tickDelta) {
-        if(1.01f > scaleCircles) {
+    protected void renderScanCircles(MatrixStack matrixStack, ScrapLootEntity scrapLootEntity, VertexConsumerProvider vertexConsumerProvider, int light, float tickDelta) {
+        if(scrapLootEntity.maxCircleSize > scaleCircles) {
             scaleCircles += tickDelta * 0.15f;
         }
         matrixStack.push();

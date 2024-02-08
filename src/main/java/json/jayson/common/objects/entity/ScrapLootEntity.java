@@ -20,12 +20,15 @@ import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public class ScrapLootEntity extends Entity implements IScrapValue {
     private static final TrackedData<Integer> SCRAP_VALUE;
     private static final TrackedData<Integer> GRAB_TIME;
     private static final TrackedData<ItemStack> ITEM;
     public boolean renderText = false;
     public float renderTextTime = 0;
+    public final double maxCircleSize = new Random().nextDouble(1.0, 1.45);
 
     static {
         ITEM = DataTracker.registerData(ScrapLootEntity.class, TrackedDataHandlerRegistry.ITEM_STACK);
