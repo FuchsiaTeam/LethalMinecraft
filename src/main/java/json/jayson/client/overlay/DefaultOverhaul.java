@@ -4,25 +4,18 @@ import json.jayson.common.init.LMDataAttachments;
 import json.jayson.common.objects.event.listener.client.ClientEndTickListener;
 import json.jayson.common.objects.item.IAmScrapLoot;
 import json.jayson.util.LMUtil;
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.screen.option.KeybindsScreen;
-import net.minecraft.client.input.KeyboardInput;
-import net.minecraft.client.option.GameOptions;
-import net.minecraft.client.option.KeyBinding;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-
-import java.util.ArrayList;
-import java.util.Random;
 
 public class DefaultOverhaul implements HudRenderCallback {
 
     private final Identifier PLAYER_TEX = LMUtil.LMIdentifier.overlay("game_hud/player.png");
     private final Identifier STAMINA_BAR_TEX = LMUtil.LMIdentifier.overlay("game_hud/stamina_bar.png");
     private final Identifier SCAN_BACKGROUND_TEX = LMUtil.LMIdentifier.overlay("game_hud/full_scan.png");
+    private final Identifier TIME_BORDER_TEX = LMUtil.LMIdentifier.overlay("game_hud/time_border.png");
 
     @Override
     public void onHudRender(DrawContext drawContext, float tickDelta) {
@@ -40,7 +33,14 @@ public class DefaultOverhaul implements HudRenderCallback {
 
             /* LOOT */
             drawScan(drawContext, x, y, client);
+
+            /* TIME */
+            drawTime(drawContext, x, y, client);
         }
+    }
+
+    public void drawTime(DrawContext drawContext, int x, int y, MinecraftClient client) {
+        drawContext.drawTexture(TIME_BORDER_TEX, x - 32, 12, 0, 0, 64, 32,64, 32);
     }
 
     public void drawScan(DrawContext drawContext, int x, int y, MinecraftClient client) {

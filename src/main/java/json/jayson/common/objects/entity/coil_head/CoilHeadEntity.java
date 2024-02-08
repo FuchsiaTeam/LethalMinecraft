@@ -1,5 +1,6 @@
 package json.jayson.common.objects.entity.coil_head;
 
+import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -15,6 +16,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.RaycastContext;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -32,7 +34,7 @@ public class CoilHeadEntity extends MobEntity implements GeoEntity {
 
     public static final String IDLE_ANIMATION = "idle";
     public static final String SPRINGED_ANIMATION = "springed";
-
+    private boolean seen = false;
     private boolean springed = false;
 
     @Override
@@ -73,15 +75,17 @@ public class CoilHeadEntity extends MobEntity implements GeoEntity {
     @Override
     public void tick() {
         super.tick();
-        if(getWorld().getTime() % 20 == 0) {
-            for (PlayerEntity players : getWorld().getEntitiesByClass(PlayerEntity.class, Box.of(getPos(), 15, 2, 15), player -> !player.isCreative())) {
-                if(players.canSee(this)) {
-                    System.out.println("SEEN");
-                } else {
-                    System.out.println("NOT SEEN");
+        if(!getWorld().isClient) {
+            if (getWorld().getTime() % 20 == 0) {
+                for (PlayerEntity players : getWorld().getEntitiesByClass(PlayerEntity.class, Box.of(getPos(), 15, 2, 15), player -> player.isCreative())) {
+                    // Only checks if blocks are in the way, not if the entity is in the viewport or not
+                    if (players.canSee(this)) {
+                        seen = false;
+                    }
                 }
             }
         }
+
     }
 
     @Override

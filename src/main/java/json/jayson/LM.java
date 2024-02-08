@@ -30,6 +30,7 @@ public class LM implements ModInitializer {
 
 		/* EVENTS */
 		PlayerDropItemEventListener.register();
+
 		/*ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
 			handler.player.setSprinting(false);
 		});*/
