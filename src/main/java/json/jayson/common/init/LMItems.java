@@ -38,10 +38,14 @@ public class LMItems {
     public static final Item PLASTIC_PUFFER_FISH = registerItem("plastic_puffer_fish", new DefaultScrapItem(new FabricItemSettings()));
 
 
-    public static final Item COCA_COLA = registerItem("coca_cola", new DefaultScrapItem(new FabricItemSettings()));
     public static final Item COCA_COLA_CAN = registerItem("coca_cola_can", new DefaultScrapItem(new FabricItemSettings()));
-    public static final Item PEPSI = registerItem("pepsi", new DefaultScrapItem(new FabricItemSettings()));
     public static final Item PEPSI_CAN = registerItem("pepsi_can", new DefaultScrapItem(new FabricItemSettings()));
+
+    public static final Item FUMO_CIRNO = registerItem("cirno_fumo", new DefaultScrapItem(new FabricItemSettings()));
+    public static final Item FUMO_FLANDRE = registerItem("flandre_fumo", new DefaultScrapItem(new FabricItemSettings()));
+    public static final Item FUMO_XR = registerItem("xr_fumo", new DefaultScrapItem(new FabricItemSettings()));
+    public static final Item FUMO_REMILIA = registerItem("remilia_fumo", new DefaultScrapItem(new FabricItemSettings()));
+
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, LMUtil.createLocation(name), item);

@@ -30,10 +30,12 @@ public class LMTabs {
                 entries.add(LMItems.PLASTIC_SALMON);
                 entries.add(LMItems.PLASTIC_TROPICAL);
                 entries.add(LMItems.PLASTIC_PUFFER_FISH);
-                entries.add(LMItems.COCA_COLA);
                 entries.add(LMItems.COCA_COLA_CAN);
-                entries.add(LMItems.PEPSI);
                 entries.add(LMItems.PEPSI_CAN);
+                entries.add(LMItems.FUMO_CIRNO);
+                entries.add(LMItems.FUMO_FLANDRE);
+                entries.add(LMItems.FUMO_REMILIA);
+                entries.add(LMItems.FUMO_XR);
             }).build());
 
     public static final ItemGroup LM_BUILDING_GROUP = Registry.register(Registries.ITEM_GROUP, LMUtil.createLocation("lethalminecraftbuilding"),
@@ -44,6 +46,7 @@ public class LMTabs {
                 entries.add(LMBlocks.STEEL_PILLAR);
                 entries.add(LMBlocks.STEEL_LIGHT_WALL);
                 entries.add(LMBlocks.REINFORCED_GLASS);
+                entries.add(LMBlocks.ENTRANCE_DOOR);
             }).build());
 
     public static final ItemGroup LM_DEV = Registry.register(Registries.ITEM_GROUP, LMUtil.createLocation("lethalminecraftdev"),

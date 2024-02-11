@@ -39,7 +39,7 @@ public class LM implements ModInitializer {
 		LMBlockEntities.register();
 
 		/* Data */
-		ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(new MoonReloadListener());
+		//ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(new MoonReloadListener());
 
 
 		/* EVENTS */
@@ -81,6 +81,11 @@ public class LM implements ModInitializer {
 		LMItemModelHandler.add(LMItems.DEFAULT_FLASHLIGHT, "3d/flashlight/default/lime", "flashlights/default/lime_flashlight");
 		LMItemModelHandler.add(LMItems.IRON_STOP_SIGN, "signs/stop/iron_stop_sign");
 		LMItemModelHandler.add(LMItems.GOLDEN_YIELD_SIGN, "signs/yield/golden_yield_sign");
+
+		LMItemModelHandler.add(LMItems.FUMO_FLANDRE, "3d/fumo/flandre", "flashlights/default/lime_flashlight");
+		LMItemModelHandler.add(LMItems.FUMO_CIRNO, "3d/fumo/cirno", "flashlights/default/lime_flashlight");
+		LMItemModelHandler.add(LMItems.FUMO_XR, "3d/fumo/xr", "flashlights/default/lime_flashlight");
+		LMItemModelHandler.add(LMItems.FUMO_REMILIA, "3d/fumo/remilia", "flashlights/default/lime_flashlight");
 
 	}
 }

@@ -39,6 +39,8 @@ public class ClientPlayerMovementListener {
                 Block block = client.player.getWorld().getBlockState(blockHit.getBlockPos()).getBlock();
                 if(block instanceof IBlockOverlay blockOverlay) {
                     BlockOverlay.BLOCK = blockOverlay;
+                } else {
+                    BlockOverlay.BLOCK = null;
                 }
             } else {
                 BlockOverlay.BLOCK = null;
