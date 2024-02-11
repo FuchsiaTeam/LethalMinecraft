@@ -3,13 +3,13 @@ package json.jayson.common.objects.block;
 import json.jayson.client.LMClient;
 import json.jayson.client.overlay.PickupScrapOverlay;
 import json.jayson.common.objects.event.listener.client.ClientEndTickListener;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockSetType;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.DoorBlock;
+import net.minecraft.block.*;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.text.Text;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 public class LootDungeonDoorBlock extends DoorBlock implements IBlockOverlay, IBlockHoldUse {
 
@@ -65,8 +65,18 @@ public class LootDungeonDoorBlock extends DoorBlock implements IBlockOverlay, IB
     }
 
     @Override
-    public void onBlockUse() {
+    public void onBlockUse(World world, BlockPos pos) {
+        switch (doorType) {
+            case ENTRANCE -> {
+            }
 
+            case EXIT ->  {
+            }
+
+            case DEFAULT -> {
+                setOpen(null, world, world.getBlockState(pos), pos, !isOpen(world.getBlockState(pos)));
+            }
+        }
     }
 
     public static enum DoorType {

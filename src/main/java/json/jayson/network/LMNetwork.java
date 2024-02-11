@@ -1,5 +1,6 @@
 package json.jayson.network;
 
+import json.jayson.network.packets.c2s.OnBlockUsePacket;
 import json.jayson.network.packets.c2s.PickUpScrapPacket;
 import json.jayson.network.packets.c2s.RequestScanPacket;
 import json.jayson.network.packets.s2c.ScanLootPacket;
@@ -22,6 +23,7 @@ public class LMNetwork {
     public static final Identifier PICKUP_SCRAP_ID = LMIdentifier.network("pickup_scrap");
     public static final Identifier SCAN_LOOT_ID = LMIdentifier.network("scan_loot");
     public static final Identifier REQUEST_SCAN_ID = LMIdentifier.network("request_scan");
+    public static final Identifier BLOCK_USE_ID = LMIdentifier.network("block_use");
 
 
     public static void registerS2C() {
@@ -31,6 +33,7 @@ public class LMNetwork {
     public static void registerC2S() {
         ServerPlayNetworking.registerGlobalReceiver(PICKUP_SCRAP_ID, PickUpScrapPacket::receive);
         ServerPlayNetworking.registerGlobalReceiver(REQUEST_SCAN_ID, RequestScanPacket::receive);
+        ServerPlayNetworking.registerGlobalReceiver(BLOCK_USE_ID, OnBlockUsePacket::receive);
     }
 
     public static class Client {
@@ -39,6 +42,13 @@ public class LMNetwork {
             PacketByteBuf byteBufs = PacketByteBufs.create();
             byteBufs.writeUuid(scrapEntity);
             ClientPlayNetworking.send(LMNetwork.PICKUP_SCRAP_ID, byteBufs);
+        }
+
+
+        public static void sendBlockUsePacket(BlockPos pos) {
+            PacketByteBuf byteBufs = PacketByteBufs.create();
+            byteBufs.writeBlockPos(pos);
+            ClientPlayNetworking.send(LMNetwork.BLOCK_USE_ID, byteBufs);
         }
 
         @Deprecated

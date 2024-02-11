@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left_open",
+  "textures": {
+    "bottom": "lm:block/building/door/dungeon/dungeon_door_bottom",
+    "top": "lm:block/building/door/dungeon/dungeon_door_top"
+  }
+}

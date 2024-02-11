@@ -56,7 +56,8 @@ public class ClientEndTickListener {
                         ++blockUseCharge;
                         maxBlockUseCharge = blockHoldUse.getBlockUseTime();
                         if(blockUseCharge >= maxBlockUseCharge) {
-                            blockHoldUse.onBlockUse();
+                            blockHoldUse.onBlockUseClient();
+                            LMNetwork.Client.sendBlockUsePacket(blockHitResult.getBlockPos());
                             blockUseCharge = 0;
                         }
                     }
