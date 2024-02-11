@@ -17,7 +17,7 @@ public class PickupScrapOverlay implements HudRenderCallback {
     public static boolean SHOW = false;
     public static String SCRAP = "Scrap";
 
-    private final Identifier OVERLAY_TEX = LMIdentifier.overlay("pickup_overlay.png");
+    public static final Identifier OVERLAY_TEX = LMIdentifier.overlay("pickup_overlay.png");
 
 
     @Override

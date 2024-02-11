@@ -2,11 +2,14 @@ package json.jayson.common.objects.event.listener.client;
 
 import json.jayson.client.LMClient;
 import json.jayson.common.init.LMSounds;
+import json.jayson.common.objects.block.IBlockHoldUse;
 import json.jayson.common.objects.entity.ScrapLootEntity;
 import json.jayson.network.LMNetwork;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Box;
@@ -16,6 +19,10 @@ public class ClientEndTickListener {
 
     public static int pickupCharge = 0;
     public static int maxPickupCharge = 13;
+
+    public static int blockUseCharge = 0;
+    public static int maxBlockUseCharge = 13;
+
     public static int currentMaxPickupCharge = maxPickupCharge;
     public static boolean canScan = true;
     public static int scannedLootValue = 0;
@@ -23,13 +30,13 @@ public class ClientEndTickListener {
     public static void register() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if(LMClient.pickUpScrapKeyBind.isPressed()) {
-                ++pickupCharge;
                 HitResult hit = client.crosshairTarget;
                 if (hit.getType() == HitResult.Type.ENTITY) {
                     EntityHitResult entityHit = (EntityHitResult) hit;
                     Entity entity = entityHit.getEntity();
                     int adjustedMax = maxPickupCharge;
                     if (entity instanceof ScrapLootEntity scrapLootEntity) {
+                        ++pickupCharge;
                         if (scrapLootEntity.hasItem()) {
                             adjustedMax = scrapLootEntity.getGrabTime();
                             currentMaxPickupCharge = adjustedMax;
@@ -41,16 +48,33 @@ public class ClientEndTickListener {
                         }
                     }
                 }
+
+                if(hit.getType() == HitResult.Type.BLOCK) {
+                    BlockHitResult blockHitResult = (BlockHitResult) hit;
+                    Block block = client.player.getWorld().getBlockState(blockHitResult.getBlockPos()).getBlock();
+                    if(block instanceof IBlockHoldUse blockHoldUse) {
+                        ++blockUseCharge;
+                        maxBlockUseCharge = blockHoldUse.getBlockUseTime();
+                        if(blockUseCharge >= maxBlockUseCharge) {
+                            blockHoldUse.onBlockUse();
+                            blockUseCharge = 0;
+                        }
+                    }
+
+                }
             } else {
                 pickupCharge = 0;
+                blockUseCharge = 0;
             }
 
             if(client.mouse.wasRightButtonClicked() && canScan) {
                 canScan = false;
+                client.player.playSound(LMSounds.SCAN, SoundCategory.MASTER, 15, 1);
                 for (ScrapLootEntity scrapLootEntity : client.player.getWorld().getEntitiesByClass(ScrapLootEntity.class, Box.of(client.player.getBlockPos().toCenterPos(), 15, 4, 15), entity -> entity.hasItem())) {
                     scrapLootEntity.renderText = true;
-                    scannedLootValue += scrapLootEntity.getScrapValue();
-                    client.player.playSound(LMSounds.SCAN, SoundCategory.MASTER, 15, 1);
+                    if(client.player.canSee(scrapLootEntity)) {
+                        scannedLootValue += scrapLootEntity.getScrapValue();
+                    }
                 }
                 //LMNetwork.Client.requestScan(client.player.getBlockPos());
             }
