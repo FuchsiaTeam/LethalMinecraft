@@ -47,6 +47,8 @@ public class LMTabs {
                 entries.add(LMBlocks.STEEL_LIGHT_WALL);
                 entries.add(LMBlocks.REINFORCED_GLASS);
                 entries.add(LMBlocks.ENTRANCE_DOOR);
+                entries.add(LMBlocks.EXIT_DOOR);
+                entries.add(LMBlocks.DUNGEON_DOOR);
             }).build());
 
     public static final ItemGroup LM_DEV = Registry.register(Registries.ITEM_GROUP, LMUtil.createLocation("lethalminecraftdev"),
