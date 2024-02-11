@@ -2,6 +2,7 @@ package json.jayson.common.objects.block;
 
 import json.jayson.client.LMClient;
 import json.jayson.client.overlay.PickupScrapOverlay;
+import json.jayson.common.init.LMBlockSetTypes;
 import json.jayson.common.objects.event.listener.client.ClientEndTickListener;
 import net.minecraft.block.*;
 import net.minecraft.client.MinecraftClient;
@@ -15,7 +16,7 @@ public class LootDungeonDoorBlock extends DoorBlock implements IBlockOverlay, IB
 
     DoorType doorType;
     public LootDungeonDoorBlock(Settings settings, DoorType doorType) {
-        super(BlockSetType.IRON, settings);
+        super(LMBlockSetTypes.DUNGEON_DOOR, settings);
         this.doorType = doorType;
     }
 
