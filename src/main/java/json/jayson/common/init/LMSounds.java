@@ -13,6 +13,11 @@ public class LMSounds {
 	public static final SoundEvent PICKUP_METAL = registerSoundEvent("pickup_metal");
 	public static final SoundEvent PICKUP_PLASTIC = registerSoundEvent("pickup_plastic");
 
+	public static final SoundEvent DOOR_OPEN_0 = registerSoundEvent("door_open1");
+	public static final SoundEvent DOOR_OPEN_1 = registerSoundEvent("door_open2");
+	public static final SoundEvent DOOR_CLOSE_0 = registerSoundEvent("door_close1");
+	public static final SoundEvent DOOR_CLOSE_1 = registerSoundEvent("door_close2");
+
 
 	private static SoundEvent registerSoundEvent(String name) {
 		Identifier id = LMUtil.createLocation(name);

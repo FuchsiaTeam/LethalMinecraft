@@ -1,30 +1,58 @@
 {
-    "item_shovel_hit": {
-      "subtitle": "sounds.lm.item.shovel.hit",
-      "sounds": [
-        "lm:item.shovel.hit"
-      ]
-    },
+  "item_shovel_hit": {
+    "subtitle": "sounds.lm.item.shovel.hit",
+    "sounds": [
+      "lm:item.shovel.hit"
+    ]
+  },
 
-    "scan": {
-      "subtitle": "sounds.lm.scan",
-      "sounds": [
-        "lm:scan"
-      ]
-    },
+  "scan": {
+    "subtitle": "sounds.lm.scan",
+    "sounds": [
+      "lm:scan"
+    ]
+  },
 
-    "pickup_metal": {
-      "subtitle": "sounds.lm.item.pickup.metal",
-      "sounds": [
-        "lm:item.pickup.metal"
-      ]
-    },
+  "pickup_metal": {
+    "subtitle": "sounds.lm.item.pickup.metal",
+    "sounds": [
+      "lm:item.pickup.metal"
+    ]
+  },
 
-    "pickup_plastic": {
-      "subtitle": "sounds.lm.item.pickup.plastic",
-      "sounds": [
-        "lm:item.pickup.plastic"
-      ]
-    }
+  "pickup_plastic": {
+    "subtitle": "sounds.lm.item.pickup.plastic",
+    "sounds": [
+      "lm:item.pickup.plastic"
+    ]
+  },
+
+  "door_open1": {
+    "subtitle": "sounds.lm.item.door.open",
+    "sounds": [
+      "lm:door.open1"
+    ]
+  },
+
+  "door_open2": {
+    "subtitle": "sounds.lm.item.door.open",
+    "sounds": [
+      "lm:door.open2"
+    ]
+  },
+
+  "door_close1": {
+    "subtitle": "sounds.lm.item.door.close",
+    "sounds": [
+      "lm:door.close1"
+    ]
+  },
+
+  "door_close2": {
+    "subtitle": "sounds.lm.item.door.close",
+    "sounds": [
+      "lm:door.close2"
+    ]
+  }
 
 }
