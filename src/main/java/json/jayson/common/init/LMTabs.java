@@ -56,6 +56,8 @@ public class LMTabs {
                 entries.add(LMBlocks.LOOT_POSITION);
                 entries.add(addLootMarker(LMMarkers.EXPERIMENTATION));
                 entries.add(Blocks.STRUCTURE_BLOCK);
+                entries.add(Blocks.JIGSAW);
+                entries.add(Blocks.BARRIER);
                 entries.add(Blocks.STRUCTURE_VOID);
                 entries.add(Blocks.COMMAND_BLOCK);
             }).build());
