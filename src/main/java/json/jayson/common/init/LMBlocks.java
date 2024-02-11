@@ -23,7 +23,9 @@ public class LMBlocks {
     public static final Block STEEL_PLATE = registerBlock("steel_plate", new Block(FabricBlockSettings.create()));
     public static final Block REINFORCED_GLASS = registerBlock("reinforced_glass", new Block(FabricBlockSettings.create().nonOpaque()));
 
-    public static final Block ENTRANCE_DOOR = registerBlock("entrance_door", new LootDungeonDoorBlock(FabricBlockSettings.create().nonOpaque()));
+    public static final Block ENTRANCE_DOOR = registerBlock("entrance_door", new LootDungeonDoorBlock(FabricBlockSettings.create().nonOpaque(), LootDungeonDoorBlock.DoorType.ENTRANCE));
+    public static final Block EXIT_DOOR = registerBlock("exit_door", new LootDungeonDoorBlock(FabricBlockSettings.create().nonOpaque(), LootDungeonDoorBlock.DoorType.EXIT));
+    public static final Block DUNGEON_DOOR = registerBlock("dungeon_door", new LootDungeonDoorBlock(FabricBlockSettings.create().nonOpaque(), LootDungeonDoorBlock.DoorType.DEFAULT));
     public static final Block LOOT_POSITION = registerBlock("loot_position", new LootSpawnPositionBlock(FabricBlockSettings.create().nonOpaque()));
 
 
