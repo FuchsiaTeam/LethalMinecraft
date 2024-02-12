@@ -16,10 +16,9 @@ public class LMDataAttachments {
             .initializer(() -> 100)
             .buildAndRegister(LMIdentifier.data("stamina"));
 
-    public static final AttachmentType<Integer> WEIGHT = AttachmentRegistry.<Integer>builder()
-            .persistent(Codec.INT)
-            .copyOnDeath()
-            .initializer(() -> 0)
+    public static final AttachmentType<Float> WEIGHT = AttachmentRegistry.<Float>builder()
+            .persistent(Codec.FLOAT)
+            .initializer(() -> 0.0f)
             .buildAndRegister(LMIdentifier.data("weight"));
 
 }

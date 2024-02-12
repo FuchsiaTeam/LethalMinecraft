@@ -1,5 +1,6 @@
 package json.jayson.common.objects.event.listener;
 
+import json.jayson.common.init.LMDataAttachments;
 import json.jayson.common.objects.entity.ScrapLootEntity;
 import json.jayson.common.objects.item.IAmScrapLoot;
 import json.jayson.common.objects.event.custom.PlayerDropItemCallback;
@@ -28,6 +29,8 @@ public class PlayerDropItemEventListener {
                         lootEntity.setScrapValue(scrapLoot.getScrapValue(stack.getNbt()));
                         lootEntity.setGrabTime(scrapLoot.getGrabTime());
                         lootEntity.setYaw(LMUtil.RANDOM.nextFloat() * 360);
+                        float weight = player.getAttachedOrCreate(LMDataAttachments.WEIGHT);
+                        player.modifyAttached(LMDataAttachments.WEIGHT, w -> weight - scrapLoot.getWeight(stack.getNbt()));
                         player.getWorld().spawnEntity(lootEntity);
                         return new ItemEntity(player.getWorld(), player.getPos().x, player.getPos().y, player.getPos().z, new ItemStack(Items.AIR));
                     }

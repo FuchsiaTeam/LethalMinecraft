@@ -1,6 +1,7 @@
 package json.jayson.network.packets.c2s;
 
 
+import json.jayson.common.init.LMDataAttachments;
 import json.jayson.common.init.LMSounds;
 import json.jayson.common.objects.entity.ScrapLootEntity;
 import json.jayson.common.objects.item.IAmScrapLoot;
@@ -25,7 +26,9 @@ public class PickUpScrapPacket {
             Entity entity = world.getEntity(uuid);
             if(entity instanceof ScrapLootEntity scrapLootEntity) {
                 IAmScrapLoot scrapLoot = (IAmScrapLoot) scrapLootEntity.getItem().getItem();
+                float weight = scrapLoot.getWeight(scrapLootEntity.getItem().getNbt());
                 if(player.getInventory().insertStack(scrapLootEntity.getItem())) {
+                    player.modifyAttached(LMDataAttachments.WEIGHT, w -> w + weight);
                     world.playSound(player, player.getBlockPos(), scrapLoot.getPickUpSound(), SoundCategory.PLAYERS, 1,1);
                     scrapLootEntity.remove(Entity.RemovalReason.DISCARDED);
                 }
