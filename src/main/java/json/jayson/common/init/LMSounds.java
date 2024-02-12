@@ -18,6 +18,8 @@ public class LMSounds {
 	public static final SoundEvent DOOR_CLOSE_0 = registerSoundEvent("door_close1");
 	public static final SoundEvent DOOR_CLOSE_1 = registerSoundEvent("door_close2");
 
+	public static final SoundEvent ICE_CREAM = registerSoundEvent("ice_cream");
+
 
 	private static SoundEvent registerSoundEvent(String name) {
 		Identifier id = LMUtil.createLocation(name);
