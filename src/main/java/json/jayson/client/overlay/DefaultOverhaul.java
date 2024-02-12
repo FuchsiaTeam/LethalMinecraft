@@ -96,7 +96,7 @@ public class DefaultOverhaul implements HudRenderCallback {
             int staminaU = 59 - stamina;*/
         drawContext.drawTexture(STAMINA_BAR_TEX, 23, y - 102 + staminaU, 0, staminaU, staminaUpper ? 64 : (int)(staminaTemp / 100.0 * 64.0f) + 4, 64, 64,128);
         drawContext.drawTexture(STAMINA_BAR_TEX, 23, y - 102 + 5, 0, 5, (int)(staminaTemp / 100.0 * 32.0f), 64, 64,128);
-        drawContext.drawText(client.textRenderer, client.player.getAttachedOrElse(LMDataAttachments.WEIGHT, 0.0f) + "  lb", 80, y - 60, 0xFFA3691D, true);
+        drawContext.drawText(client.textRenderer, client.player.getAttachedOrElse(LMDataAttachments.WEIGHT, 0.0f).floatValue() + "  lb", 80, y - 60, 0xFFA3691D, true);
     }
 
 }

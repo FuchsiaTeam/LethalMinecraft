@@ -28,6 +28,7 @@ public class PlayerDropItemEventListener {
                         lootEntity.setItem(stack);
                         lootEntity.setScrapValue(scrapLoot.getScrapValue(stack.getNbt()));
                         lootEntity.setGrabTime(scrapLoot.getGrabTime());
+                        lootEntity.setWeight(scrapLoot.getWeight(stack.getNbt()));
                         lootEntity.setYaw(LMUtil.RANDOM.nextFloat() * 360);
                         float weight = player.getAttachedOrCreate(LMDataAttachments.WEIGHT);
                         player.modifyAttached(LMDataAttachments.WEIGHT, w -> weight - scrapLoot.getWeight(stack.getNbt()));

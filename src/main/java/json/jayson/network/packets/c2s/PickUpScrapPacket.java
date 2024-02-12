@@ -26,9 +26,10 @@ public class PickUpScrapPacket {
             Entity entity = world.getEntity(uuid);
             if(entity instanceof ScrapLootEntity scrapLootEntity) {
                 IAmScrapLoot scrapLoot = (IAmScrapLoot) scrapLootEntity.getItem().getItem();
-                float weight = scrapLoot.getWeight(scrapLootEntity.getItem().getNbt());
+                float weight = scrapLootEntity.getWeight(scrapLootEntity.getItem().getNbt());
+                float currentWeight = player.getAttachedOrElse(LMDataAttachments.WEIGHT, 0.0f);
                 if(player.getInventory().insertStack(scrapLootEntity.getItem())) {
-                    player.modifyAttached(LMDataAttachments.WEIGHT, w -> w + weight);
+                    player.setAttached(LMDataAttachments.WEIGHT, currentWeight + weight);
                     world.playSound(player, player.getBlockPos(), scrapLoot.getPickUpSound(), SoundCategory.PLAYERS, 1,1);
                     scrapLootEntity.remove(Entity.RemovalReason.DISCARDED);
                 }
