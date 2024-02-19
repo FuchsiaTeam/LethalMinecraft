@@ -69,6 +69,7 @@ public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
     protected void renderName(ScrapLootEntity entity, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, float tickdelta) {
         double d = this.dispatcher.getSquaredDistanceToCamera(entity);
         if (!(d > 4096.0)) {
+            renderScanCircles(matrices, entity, vertexConsumers, light, tickdelta);
             matrices.push();
             matrices.translate(0.0F, 1.0f, 0.0F);
             matrices.multiply(this.dispatcher.getRotation());
@@ -90,7 +91,6 @@ public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
             //textRenderer.draw("Value:  " + entity.getScrapValue(), h, 0, 0xFF5CFF87, false, m4f, vertexConsumers, TextRenderer.TextLayerType.SEE_THROUGH, j, light);
             textRenderer.draw("Value:  " + entity.getScrapValue(), h, 0, 0xFF5CFF87, false, m4f, vertexConsumers, TextRenderer.TextLayerType.POLYGON_OFFSET, j, light);
             matrices.pop();
-            renderScanCircles(matrices, entity, vertexConsumers, light, tickdelta);
         }
     }
 
