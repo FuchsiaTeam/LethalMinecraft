@@ -1,22 +1,25 @@
 package json.jayson.client.render.entity;
 
+import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.systems.RenderSystem;
 import json.jayson.common.objects.entity.ScrapLootEntity;
 import json.jayson.util.LMIdentifier;
 import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleRenderEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
+import net.minecraft.client.gl.GlBlendState;
 import net.minecraft.client.particle.NoRenderParticle;
-import net.minecraft.client.render.OverlayTexture;
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.*;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.ExperienceOrbEntityRenderer;
+import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.potion.Potions;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -25,6 +28,11 @@ import net.minecraft.util.math.RotationAxis;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 import org.joml.Quaternionf;
+import org.lwjgl.glfw.GLFW;
+import org.lwjgl.opengl.GL;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL31;
+import org.lwjgl.opengl.GLUtil;
 
 import java.util.Random;
 
@@ -91,6 +99,7 @@ public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
             scaleCircles += tickDelta * 0.15f;
         }
         matrixStack.push();
+        //RenderSystem.disableDepthTest();
         matrixStack.translate(0F, 0.25F, 0f);
         matrixStack.multiply(this.dispatcher.getRotation());
         matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0F));
@@ -124,6 +133,7 @@ public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
     }
 
     static {
-        LAYER = RenderLayer.getItemEntityTranslucentCull(SCAN_CIRCLE_TEX);
+        // LAYER = RenderLayer.getItemEntityTranslucentCull(SCAN_CIRCLE_TEX);
+        LAYER = RenderLayer.getTextSeeThrough(SCAN_CIRCLE_TEX);
     }
 }
