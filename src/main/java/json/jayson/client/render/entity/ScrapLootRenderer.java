@@ -52,6 +52,7 @@ public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(yaw));
             MinecraftClient.getInstance().getItemRenderer().renderItem(new ItemStack(entity.getItem().getItem()), ModelTransformationMode.HEAD, light, 15, matrices, vertexConsumers, entity.getWorld(), 0);
             matrices.pop();
+            renderName(entity, matrices, vertexConsumers, light, tickDelta);
             if(entity.renderText && 120 > entity.renderTextTime) {
                 renderName(entity, matrices, vertexConsumers, light, tickDelta);
                 entity.renderTextTime += tickDelta;
@@ -77,7 +78,7 @@ public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
             int j = 0xCC297D23;
             TextRenderer textRenderer = this.getTextRenderer();
             float h = 50 + (float)(-textRenderer.getWidth(entity.getItem().getName()) / 2);
-            textRenderer.draw(entity.getItem().getName(), h, 0, 0xFF5CFF87, false, matrix4f, vertexConsumers, TextRenderer.TextLayerType.NORMAL, j, light);
+            textRenderer.draw(entity.getItem().getName(), h, 0, 0xFF5CFF87, false, matrix4f, vertexConsumers, TextRenderer.TextLayerType.POLYGON_OFFSET, j, light);
             matrices.pop();
 
 
@@ -87,7 +88,8 @@ public class ScrapLootRenderer extends EntityRenderer<ScrapLootEntity> {
             matrices.scale(-0.025F, -0.025F, 0.025F);
             Matrix4f m4f = matrices.peek().getPositionMatrix();
             h = 35 + (float)(-textRenderer.getWidth("Value:  " + entity.getScrapValue()) / 2);
-            textRenderer.draw("Value:  " + entity.getScrapValue(), h, 0, 0xFF5CFF87, false, m4f, vertexConsumers, TextRenderer.TextLayerType.NORMAL, j, light);
+            //textRenderer.draw("Value:  " + entity.getScrapValue(), h, 0, 0xFF5CFF87, false, m4f, vertexConsumers, TextRenderer.TextLayerType.SEE_THROUGH, j, light);
+            textRenderer.draw("Value:  " + entity.getScrapValue(), h, 0, 0xFF5CFF87, false, m4f, vertexConsumers, TextRenderer.TextLayerType.POLYGON_OFFSET, j, light);
             matrices.pop();
             renderScanCircles(matrices, entity, vertexConsumers, light, tickdelta);
         }

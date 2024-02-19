@@ -71,9 +71,9 @@ public class ClientEndTickListener {
             if(client.mouse.wasRightButtonClicked() && canScan) {
                 canScan = false;
                 for (ScrapLootEntity scrapLootEntity : client.player.getWorld().getEntitiesByClass(ScrapLootEntity.class, Box.of(client.player.getBlockPos().toCenterPos(), 15, 4, 15), entity -> entity.hasItem())) {
-                    scrapLootEntity.renderText = true;
                     if(client.player.canSee(scrapLootEntity)) {
                         scannedLootValue += scrapLootEntity.getScrapValue();
+                        scrapLootEntity.renderText = true;
                     }
                     client.player.playSound(LMSounds.SCAN, SoundCategory.MASTER, 15, 1);
 
