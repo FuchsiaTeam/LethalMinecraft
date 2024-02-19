@@ -114,31 +114,31 @@ public class ScrapLootEntity extends Entity implements IScrapValue, IWeight {
 
     @Override
     protected void readCustomDataFromNbt(NbtCompound nbt) {
-        if(nbt.contains(LMNBT.SCRAP_VALUE)) {
-            setScrapValue(nbt.getInt(LMNBT.SCRAP_VALUE));
+        if(nbt.contains(LMNBT.Int.SCRAP_VALUE)) {
+            setScrapValue(nbt.getInt(LMNBT.Int.SCRAP_VALUE));
         }
 
-        if(nbt.contains(LMNBT.SCRAP_ITEM)) {
-            setItem(Registries.ITEM.get(new Identifier(nbt.getString(LMNBT.SCRAP_ITEM))).getDefaultStack());
+        if(nbt.contains(LMNBT.Str.SCRAP_ITEM)) {
+            setItem(Registries.ITEM.get(new Identifier(nbt.getString(LMNBT.Str.SCRAP_ITEM))).getDefaultStack());
         }
 
-        if(nbt.contains(LMNBT.GRAB_TIME)) {
-            setGrabTime(nbt.getInt(LMNBT.GRAB_TIME));
+        if(nbt.contains(LMNBT.Int.GRAB_TIME)) {
+            setGrabTime(nbt.getInt(LMNBT.Int.GRAB_TIME));
         }
 
-        if(nbt.contains(LMNBT.WEIGHT)) {
-            setWeight(nbt.getFloat(LMNBT.WEIGHT));
+        if(nbt.contains(LMNBT.Flt.WEIGHT)) {
+            setWeight(nbt.getFloat(LMNBT.Flt.WEIGHT));
         }
 
     }
 
     @Override
     protected void writeCustomDataToNbt(NbtCompound nbt) {
-        nbt.putInt(LMNBT.SCRAP_VALUE, getScrapValue());
-        nbt.putInt(LMNBT.GRAB_TIME, getGrabTime());
-        nbt.putFloat(LMNBT.WEIGHT, getWeight());
+        nbt.putInt(LMNBT.Int.SCRAP_VALUE, getScrapValue());
+        nbt.putInt(LMNBT.Int.GRAB_TIME, getGrabTime());
+        nbt.putFloat(LMNBT.Flt.WEIGHT, getWeight());
         if(getItem() != null) {
-            nbt.putString(LMNBT.SCRAP_ITEM, Registries.ITEM.getId(getItem().getItem()).toString());
+            nbt.putString(LMNBT.Str.SCRAP_ITEM, Registries.ITEM.getId(getItem().getItem()).toString());
         }
     }
 }

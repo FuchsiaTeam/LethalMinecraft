@@ -28,21 +28,21 @@ public class ScrapLootBlockEntity extends BlockEntity implements IScrapValue {
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
-        if(nbt.contains(LMNBT.SCRAP_VALUE)) {
-            scrapValue = nbt.getInt(LMNBT.SCRAP_VALUE);
+        if(nbt.contains(LMNBT.Int.SCRAP_VALUE)) {
+            scrapValue = nbt.getInt(LMNBT.Int.SCRAP_VALUE);
         }
 
-        if(nbt.contains(LMNBT.SCRAP_ITEM)) {
-            item = Registries.ITEM.get(new Identifier(nbt.getString(LMNBT.SCRAP_ITEM)));
+        if(nbt.contains(LMNBT.Str.SCRAP_ITEM)) {
+            item = Registries.ITEM.get(new Identifier(nbt.getString(LMNBT.Str.SCRAP_ITEM)));
         }
     }
 
     @Override
     protected void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
-        nbt.putInt(LMNBT.SCRAP_VALUE, scrapValue);
+        nbt.putInt(LMNBT.Int.SCRAP_VALUE, scrapValue);
         if(item != null) {
-            nbt.putString(LMNBT.SCRAP_ITEM, Registries.ITEM.getId(item).toString());
+            nbt.putString(LMNBT.Str.SCRAP_ITEM, Registries.ITEM.getId(item).toString());
         }
     }
 

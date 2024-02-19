@@ -11,8 +11,8 @@ public interface IScrapValue {
         return 0;
     }
     default int getScrapValue(NbtCompound nbt) {
-        if(nbt == null || !nbt.contains(LMNBT.SCRAP_VALUE)) return getScrapValue();
-        return nbt.getInt(LMNBT.SCRAP_VALUE);
+        if(nbt == null || !nbt.contains(LMNBT.Int.SCRAP_VALUE)) return getScrapValue();
+        return nbt.getInt(LMNBT.Int.SCRAP_VALUE);
     }
 
     default int getGrabTime() { return ClientEndTickListener.maxPickupCharge; }

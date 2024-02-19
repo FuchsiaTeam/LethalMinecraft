@@ -49,8 +49,8 @@ public class LootSpawnPositionBlock extends Block {
 
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
-        if(itemStack.getOrCreateNbt().contains(LMNBT.LOOTMARKER_ID)) {
-            System.out.println(itemStack.getOrCreateNbt().getString(LMNBT.LOOTMARKER_ID));
+        if(itemStack.getOrCreateNbt().contains(LMNBT.Str.LOOTMARKER_ID)) {
+            System.out.println(itemStack.getOrCreateNbt().getString(LMNBT.Str.LOOTMARKER_ID));
         }
         super.onPlaced(world, pos, state, placer, itemStack);
     }
@@ -58,8 +58,8 @@ public class LootSpawnPositionBlock extends Block {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         tooltip.add(Text.literal("Marks the Spot where loot can spawn"));
-        if(stack.getOrCreateNbt().contains(LMNBT.LOOTMARKER_ID)) {
-            tooltip.add(Text.literal("Loot Id: " + stack.getOrCreateNbt().getString(LMNBT.LOOTMARKER_ID)));
+        if(stack.getOrCreateNbt().contains(LMNBT.Str.LOOTMARKER_ID)) {
+            tooltip.add(Text.literal("Loot Id: " + stack.getOrCreateNbt().getString(LMNBT.Str.LOOTMARKER_ID)));
         }
     }
 }

@@ -56,8 +56,8 @@ public class DefaultScrapItem extends Item implements IAmScrapLoot {
         super.inventoryTick(stack, world, entity, slot, selected);
         if(!stack.hasNbt()) {
             NbtCompound nbt = new NbtCompound();
-            nbt.putInt(LMNBT.SCRAP_VALUE, LMUtil.RANDOM.nextInt(min, max));
-            nbt.putFloat(LMNBT.WEIGHT, weight);
+            nbt.putInt(LMNBT.Int.SCRAP_VALUE, LMUtil.RANDOM.nextInt(min, max));
+            nbt.putFloat(LMNBT.Flt.WEIGHT, weight);
             stack.setNbt(nbt);
         }
     }
@@ -65,8 +65,8 @@ public class DefaultScrapItem extends Item implements IAmScrapLoot {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
-        if(stack.hasNbt() && stack.getNbt().contains(LMNBT.SCRAP_VALUE)) {
-            tooltip.add(Text.literal(String.valueOf(stack.getNbt().getInt(LMNBT.SCRAP_VALUE))));
+        if(stack.hasNbt() && stack.getNbt().contains(LMNBT.Int.SCRAP_VALUE)) {
+            tooltip.add(Text.literal(String.valueOf(stack.getNbt().getInt(LMNBT.Int.SCRAP_VALUE))));
         }
     }
 

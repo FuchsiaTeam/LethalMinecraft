@@ -65,7 +65,7 @@ public class LMTabs {
 
     private static ItemStack addLootMarker(Identifier lootId) {
         ItemStack itemStack = LMBlocks.LOOT_POSITION.asItem().getDefaultStack();
-        itemStack.getOrCreateNbt().putString(LMNBT.LOOTMARKER_ID, lootId.toString());
+        itemStack.getOrCreateNbt().putString(LMNBT.Str.LOOTMARKER_ID, lootId.toString());
         return itemStack;
     }
 

@@ -7,8 +7,8 @@ public interface IWeight {
 
     float getWeight();
     default float getWeight(NbtCompound nbt) {
-        if(nbt == null || !nbt.contains(LMNBT.WEIGHT)) return getWeight();
-        return nbt.getFloat(LMNBT.WEIGHT);
+        if(nbt == null || !nbt.contains(LMNBT.Flt.WEIGHT)) return getWeight();
+        return nbt.getFloat(LMNBT.Flt.WEIGHT);
     }
 
 }
