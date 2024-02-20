@@ -30,7 +30,7 @@ public class ScrapLootEntity extends Entity implements IScrapValue, IWeight {
     private static final TrackedData<ItemStack> ITEM;
     public boolean renderText = false;
     public float renderTextTime = 0;
-    public final double maxCircleSize = new Random().nextDouble(1.0, 1.45);
+    public final double maxCircleSize = new Random().nextDouble(0.75, 1.25);
 
     static {
         ITEM = DataTracker.registerData(ScrapLootEntity.class, TrackedDataHandlerRegistry.ITEM_STACK);
