@@ -1,5 +1,6 @@
 package json.jayson.common.init;
 
+import json.jayson.util.LMIdentifier;
 import json.jayson.util.LMUtil;
 import json.jayson.common.objects.entity.ScrapLootEntity;
 import json.jayson.common.objects.entity.coil_head.CoilHeadEntity;
@@ -19,7 +20,7 @@ public class LMEntities {
 
     public static <T extends Entity> EntityType<T> registerEntity(String name, SpawnGroup spawnGroup, EntityType.EntityFactory<T> entity,
                                                                   float width, float height) {
-        return Registry.register(Registries.ENTITY_TYPE, LMUtil.createLocation(name), FabricEntityTypeBuilder.create(spawnGroup, entity).dimensions(EntityDimensions.changing(width, height)).build());
+        return Registry.register(Registries.ENTITY_TYPE, LMIdentifier.lm(name), FabricEntityTypeBuilder.create(spawnGroup, entity).dimensions(EntityDimensions.changing(width, height)).build());
     }
 
 }

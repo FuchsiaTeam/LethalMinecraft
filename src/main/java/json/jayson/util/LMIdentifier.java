@@ -57,4 +57,17 @@ public class LMIdentifier {
     public static Identifier sound(String name) {
         return new Identifier(LM.ID, "sounds/" + name);
     }
+
+
+    public static Identifier lm(String name) {
+        return new Identifier(LM.ID, name);
+    }
+
+    public static Identifier fabric(String name) {
+        return new Identifier("fabric", name);
+    }
+
+    public static Identifier minecraft(String name) {
+        return new Identifier(name);
+    }
 }

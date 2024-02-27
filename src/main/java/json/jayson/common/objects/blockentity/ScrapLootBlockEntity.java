@@ -22,7 +22,7 @@ public class ScrapLootBlockEntity extends BlockEntity implements IScrapValue {
     private Item item;
 
     public ScrapLootBlockEntity(BlockPos pos, BlockState state) {
-        super(LMBlockEntities.SCRAP_LOOT, pos, state);
+        super(null, pos, state);
     }
 
     @Override

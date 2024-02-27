@@ -3,6 +3,7 @@ package json.jayson.data.listener;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import json.jayson.data.LMMoon;
+import json.jayson.util.LMIdentifier;
 import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.resource.SimpleResourceReloadListener;
 import net.minecraft.resource.JsonDataLoader;
@@ -29,6 +30,6 @@ public class MoonReloadListener implements SimpleResourceReloadListener<LMMoon> 
 
     @Override
     public Identifier getFabricId() {
-        return LMUtil.createLocation("moons");
+        return LMIdentifier.lm("moons");
     }
 }

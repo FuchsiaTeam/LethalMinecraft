@@ -41,7 +41,7 @@ public class LMClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         /* RENDER, MODELS */
-        BlockEntityRendererFactories.register(LMBlockEntities.SCRAP_LOOT, ScrapLootBlockEntityRenderer::new);
+        //BlockEntityRendererFactories.register(LMBlockEntities.SCRAP_LOOT, ScrapLootBlockEntityRenderer::new);
 
         EntityRendererRegistry.register(LMEntities.COIL_HEAD, CoilHeadRenderer::new);
         EntityRendererRegistry.register(LMEntities.SCRAP_LOOT, ScrapLootRenderer::new);

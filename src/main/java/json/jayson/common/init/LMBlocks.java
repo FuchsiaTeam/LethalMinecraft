@@ -2,6 +2,7 @@ package json.jayson.common.init;
 
 import json.jayson.common.objects.block.LootDungeonDoorBlock;
 import json.jayson.common.objects.block.LootSpawnPositionBlock;
+import json.jayson.util.LMIdentifier;
 import json.jayson.util.LMUtil;
 import json.jayson.common.objects.block.ScrapLootBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -13,7 +14,7 @@ import net.minecraft.registry.Registry;
 
 public class LMBlocks {
 
-    public static final ScrapLootBlock SCRAP_LOOT = Registry.register(Registries.BLOCK, LMUtil.createLocation("scrap_loot"), new ScrapLootBlock(FabricBlockSettings.create().nonOpaque()));
+    //public static final ScrapLootBlock SCRAP_LOOT = Registry.register(Registries.BLOCK, LMIdentifier.lm("scrap_loot"), new ScrapLootBlock(FabricBlockSettings.create().nonOpaque()));
 
     /* BUILDING */
     public static final Block STEEL_BLOCK = registerBlock("steel_block", new Block(FabricBlockSettings.create()));
@@ -31,8 +32,8 @@ public class LMBlocks {
 
 
     private static Block registerBlock(String name, Block block) {
-        Block registeredBlock = Registry.register(Registries.BLOCK, LMUtil.createLocation(name), block);
-        Registry.register(Registries.ITEM, LMUtil.createLocation(name), new BlockItem(registeredBlock, new FabricItemSettings()));
+        Block registeredBlock = Registry.register(Registries.BLOCK, LMIdentifier.lm(name), block);
+        Registry.register(Registries.ITEM, LMIdentifier.lm(name), new BlockItem(registeredBlock, new FabricItemSettings()));
         return registeredBlock;
     }
 

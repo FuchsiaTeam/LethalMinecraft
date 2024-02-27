@@ -5,6 +5,7 @@ import json.jayson.common.init.LMDataAttachments;
 import json.jayson.common.init.LMSounds;
 import json.jayson.common.objects.entity.ScrapLootEntity;
 import json.jayson.common.objects.item.IAmScrapLoot;
+import json.jayson.network.LMNetwork;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.entity.Entity;
 import net.minecraft.network.PacketByteBuf;
@@ -29,9 +30,11 @@ public class PickUpScrapPacket {
                 float weight = scrapLootEntity.getWeight(scrapLootEntity.getItem().getNbt());
                 float currentWeight = player.getAttachedOrElse(LMDataAttachments.WEIGHT, 0.0f);
                 if(player.getInventory().insertStack(scrapLootEntity.getItem())) {
-                    player.setAttached(LMDataAttachments.WEIGHT, currentWeight + weight);
+                    float newWeight = currentWeight + weight;
+                    player.setAttached(LMDataAttachments.WEIGHT, newWeight);
                     world.playSound(player, player.getBlockPos(), scrapLoot.getPickUpSound(), SoundCategory.PLAYERS, 1,1);
                     scrapLootEntity.remove(Entity.RemovalReason.DISCARDED);
+                    LMNetwork.Server.sendWeightUpdate(player, newWeight);
                 }
             }
         }

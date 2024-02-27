@@ -48,7 +48,7 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    include modImplementation("dev.kosmx.player-anim:player-animation-lib-fabric:${project.player_anim}")
+    //include modImplementation("dev.kosmx.player-anim:player-animation-lib-fabric:${project.player_anim}")
     modApi "com.terraformersmc:modmenu:9.0.0"
     modImplementation "software.bernie.geckolib:geckolib-fabric-1.20.4:${geckolib_version}"
     //modImplementation "curse.maven:geckolib-388172:5021700"

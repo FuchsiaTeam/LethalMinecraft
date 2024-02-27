@@ -1,5 +1,6 @@
 package json.jayson.common.init;
 
+import json.jayson.util.LMIdentifier;
 import json.jayson.util.LMUtil;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -22,7 +23,7 @@ public class LMSounds {
 
 
 	private static SoundEvent registerSoundEvent(String name) {
-		Identifier id = LMUtil.createLocation(name);
+		Identifier id = LMIdentifier.lm(name);
 		return Registry.register(Registries.SOUND_EVENT,id,SoundEvent.of(id));
 	}
 	

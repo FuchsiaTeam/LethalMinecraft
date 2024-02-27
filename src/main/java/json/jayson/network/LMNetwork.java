@@ -4,6 +4,7 @@ import json.jayson.network.packets.c2s.OnBlockUsePacket;
 import json.jayson.network.packets.c2s.PickUpScrapPacket;
 import json.jayson.network.packets.c2s.RequestScanPacket;
 import json.jayson.network.packets.s2c.ScanLootPacket;
+import json.jayson.network.packets.s2c.WeightUpdatePacket;
 import json.jayson.util.LMIdentifier;
 import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
@@ -24,10 +25,12 @@ public class LMNetwork {
     public static final Identifier SCAN_LOOT_ID = LMIdentifier.network("scan_loot");
     public static final Identifier REQUEST_SCAN_ID = LMIdentifier.network("request_scan");
     public static final Identifier BLOCK_USE_ID = LMIdentifier.network("block_use");
+    public static final Identifier UPDATE_WEIGHT_ID = LMIdentifier.network("update_weight");
 
 
     public static void registerS2C() {
         ClientPlayNetworking.registerGlobalReceiver(SCAN_LOOT_ID, ScanLootPacket::receive);
+        ClientPlayNetworking.registerGlobalReceiver(UPDATE_WEIGHT_ID, WeightUpdatePacket::receive);
     }
 
     public static void registerC2S() {
@@ -66,6 +69,12 @@ public class LMNetwork {
             PacketByteBuf byteBufs = PacketByteBufs.create();
             byteBufs.writeInt(loot);
             ServerPlayNetworking.send(player, LMNetwork.SCAN_LOOT_ID, byteBufs);
+        }
+
+        public static void sendWeightUpdate(ServerPlayerEntity player, float weight) {
+            PacketByteBuf byteBufs = PacketByteBufs.create();
+            byteBufs.writeFloat(weight);
+            ServerPlayNetworking.send(player, LMNetwork.UPDATE_WEIGHT_ID, byteBufs);
         }
     }
 

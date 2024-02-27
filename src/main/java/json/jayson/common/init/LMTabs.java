@@ -1,5 +1,6 @@
 package json.jayson.common.init;
 
+import json.jayson.util.LMIdentifier;
 import json.jayson.util.LMNBT;
 import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -13,7 +14,7 @@ import net.minecraft.util.Identifier;
 
 public class LMTabs {
 
-    public static final ItemGroup LM_GROUP = Registry.register(Registries.ITEM_GROUP, LMUtil.createLocation("lethalminecraft"),
+    public static final ItemGroup LM_GROUP = Registry.register(Registries.ITEM_GROUP, LMIdentifier.lm("lethalminecraft"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.lm")).icon(() -> new ItemStack(LMItems.IRON_STOP_SIGN)).entries((displayContext, entries) -> {
                 entries.add(LMItems.DEFAULT_FLASHLIGHT);
                 entries.add(LMItems.OAK_SHOTGUN);
@@ -38,7 +39,7 @@ public class LMTabs {
                 entries.add(LMItems.FUMO_XR);
             }).build());
 
-    public static final ItemGroup LM_BUILDING_GROUP = Registry.register(Registries.ITEM_GROUP, LMUtil.createLocation("lethalminecraftbuilding"),
+    public static final ItemGroup LM_BUILDING_GROUP = Registry.register(Registries.ITEM_GROUP, LMIdentifier.lm("lethalminecraftbuilding"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.lm.building")).icon(() -> new ItemStack(LMBlocks.STEEL_PLATE.asItem())).entries((displayContext, entries) -> {
                 entries.add(LMBlocks.STEEL_BLOCK);
                 entries.add(LMBlocks.STEEL_GRATE);
@@ -51,7 +52,7 @@ public class LMTabs {
                 entries.add(LMBlocks.DUNGEON_DOOR);
             }).build());
 
-    public static final ItemGroup LM_DEV = Registry.register(Registries.ITEM_GROUP, LMUtil.createLocation("lethalminecraftdev"),
+    public static final ItemGroup LM_DEV = Registry.register(Registries.ITEM_GROUP, LMIdentifier.lm("lethalminecraftdev"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.lm.dev")).icon(() -> new ItemStack(LMBlocks.LOOT_POSITION.asItem())).entries((displayContext, entries) -> {
                 entries.add(LMBlocks.LOOT_POSITION);
                 entries.add(addLootMarker(LMMarkers.EXPERIMENTATION));

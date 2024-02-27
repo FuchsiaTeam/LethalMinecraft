@@ -23,16 +23,4 @@ import java.util.stream.Stream;
 public class LMUtil {
 
     public static Random RANDOM = new Random();
-
-    public static Identifier createLocation(String name) {
-        return new Identifier(LM.ID, name);
-    }
-
-    public static Identifier createFabricLocation(String name) {
-        return new Identifier("fabric", name);
-    }
-
-    public static Identifier createMinecraftLocation(String name) {
-        return new Identifier(name);
-    }
 }

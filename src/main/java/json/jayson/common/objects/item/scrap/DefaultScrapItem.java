@@ -68,6 +68,9 @@ public class DefaultScrapItem extends Item implements IAmScrapLoot {
         if(stack.hasNbt() && stack.getNbt().contains(LMNBT.Int.SCRAP_VALUE)) {
             tooltip.add(Text.literal(String.valueOf(stack.getNbt().getInt(LMNBT.Int.SCRAP_VALUE))));
         }
+        if(stack.hasNbt() && stack.getNbt().contains(LMNBT.Flt.WEIGHT)) {
+            tooltip.add(Text.literal(String.valueOf(stack.getNbt().getFloat(LMNBT.Flt.WEIGHT))));
+        }
     }
 
     @Override

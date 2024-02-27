@@ -64,7 +64,7 @@ public class LMMoonUtil {
     }
 
     public static void spawnDungeonLootStructure(ServerWorld serverWorld) {
-        spawnDungeonLootStructure(serverWorld, serverWorld.getRegistryManager().get(RegistryKeys.STRUCTURE).get(LMUtil.createLocation("")), new BlockPos(0, 100, 0));
+        spawnDungeonLootStructure(serverWorld, serverWorld.getRegistryManager().get(RegistryKeys.STRUCTURE).get(LMIdentifier.lm("")), new BlockPos(0, 100, 0));
     }
 
 }
