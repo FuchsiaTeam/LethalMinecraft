@@ -34,11 +34,11 @@ public class PlayerDropItemEventListener {
                         lootEntity.setYaw(LMUtil.RANDOM.nextFloat() * 360);
                         float weight = player.getAttachedOrCreate(LMDataAttachments.WEIGHT);
                         float newWeight = weight - scrapLoot.getWeight(stack.getNbt());
-                        float finalNewWeight = newWeight;
-                        player.modifyAttached(LMDataAttachments.WEIGHT, w -> finalNewWeight);
                         if(newWeight < 0) {
                             newWeight = 0;
                         }
+                        float finalNewWeight = newWeight;
+                        player.modifyAttached(LMDataAttachments.WEIGHT, w -> finalNewWeight);
                         if(player instanceof ServerPlayerEntity serverPlayerEntity) {
                             LMNetwork.Server.sendWeightUpdate(serverPlayerEntity, newWeight);
                         }
