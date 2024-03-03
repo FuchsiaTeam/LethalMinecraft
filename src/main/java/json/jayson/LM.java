@@ -2,6 +2,7 @@ package json.jayson;
 
 import json.jayson.client.model.LMItemModelHandler;
 import json.jayson.common.objects.entity.coil_head.CoilHeadEntity;
+import json.jayson.common.objects.event.custom.PlayerDropItemCallback;
 import json.jayson.common.objects.event.listener.PlayerDropItemEventListener;
 import json.jayson.common.init.*;
 import json.jayson.network.LMNetwork;
@@ -32,7 +33,7 @@ public class LM implements ModInitializer {
 
 
 		/* EVENTS */
-		PlayerDropItemEventListener.register();
+		PlayerDropItemCallback.EVENT.register(new PlayerDropItemEventListener());
 
 		/*ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
 			handler.player.setSprinting(false);
