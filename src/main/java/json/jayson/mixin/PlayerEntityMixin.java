@@ -2,14 +2,18 @@ package json.jayson.mixin;
 
 import json.jayson.common.init.LMDataAttachments;
 import json.jayson.common.objects.event.custom.PlayerDropItemCallback;
+import json.jayson.util.LMNBT;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -27,6 +31,12 @@ public abstract class PlayerEntityMixin extends LivingEntity{
     @Shadow public abstract boolean isCreative();
 
     @Shadow public abstract boolean isSpectator();
+
+    @Shadow public abstract PlayerInventory getInventory();
+
+    @Shadow protected abstract boolean isArmorSlot(EquipmentSlot slot);
+
+    @Shadow public float strideDistance;
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
@@ -80,6 +90,18 @@ public abstract class PlayerEntityMixin extends LivingEntity{
                 }
             }
         }
+
+        /*if(getWorld().getTime() % 800 == 0) {
+            System.out.println("UPDATE");
+            float weight = getAttachedOrElse(LMDataAttachments.WEIGHT, 0.0f);
+            for (int i = 36; i < 45; i++) {
+                ItemStack stack = getInventory().getStack(i);
+                if(stack.hasNbt() && stack.getNbt().contains(LMNBT.Flt.WEIGHT)) {
+                     weight += stack.getNbt().getFloat(LMNBT.Flt.WEIGHT);
+                }
+            }
+            setAttached(LMDataAttachments.WEIGHT, weight);
+        }*/
     }
 
 }

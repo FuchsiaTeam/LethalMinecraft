@@ -37,7 +37,7 @@ public abstract class FramebufferMixin {
                     GL11.GL_NEAREST);
         } else if (pname == GL11.GL_TEXTURE_MAG_FILTER) {
             GlStateManager._texParameter(target, pname,
-                    GL11.GL_NEAREST_MIPMAP_NEAREST);
+                    GL11.GL_NEAREST);
         } else if (pname == GL11.GL_TEXTURE_WRAP_S || pname == GL11.GL_TEXTURE_WRAP_T) {
             GlStateManager._texParameter(target, pname, GL12.GL_CLAMP_TO_EDGE);
         } else {
