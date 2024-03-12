@@ -1,8 +1,9 @@
 package json.jayson.network.packets.c2s;
 
 
+import java.util.UUID;
+
 import json.jayson.common.init.LMDataAttachments;
-import json.jayson.common.init.LMSounds;
 import json.jayson.common.objects.entity.ScrapLootEntity;
 import json.jayson.common.objects.item.IAmScrapLoot;
 import json.jayson.network.LMNetwork;
@@ -14,8 +15,6 @@ import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-
-import java.util.UUID;
 
 public class PickUpScrapPacket {
 

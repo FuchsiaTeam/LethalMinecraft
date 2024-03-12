@@ -1,7 +1,6 @@
 package json.jayson.common.init;
 
 import json.jayson.util.LMIdentifier;
-import json.jayson.util.LMUtil;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.world.World;

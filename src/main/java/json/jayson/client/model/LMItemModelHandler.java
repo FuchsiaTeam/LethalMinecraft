@@ -1,9 +1,8 @@
 package json.jayson.client.model;
 
-import net.minecraft.item.Item;
-import net.minecraft.util.Identifier;
-
 import java.util.ArrayList;
+
+import net.minecraft.item.Item;
 
 public class LMItemModelHandler {
 

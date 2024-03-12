@@ -2,7 +2,6 @@ package json.jayson.common.init;
 
 import json.jayson.util.LMIdentifier;
 import json.jayson.util.LMNBT;
-import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;

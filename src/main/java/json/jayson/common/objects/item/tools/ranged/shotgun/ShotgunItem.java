@@ -34,7 +34,7 @@ public class ShotgunItem extends Item implements GeoItem, IAmScrapLoot {
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
-    private PlayState predicate(AnimationState animationState) {
+    private PlayState predicate(AnimationState<?> animationState) {
         //animationState.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.PLAY_ONCE));
         animationState.getController().triggerableAnim("shoot", RawAnimation.begin().then("shoot", Animation.LoopType.PLAY_ONCE));
         return PlayState.CONTINUE;

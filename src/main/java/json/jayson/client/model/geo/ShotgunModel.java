@@ -2,7 +2,6 @@ package json.jayson.client.model.geo;
 
 import json.jayson.common.objects.item.tools.ranged.shotgun.ShotgunItem;
 import json.jayson.util.LMIdentifier;
-import json.jayson.util.LMUtil;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib.model.GeoModel;
 

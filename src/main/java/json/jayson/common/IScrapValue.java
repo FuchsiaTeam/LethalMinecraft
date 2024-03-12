@@ -1,7 +1,6 @@
 package json.jayson.common;
 
 import json.jayson.common.objects.event.listener.client.ClientEndTickListener;
-import json.jayson.util.LMConfig;
 import json.jayson.util.LMNBT;
 import net.minecraft.nbt.NbtCompound;
 

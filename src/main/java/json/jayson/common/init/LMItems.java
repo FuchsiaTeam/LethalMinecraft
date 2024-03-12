@@ -1,10 +1,9 @@
 package json.jayson.common.init;
 
-import json.jayson.common.objects.item.tools.ranged.shotgun.ShotgunItem;
-import json.jayson.util.LMIdentifier;
-import json.jayson.util.LMUtil;
 import json.jayson.common.objects.item.scrap.DefaultScrapItem;
 import json.jayson.common.objects.item.tools.FlashLightItem;
+import json.jayson.common.objects.item.tools.ranged.shotgun.ShotgunItem;
+import json.jayson.util.LMIdentifier;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;

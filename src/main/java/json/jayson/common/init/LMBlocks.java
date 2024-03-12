@@ -3,8 +3,6 @@ package json.jayson.common.init;
 import json.jayson.common.objects.block.LootDungeonDoorBlock;
 import json.jayson.common.objects.block.LootSpawnPositionBlock;
 import json.jayson.util.LMIdentifier;
-import json.jayson.util.LMUtil;
-import json.jayson.common.objects.block.ScrapLootBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;

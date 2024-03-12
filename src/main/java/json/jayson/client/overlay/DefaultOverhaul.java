@@ -4,7 +4,6 @@ import json.jayson.common.init.LMDataAttachments;
 import json.jayson.common.objects.event.listener.client.ClientEndTickListener;
 import json.jayson.common.objects.item.IAmScrapLoot;
 import json.jayson.util.LMIdentifier;
-import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
@@ -56,7 +55,7 @@ public class DefaultOverhaul implements HudRenderCallback {
         if(client.player.getMainHandStack().getItem() instanceof IAmScrapLoot) {
             //String dropText = "Drop " + client.player.getMainHandStack().getName().getString() + "  :  [" + client.options.dropKey.getBoundKeyLocalizedText().getString() + "]";
             String dropText = Text.translatable("overlay.lm.drop_text").getString().replaceAll("@s", client.player.getMainHandStack().getName().getString()).replaceAll("@k", client.options.dropKey.getBoundKeyLocalizedText().getString());
-            int dropTextLen = MinecraftClient.getInstance().textRenderer.getWidth(dropText);
+			int dropTextLen = MinecraftClient.getInstance().textRenderer.getWidth(dropText);
             drawContext.drawText(client.textRenderer, dropText, x * 2 - 12 - dropTextLen, y - 100, 0xFFFFFFFF, true);
         }
     }

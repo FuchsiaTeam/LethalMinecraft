@@ -1,18 +1,15 @@
 package json.jayson.datagen.assets;
 
-import com.google.gson.JsonElement;
 import json.jayson.client.model.LMItemModelHandler;
-import json.jayson.common.init.LMItems;
 import json.jayson.util.LMIdentifier;
-import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.*;
+import net.minecraft.data.client.BlockStateModelGenerator;
+import net.minecraft.data.client.ItemModelGenerator;
+import net.minecraft.data.client.ModelIds;
+import net.minecraft.data.client.Models;
+import net.minecraft.data.client.TextureMap;
 import net.minecraft.item.Item;
-import net.minecraft.util.Identifier;
-
-import java.util.function.BiConsumer;
-import java.util.function.Supplier;
 
 public class LMModelProvider extends FabricModelProvider {
     public LMModelProvider(FabricDataOutput output) {

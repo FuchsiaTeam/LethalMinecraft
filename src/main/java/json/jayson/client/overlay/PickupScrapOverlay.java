@@ -3,12 +3,9 @@ package json.jayson.client.overlay;
 import json.jayson.client.LMClient;
 import json.jayson.common.objects.event.listener.client.ClientEndTickListener;
 import json.jayson.util.LMIdentifier;
-import json.jayson.util.LMRenderUtil;
-import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.Drawable;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 

@@ -4,13 +4,12 @@ import json.jayson.client.LMClient;
 import json.jayson.client.overlay.PickupScrapOverlay;
 import json.jayson.common.init.LMBlockSetTypes;
 import json.jayson.common.objects.event.listener.client.ClientEndTickListener;
-import net.minecraft.block.*;
+import net.minecraft.block.DoorBlock;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 public class LootDungeonDoorBlock extends DoorBlock implements IBlockOverlay, IBlockHoldUse {
 
@@ -61,8 +60,11 @@ public class LootDungeonDoorBlock extends DoorBlock implements IBlockOverlay, IB
             case EXIT ->  {
                 return 45;
             }
+            
+            default -> {
+            	return 16;
+            }
         }
-        return 16;
     }
 
     @Override

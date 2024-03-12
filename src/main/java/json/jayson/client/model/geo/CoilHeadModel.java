@@ -1,8 +1,7 @@
 package json.jayson.client.model.geo;
 
-import json.jayson.util.LMIdentifier;
-import json.jayson.util.LMUtil;
 import json.jayson.common.objects.entity.coil_head.CoilHeadEntity;
+import json.jayson.util.LMIdentifier;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib.model.GeoModel;
 

@@ -1,8 +1,9 @@
 package json.jayson.common.objects.blockentity;
 
-import json.jayson.util.LMNBT;
+import org.jetbrains.annotations.Nullable;
+
 import json.jayson.common.IScrapValue;
-import json.jayson.common.init.LMBlockEntities;
+import json.jayson.util.LMNBT;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.Item;
@@ -13,7 +14,6 @@ import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import org.jetbrains.annotations.Nullable;
 
 @Deprecated
 public class ScrapLootBlockEntity extends BlockEntity implements IScrapValue {

@@ -1,9 +1,8 @@
 package json.jayson.common.init;
 
-import json.jayson.util.LMIdentifier;
-import json.jayson.util.LMUtil;
 import json.jayson.common.objects.entity.ScrapLootEntity;
 import json.jayson.common.objects.entity.coil_head.CoilHeadEntity;
+import json.jayson.util.LMIdentifier;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;

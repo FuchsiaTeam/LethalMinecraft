@@ -1,23 +1,20 @@
 package json.jayson.network;
 
+import java.util.UUID;
+
 import json.jayson.network.packets.c2s.OnBlockUsePacket;
 import json.jayson.network.packets.c2s.PickUpScrapPacket;
 import json.jayson.network.packets.c2s.RequestScanPacket;
 import json.jayson.network.packets.s2c.ScanLootPacket;
 import json.jayson.network.packets.s2c.WeightUpdatePacket;
 import json.jayson.util.LMIdentifier;
-import json.jayson.util.LMUtil;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.network.packet.s2c.play.EntityS2CPacket;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-
-import java.util.UUID;
 
 public class LMNetwork {
 

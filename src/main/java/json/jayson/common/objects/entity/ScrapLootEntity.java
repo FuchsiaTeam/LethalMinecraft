@@ -1,27 +1,24 @@
 package json.jayson.common.objects.entity;
 
 
+import java.util.Random;
+
+import json.jayson.common.IScrapValue;
 import json.jayson.common.IWeight;
 import json.jayson.common.objects.event.listener.client.ClientEndTickListener;
 import json.jayson.util.LMNBT;
-import json.jayson.common.IScrapValue;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MovementType;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.mob.ZombieEntity;
-import net.minecraft.entity.passive.HorseEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class ScrapLootEntity extends Entity implements IScrapValue, IWeight {
     private static final TrackedData<Integer> SCRAP_VALUE;
